@@ -50,7 +50,7 @@ venuo-project/
 🚀 Como Executar o Projeto Localmente
 
 Clonar o Repositório:
-git clone (url do repositorio)
+git clone https://github.com/venuo-site/venuo-project.git
 
 Acessar a Pasta do Código:
 cd venuo-project/src
