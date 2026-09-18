@@ -4,7 +4,7 @@ pra aplicar o root, precisa chamar ele nos bagulho "var()"
 */
 :root {
     --bg-color: #0b131e; /* fundo escuro padrão */
-    --bg-gradient: radial-gradient(circle at 80% 30%, #1a3c54 0%, #0b131e 50%); /* gradiente do fundo :P */
+    --bg-gradient: radial-gradient(circle at 80% 30%, #142a3a 0%, #0b131e 50%); /* gradiente do fundo :P */
     --text-white: #fff;
     --text-gray: #a0aab2;
     --brand-orange: #ff6b35;
