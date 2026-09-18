@@ -1,4 +1,9 @@
+/* root é a configuração padrão pra toda a pagina */
+:root {
+    --bg-color: #0b131e;
+    
+}
+
 .logo img{
     width: 150px;
 }
-
