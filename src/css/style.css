@@ -236,6 +236,8 @@ acho interessante explicar pq eu uso a medida 'rem':
     padding: 4rem 2rem;
 }
 
+
+
 .sect-label {
     color: var(--brand-orange);
     font-size: 0.8rem;
@@ -392,3 +394,15 @@ acho interessante explicar pq eu uso a medida 'rem':
 
 .prev-btn { left: -20px; }  /* Posiciona a seta esquerda levemente saindo do container */
 .next-btn { right: -20px; } /* Posiciona a seta direita levemente saindo do container */
+
+
+/* Posicionamento e propriedades da seção categorias*/
+
+.categoria-bares-homepage{
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#um-lugar {
+    font-size: 3rem;
+}
