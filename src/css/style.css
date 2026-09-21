@@ -261,11 +261,12 @@ acho interessante explicar pq eu uso a medida 'rem':
     position: relative; /* CRUCIAL: Permite que os botões com 'position: absolute' fiquem presos dentro dele */
     display: flex;
     align-items: center;
+    padding: 50px;
 }
 
 .carousel-track {
     display: flex;         /* Coloca todos os cards lado a lado na horizontal */
-    gap: 1.5rem;           /* Cria o espaçamento de 24px entre um card e outro */
+    gap: 0.2rem;           /* Cria o espaçamento de 24px entre um card e outro */
     overflow-x: auto;      /* Habilita a rolagem horizontal caso os cards passem da largura da tela */
     scroll-behavior: smooth; /* Faz o movimento de rolagem ser suave em vez de dar um "pulo" */
     scroll-snap-type: x mandatory; /* Efeito "imã": ao rolar, o card sempre trava centralizado */
@@ -299,6 +300,7 @@ acho interessante explicar pq eu uso a medida 'rem':
     transition: transform 0.2s ease; /* Transição suave para o efeito de passar o mouse */
     justify-content: left;
     text-align: left;
+    margin: 10px;
 
 }
 
