@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- css sections -->
-    <link rel="stylesheet" href="">
 
     <!-- biblioteca dos icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,252 +16,22 @@
 <!-- usei a classe dark para facilitar fazer um tema claro no futuro -->
 <body class="dark-theme">
 
-    <!-- barra de navegacaoo -->
-    <header class="navbar">
-        <div class="logo">
-            <img src="img/logo-venuo.png" alt="Logo Venuo">
-        </div>
-        <div class="search-container-header">
-            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
-            <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
-            <div class="search-actions">
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
-                <button class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-            </div>
-        </div>
-        <!-- botoes de acao -->
-        <nav class="nav-actions">
-            <button class="icon-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-            <button class="icon-btn" aria-label="Perfil"><i class="fa-regular fa-user"></i></button>
-            <button class="icon-btn" aria-label="Alterar Tema"><i class="fa-solid fa-moon"></i></button>
-        </nav>
-    </header>
-
+    <!-- container do header -->
+    <div id="header-container"></div>
+    
     <!-- conteudo principal -->
     <main>
         <!-- hero section (titulo lindo e busca) -->
-        <section class="hero-sect">
-            <h1 class="main-title">
-                <span class="text-orange">Descubra.</span>
-                <span class="text-blue">Conecte.</span>
-                <span class="text-white">Viva.</span>
-            </h1>
-            <p class="subtitle">Encontre seu lazer ideal em segundos.</p>
-
-            <!-- barra de pesquisa maneira -->
-            <div class="search-container">
-                <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
-                <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
-                <div class="search-actions">
-                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <button class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
-                    <button class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-                </div>
-            </div>
-
-            <!-- filtros em "pilulas" -->
-            <div class="filters">
-                <button class="filter-pill">Bares</button>
-                <button class="filter-pill">Restaurantes</button>
-                <button class="filter-pill">Eventos</button>
-                <button class="filter-pill">Cafés</button>
-            </div>
-        </section>
+        <div id="hero-container"></div>
 
         <!-- Seção de Destaques -->
-        <section class="highlights-sect"> <!--Seção de Destaques e Carrossel-->
-            <span class="sect-label">DESTAQUES</span>
-            <h2 class="sect-title" id="experiencia">Experiências em Destaque</h2>
-            <p class="sect-subtitle">Descubra os lugares mais populares e bem avaliados da cidade</p>
+        <div id="highlights-container"></div>
 
-            <!-- Container principal do carrossel: guarda os botões + os cards -->
-            <div class="carousel-wrapper">
-
-                <!-- Botão de Seta para Esquerda (Posicionado dentro do wrapper) -->
-                <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Anterior">&lt;</button>
-
-                <!-- TRILHO (Track): Guarda APENAS os elementos <article class="card"> -->
-                <div class="carousel-track" id="carouselTrack">
-
-                    <!-- Card 1: Madalena Gastrobar -->
-                    <article class="card"> <!--Card 1 - Carrossel-->
-                        <div class="card-image-container">
-                            <img src="img/madalena-gastrobar-goiânia-foto-1.jpg" alt="Madalena Gastrobar" />
-                            <span class="badge">Aberto até 00:00</span>
-                        </div>
-
-                        <div class="card-content">
-                            <div class="card-header-info">
-                                <h3>Madalena Gastrobar</h3>
-                                <span class="price">$$$</span>
-                            </div>
-
-                            <!-- Categoria com pill em destaque -->
-                            <span class="category-bares">Bares</span>
-
-                            <!-- Avaliação -->
-                            <div class="rating">
-                                <span class="star">★</span>
-                                <strong>4.9</strong>
-                                <small class="reviews">(312 avaliações)</small>
-                            </div>
-
-                            <!-- Comodidades -->
-                            <div class="amenities-container">
-                                <span class="amenity-item">💨 Ar-condicionado</span>
-                                <span class="amenity-more">+1</span>
-                            </div>
-
-                            <!-- Descrição -->
-                            <p class="description">
-                                Gastrobar sofisticado com gastronomia autoral, alta coquetelaria e ambiente aconchegante para encontros.
-                            </p>
-
-                            <!-- Localização -->
-                            <div class="location">
-                                <span class="geo-icon">📍</span> Setor Marista - Goiânia, GO
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card"> <!--Card 2 - Carrossel-->
-                        <div class="card-image-container">
-                            <img src="img/Yolo-Beer_Garden-goiânia-foto-1.jpg" alt="Yolo Beer Garden" />
-                            <span class="badge">Aberto até 01:00</span>
-                        </div>
-
-                        <div class="card-content">
-                            <div class="card-header-info">
-                                <h3>Yolo Beer Garden</h3>
-                                <span class="price">$$$</span>
-                            </div>
-
-                            <!-- Categoria com pill em destaque -->
-                            <span class="category-bares">Bares</span>
-
-                            <!-- Avaliação -->
-                            <div class="rating">
-                                <span class="star">★</span>
-                                <strong>4.1</strong>
-                                <small class="reviews">(605 avaliações)</small>
-                            </div>
-
-                            <!-- Comodidades -->
-                            <div class="amenities-container">
-                                <span class="amenity-item">💨 Ambiente ao ar livre</span>
-                                <span class="amenity-more">+1</span>
-                            </div>
-
-                            <!-- Descrição -->
-                            <p class="description">
-                                Um bar descontraído e ao ar livre no Setor Sul, com clima de quintal, muito verde, cervejas, drinks hambúrgueres e pesticos.
-                                O espaço também recebe DJs e música ao vivo, criando uma atmosfera jovem e descontraída.
-                            </p>
-
-                            <!-- Localização -->
-                            <div class="location">
-                                <span class="geo-icon">📍</span> Setor Sul - Goiânia, GO
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card"> <!--Card 3 - Carrossel-->
-                        <div class="card-image-container">
-                            <img src="img/Gercina-Bar-goiânia-foto-1.webp" alt="Gercina Bar" />
-                            <span class="badge">Aberto até 00:00</span>
-                        </div>
-
-                        <div class="card-content">
-                            <div class="card-header-info">
-                                <h3>Gercina Bar</h3>
-                                <span class="price">$$</span>
-                            </div>
-
-                            <!-- Categoria com pill em destaque -->
-                            <span class="category-bares">Bares</span>
-
-                            <!-- Avaliação -->
-                            <div class="rating">
-                                <span class="star">★</span>
-                                <strong>4.7</strong>
-                                <small class="reviews">(708 avaliações)</small>
-                            </div>
-
-                            <!-- Comodidades -->
-                            <div class="amenities-container">
-                                <span class="amenity-item">Aceita cartão</span>
-                                <span class="amenity-more">+1</span>
-                            </div>
-
-                            <!-- Descrição -->
-                            <p class="description">
-                                Comida boa, conversa fiada e cerveja gelada!
-                            </p>
-
-                            <!-- Localização -->
-                            <div class="location">
-                                <span class="geo-icon">📍</span> Setor Sul - Goiânia, GO
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card"> <!--Card 4 - Carrossel-->
-                        <div class="card-image-container">
-                            <img src="img/madalena-gastrobar-goiânia-foto-1.jpg" alt="Madalena Gastrobar" />
-                            <span class="badge">Aberto até 00:00</span>
-                        </div>
-
-                        <div class="card-content">
-                            <div class="card-header-info">
-                                <h3>Madalena Gastrobar</h3>
-                                <span class="price">$$$</span>
-                            </div>
-
-                            <!-- Categoria com pill em destaque -->
-                            <span class="category-bares">Bares</span>
-
-                            <!-- Avaliação -->
-                            <div class="rating">
-                                <span class="star">★</span>
-                                <strong>4.9</strong>
-                                <small class="reviews">(312 avaliações)</small>
-                            </div>
-
-                            <!-- Comodidades -->
-                            <div class="amenities-container">
-                                <span class="amenity-item">💨 Ar-condicionado</span>
-                                <span class="amenity-more">+1</span>
-                            </div>
-
-                            <!-- Descrição -->
-                            <p class="description">
-                                Gastrobar sofisticado com gastronomia autoral, alta coquetelaria e ambiente aconchegante para encontros.
-                            </p>
-
-                            <!-- Localização -->
-                            <div class="location">
-                                <span class="geo-icon">📍</span> Setor Marista - Goiânia, GO
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Você pode duplicar a tag <article class="card"> aqui para criar os cards 2 e 3 -->
-
-                </div> <!-- Fim do .carousel-track -->
-
-                <!-- Botão de Seta para Direita -->
-                <button class="carousel-btn next-btn" id="nextBtn" aria-label="Próximo">&gt;</button>
-
-            </div> <!-- Fim do .carousel-wrapper -->
-        </section>
-
-        <section class="categoria-bares-homepage"> <!--Seção de Categorias da Homepage-->
-            <span class="sect-label">Categorias</span>
-            <h2 class="sect-title" id="um-lugar">Tudo o que você precisa em um só lugar</h2>
-            <p class="sect-subtitle">Explore diferentes categorias e descubra os melhores estabelecimentos</p>
-        </section>
-
+        <!-- seção de categorias -->
+         <div id="category-container"></div>
     </main>
+
+    <!-- script de carregamento -->
+    <script src="js/script.js"></script>
 </body>
 </html>
