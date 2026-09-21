@@ -1,0 +1,102 @@
+/* sect do HEROI */
+.hero-sect{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+}
+
+/* 
+acho interessante explicar pq eu uso a medida 'rem':
+    - o rem é igual a 16px, entao 4rem = 4 * 16px = 64px.
+    - uso "rem" em vez de "px" por acessibilidade 
+      se o querido usuario aumenta o tamanho da font pelo browser, 
+      os elementos em rem crescem proporcionalmente, 
+      enquanto os em px permanecem fixos.
+*/
+
+.main-title{
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.text-orange { color: var(--brand-orange); }
+.text-blue { color: var(--brand-blue); }
+.text-withe { color: var(--text-white); }
+
+.subtitle {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* barra de pesquisa maneira */
+.search-container { /* caixinha aonde fica a pesquisa */
+    display: flex;
+    align-items: center;
+    background: var(--surface-color);
+    border-radius: var(--border-radius-pill);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* trem de pesquisar */
+.search-container input {
+    flex: 1; /* flex é tipo pra definir um comprimento adaptavel */
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* butoes */
+.search-container button {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    padding: 0.5rem;
+    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
+    font-size: 1.1rem;
+}
+
+.search-container .search-btn {
+    background: var(--brand-orange);
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+/* pilulas de filtro */
+.filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-pill {
+    background: var(--surface-color);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--border-radius-pill);
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}

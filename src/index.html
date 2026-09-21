@@ -1,69 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venuo - Descubra. Conecte. Viva!</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Estilo Padrão -->
+    <link rel="stylesheet" href="css/header.css"> <!-- Estilo do Header -->
+    <link rel="stylesheet" href="css/hero.css"> <!-- Estilo do Hero -->
+    <link rel="stylesheet" href="css/highlights.css"> <!-- Estilo dos Destaques -->
+    <link rel="stylesheet" href="css/categories.css"> <!-- Estilo Seção de Categorias -->
 
-    <!-- biblioteca dos icones -->
+    <!-- Biblioteca dos Icones (temporario) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<!-- usei a classe dark para facilitar fazer um tema claro no futuro -->
-<body class="dark-theme">
+<body class="dark-theme"> <!-- classe para facilitar criação um tema claro no futuro -->
 
-    <!-- barra de navegacaoo -->
-    <header class="navbar">
-        <div class="logo">
-            <img src="assets/logo-venuo.png" alt="Logo Venuo">
-        </div>
-        <!-- botoes de acao -->
-        <nav class="nav-actions">
-            <button class="icon-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-            <button class="icon-btn" aria-label="Perfil"><i class="fa-regular fa-user"></i></button>
-            <button class="icon-btn" aria-label="Alterar Tema"><i class="fa-solid fa-moon"></i></button>
-        </nav>
-    </header>
+    <div id="header-container"></div> <!-- Seção do Header -->
+    
+    <main> <!-- conteudo principal -->
+        <div id="hero-container"></div> <!-- Seção Hero -->
 
-    <!-- conteudo principal -->
-    <main>
-        <!-- hero section (titulo lindo e busca) -->
-        <section class="hero-sect">
-            <h1 class="main-title">
-                <span class="text-orange">Descubra.</span>
-                <span class="text-blue">Conecte.</span>
-                <span class="text-white">Viva.</span>
-            </h1>
-            <p class="subtitle">Encontre seu lazer ideal em segundos.</p>
+        <div id="highlights-container"></div> <!-- Seção de Destaques -->
 
-            <!-- barra de pesquisa maneira -->
-            <div class="search-container">
-                <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
-                <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
-                <div class="search-actions">
-                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <button class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
-                    <button class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-                </div>
-            </div>
-            
-            <!-- filtros em "pilulas" -->
-            <div class="filters">
-                <button class="filter-pill">Bares</button>
-                <button class="filter-pill">Restaurantes</button>
-                <button class="filter-pill">Eventos</button>
-                <button class="filter-pill">Cafés</button>
-            </div>
-        </section>
-
-        <!-- aqui vai entrar os card em destaque -->
-        <section class="highlights-sect">
-            <span class="sect-label">DESTAQUES</span>
-            <h2 class="sect-title">Experiências em Destaque</h2>
-            <p class="sect-subtitle">Descubra os lugares mais populares e bem avaliados da cidade</p>
-
-        </section>
+        <div id="categories-container"></div> <!-- Seção de Categorias -->
     </main>
+
+    <script src="js/script.js"></script> <!-- Script de Carregamento -->
 </body>
 </html>
