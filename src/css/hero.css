@@ -55,6 +55,14 @@ acho interessante explicar pq eu uso a medida 'rem':
     padding: 0.8rem 1rem;
     font-size: 1rem;
     outline: none;
+    min-width: 0;
+}
+
+.search-actions { /* conjunto dos botões na barra de pesquisa */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* butoes */
@@ -73,10 +81,10 @@ acho interessante explicar pq eu uso a medida 'rem':
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 0.5rem;
+    display: flex;
 }
 
 /* pilulas de filtro */
