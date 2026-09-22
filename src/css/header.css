@@ -8,15 +8,16 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 1.5rem;
-    background: #030213;/* Anexado cor de fundo para destacar o header */
-    height: 75px;/* Definido o tamanho do box do header */
+    background: #030213; /* Anexado cor de fundo para destacar o header */
+    height: 75px; /* Definido o tamanho do box do header */
 }
 
 .logo img{
-    width: 100px;
+    width: 125px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding-right: 1rem;
 }
 
 .nav-actions {
@@ -41,11 +42,11 @@ header {
 .search-container-header { /* caixinha aonde fica a pesquisa */
     display: flex;
     align-items: center;
-    background: var(--surface-color);
+    background: var(--bg-color);
     border-radius: var(--border-radius-pill);
     padding: 0.5rem 1rem;
     width: 100%;
-    max-width: 800px;
+    max-width: 850px;
     max-height: 60px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
