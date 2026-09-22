@@ -1,0 +1,82 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: #030213;/* Anexado cor de fundo para destacar o header */
+    height: 75px;/* Definido o tamanho do box do header */
+}
+
+.logo img{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon-btn {
+    background: var(--surface-color);
+    border: none;
+    color: var(--text-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.icon-btn:hover {background: rgba(255, 255, 255, 0.1);}
+
+/* barra de pesquisa maneira header */
+.search-container-header { /* caixinha aonde fica a pesquisa */
+    display: flex;
+    align-items: center;
+    background: var(--surface-color);
+    border-radius: var(--border-radius-pill);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 0rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+}
+
+/* trem de pesquisar */
+.search-container-header input {
+    flex: 1; /* flex é tipo pra definir um comprimento adaptavel */
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* butoes */
+.search-container-header button {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    padding: 0.5rem;
+    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
+    font-size: 1.1rem;
+}
+
+.search-container-header .search-btn {
+    background: var(--brand-orange);
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}

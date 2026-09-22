@@ -1,0 +1,43 @@
+/* 
+root é tipo uma função pra reutilizar codigo, eu declaro os estilos aqui nele e reutilizo nas classes e tals
+pra aplicar o root, precisa chamar ele nos bagulho "var()" 
+*/
+:root {
+    --bg-color: #0b131e; /* fundo escuro padrão */
+    --bg-gradient: radial-gradient(circle at 80% 30%, #142a3a 0%, #0b131e 50%); /* gradiente do fundo :P */
+    --text-white: #fff;
+    --text-gray: #a0aab2;
+    --brand-orange: #ff6b35;
+    --brand-blue: #00b4d8;
+    --surface-color: rgba(25, 35, 50, 0.8);
+    --border-radius-pill: 50px;
+}
+
+/* RESET BASICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+/* o reset serve pra evitar que o navegador aplique o estilo dele na pagina, quebrando os trem */
+
+body {
+    background: var(--bg-gradient);
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Posicionamento e propriedades da seção categorias*/
+
+.categoria-bares-homepage{
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#um-lugar {
+    font-size: 3rem;
+}
