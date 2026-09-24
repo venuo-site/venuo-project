@@ -32,3 +32,112 @@
     margin: 0;
     text-align: left;
 }
+
+/*######################################################################
+        CARDS CATEGORIA BARES
+#######################################################################*/
+
+
+.category-bares-track {
+    display: flex;         /* Coloca todos os cards lado a lado na horizontal */
+    gap: 0.2rem;           /* Cria o espaçamento de 24px entre um card e outro */
+    scroll-behavior: smooth; /* Faz o movimento de rolagem ser suave em vez de dar um "pulo" */
+    scroll-snap-type: x mandatory; /* Efeito "imã": ao rolar, o card sempre trava centralizado */
+    padding: 1rem 0;
+  /* Removemos a barra de rolagem cinza nativa para o visual ficar limpo */
+    scrollbar-width: none; /* Esconde no navegador Firefox */
+}
+
+.category-bares-track::-webkit-scrollbar {
+    display: none; /* Esconde no Chrome, Edge e Safari */
+}
+
+/* ==========================================================================
+    ESTRUTURA DOS CARDS
+   ========================================================================== */
+
+.card-category-bares {
+    /*
+        flex: 0 0 calc(33.333% - 1rem);
+        Isso diz ao navegador: "Não estique, não encolha, e tenha a largura exata de 1/3 da tela (subtraindo o gap)".
+        É assim que fazemos aparecer exatamente 3 cards na tela ao mesmo tempo!
+    */
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 300px;            /* Em telas menores, o card não vai espremer menos do que 280px */
+    background-color: #111927;   /* Fundo escuro igual ao do seu protótipo */
+    border-radius: 1rem;         /* Bordas bem arredondadas */
+    overflow: hidden;            /* Garante que a foto não "vaze" pelas bordas arredondadas do card */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    scroll-snap-align: start;    /* Ponta de alinhamento para o efeito imã */
+    flex-direction: column;
+    transition: transform 0.2s ease; /* Transição suave para o efeito de passar o mouse */
+    justify-content: left;
+    text-align: left;
+    margin: 10px;
+
+}
+
+.category-bares {
+    isolation: isolate;
+    background-color: #ff6b35;
+    border-radius: 1rem;
+    padding: 0.5px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    transform: translateY(-4px);
+    opacity: 0.8;
+    
+}
+
+.description{
+     max-width: 50ch;            /* 1. Escolha a quantidade de caracteres aqui (ex: 20) */
+    overflow: hidden;           /* 2. Esconde o texto que passar do limite */
+    white-space: nowrap;        /* 3. Garante que o texto fique em uma única linha */
+    text-overflow: ellipsis
+}
+
+
+.card-category-bares:hover {
+    transform: translateY(-4px); /* Levanta o card levemente (4 pixels) dando sensação 3D */
+}
+.card-image-container {
+    position: relative; /* Necessário para posicionar a .badge (Aberto até...) no canto da imagem */
+    width: 100%;
+    height: 200px;      /* Força todas as imagens a terem exatamente 200px de altura */
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta e ajusta a imagem para preencher o espaço sem distorcer ou achatar */
+}
+.amenities-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+.badge {
+    position: absolute;  /* Flutua por cima da foto */
+    top: 12px;           /* Distância do topo da foto */
+    right: 12px;         /* Distância do canto direito */
+    background-color: #00b894; /* Verde "Aberto" */
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.card-content-category-bares {
+    padding: 1.25rem; /* Margem interna para o texto não colar na borda do card */
+}
+
+.card-header-info {
+    display: flex;
+    justify-content: space-between; /* Empurra o Título para a esquerda e o Preço ($$$) para a direita */
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
