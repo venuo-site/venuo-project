@@ -1,0 +1,13 @@
+/* ==========================================
+   1. Ajustes do Hero para a Página Sobre
+   ========================================== */
+.hero-sobre-sect {
+    padding: 5rem 1.5rem 3rem;
+}
+
+.manifesto-text {
+    max-width: 680px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+}
