@@ -19,11 +19,21 @@
     <div id="header-container"></div> <!-- Seção do Header -->
     
     <main> <!-- Conteudo Principal -->
-        <div id="hero-container"></div> <!-- Seção Hero -->
+        <div id="hero-container" class="view-container"></div> <!-- Seção Hero -->
 
-        <div id="highlights-container"></div> <!-- Seção de Destaques -->
+        <div id="highlights-container" class="view-container"></div> <!-- Seção de Destaques -->
 
-        <div id="categories-container"></div> <!-- Seção de Categorias -->
+        <div id="categories-container" class="view-container"></div> <!-- Seção de Categorias -->
+        
+        <div id="results-container" class="view-container" style="display: none;"></div> <!-- Seção de Resultados -->
+        <button onclick="navegarPara('results-container', 'components/results/results.html')">
+            Buscar Bares Próximos
+        </button>
+        
+        <div id="login-container" class="view-container" style="display: none;"></div> <!-- Seção de Login -->
+
+        <a href="sobre.html" class="btn-sobre">Sobre o Projeto</a> 
+
     </main>
 
     <script src="js/script.js"></script> <!-- Script de Carregamento -->
