@@ -243,3 +243,181 @@
     padding: 1.25rem; /* Margem interna para o texto não colar na borda do card */
 }
 
+
+/*######################################################################
+        CARDS CATEGORIA EVENTOS
+#######################################################################*/
+
+.evento{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0.3rem;
+    margin: 0;
+    margin-top: 2rem;
+
+}
+.icon-evento{
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+.evento-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.evento-content{
+    margin: 0;
+    text-align: left;
+}
+
+.evento-track {
+    display: flex;         /* Coloca todos os cards lado a lado na horizontal */
+    gap: 0.2rem;           /* Cria o espaçamento de 24px entre um card e outro */
+    scroll-behavior: smooth; /* Faz o movimento de rolagem ser suave em vez de dar um "pulo" */
+    scroll-snap-type: x mandatory; /* Efeito "imã": ao rolar, o card sempre trava centralizado */
+    padding: 1rem 0;
+  /* Removemos a barra de rolagem cinza nativa para o visual ficar limpo */
+    scrollbar-width: none; /* Esconde no navegador Firefox */
+}
+
+.evento-track::-webkit-scrollbar {
+    display: none; /* Esconde no Chrome, Edge e Safari */
+}
+
+/* ==========================================================================
+    ESTRUTURA DOS EVENTOS
+   ========================================================================== */
+
+.card-category-evento{
+    /*
+        flex: 0 0 calc(33.333% - 1rem);
+        Isso diz ao navegador: "Não estique, não encolha, e tenha a largura exata de 1/3 da tela (subtraindo o gap)".
+        É assim que fazemos aparecer exatamente 3 cards na tela ao mesmo tempo!
+    */
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 300px;            /* Em telas menores, o card não vai espremer menos do que 280px */
+    background-color: #111927;   /* Fundo escuro igual ao do seu protótipo */
+    border-radius: 1rem;         /* Bordas bem arredondadas */
+    overflow: hidden;            /* Garante que a foto não "vaze" pelas bordas arredondadas do card */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    scroll-snap-align: start;    /* Ponta de alinhamento para o efeito imã */
+    flex-direction: column;
+    transition: transform 0.2s ease; /* Transição suave para o efeito de passar o mouse */
+    justify-content: left;
+    text-align: left;
+    margin: 10px;
+
+}
+
+.category-evento {
+    isolation: isolate;
+    background-color: #ff6b35;
+    border-radius: 1rem;
+    padding: 0.5px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    transform: translateY(-4px);
+    opacity: 0.8;
+    
+}
+
+.card-category-evento:hover {
+    transform: translateY(-4px); /* Levanta o card levemente (4 pixels) dando sensação 3D */
+}
+
+
+.card-content-category-evento {
+    padding: 1.25rem; /* Margem interna para o texto não colar na borda do card */
+}
+
+/*######################################################################
+        CARDS CATEGORIA LAZER
+#######################################################################*/
+
+.lazer{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0.3rem;
+    margin: 0;
+    margin-top: 2rem;
+
+}
+.icon-lazer{
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+.lazer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.lazer-content{
+    margin: 0;
+    text-align: left;
+}
+
+.lazer-track {
+    display: flex;         /* Coloca todos os cards lado a lado na horizontal */
+    gap: 0.2rem;           /* Cria o espaçamento de 24px entre um card e outro */
+    scroll-behavior: smooth; /* Faz o movimento de rolagem ser suave em vez de dar um "pulo" */
+    scroll-snap-type: x mandatory; /* Efeito "imã": ao rolar, o card sempre trava centralizado */
+    padding: 1rem 0;
+  /* Removemos a barra de rolagem cinza nativa para o visual ficar limpo */
+    scrollbar-width: none; /* Esconde no navegador Firefox */
+}
+
+.lazer-track::-webkit-scrollbar {
+    display: none; /* Esconde no Chrome, Edge e Safari */
+}
+
+
+/* ==========================================================================
+    ESTRUTURA DOS LAZER
+   ========================================================================== */
+
+
+.card-category-lazer{
+    /*
+        flex: 0 0 calc(33.333% - 1rem);
+        Isso diz ao navegador: "Não estique, não encolha, e tenha a largura exata de 1/3 da tela (subtraindo o gap)".
+        É assim que fazemos aparecer exatamente 3 cards na tela ao mesmo tempo!
+    */
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 300px;            /* Em telas menores, o card não vai espremer menos do que 280px */
+    background-color: #111927;   /* Fundo escuro igual ao do seu protótipo */
+    border-radius: 1rem;         /* Bordas bem arredondadas */
+    overflow: hidden;            /* Garante que a foto não "vaze" pelas bordas arredondadas do card */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    scroll-snap-align: start;    /* Ponta de alinhamento para o efeito imã */
+    flex-direction: column;
+    transition: transform 0.2s ease; /* Transição suave para o efeito de passar o mouse */
+    justify-content: left;
+    text-align: left;
+    margin: 10px;
+
+}
+
+.category-lazer {
+    isolation: isolate;
+    background-color: #ff6b35;
+    border-radius: 1rem;
+    padding: 0.5px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Linha suave ao redor do card */
+    transform: translateY(-4px);
+    opacity: 0.8;
+    
+}
+
+.card-category-lazer:hover {
+    transform: translateY(-4px); /* Levanta o card levemente (4 pixels) dando sensação 3D */
+}
+
+
+.card-content-category-lazer {
+    padding: 1.25rem; /* Margem interna para o texto não colar na borda do card */
+}
