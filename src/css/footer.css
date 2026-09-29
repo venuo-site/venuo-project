@@ -1,0 +1,76 @@
+/* 1. Container do Footer */
+.footer {
+  width: 100%; /*100% de toda a largura */
+  padding: 48px 0; /* Empurra a borda do próprio elemento para fora, aumentando a área do seu fundo.*/
+  text-align: center; /* Alinha o conteúdo do footer ao centro */
+  margin-top: auto;/* Empurra o footer para o final da tela quando não houver outro conteúdo */
+}
+
+/* 2. Logo */
+.footer-logo {
+  height: 64px; /* Define a largura da logo */
+  margin: 0 auto 16px auto; /* Centraliza horizontalmente e dá margem inferior */
+  object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner sem distorção */
+  display: block; /* Garante que a imagem seja tratada como um bloco para centralização */
+  transition:transform 0.3s ease; /* Suaviza a transição de escala ao passar o mouse */
+}
+
+.footer-logo:hover {
+    transform:scale(1.08); /*aumenta a logo em 8% */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+/* 3. Slogan */
+.footer-slogan {
+  color: #d1d5db; /* Cor cinza clara para o slogan */
+  font-size: 14px; /* Tamanho da fonte do slogan */
+  margin-bottom: 24px; /* Espaço abaixo do slogan */
+}
+
+/* 4. Container dos Botões Sociais */
+.social-links {
+  display: flex; /* Usa flexbox para alinhar os ícones horizontalmente */
+  justify-content: center; /* Centraliza os ícones horizontalmente */
+  gap: 16px; /* Espaço uniforme entre os ícones */
+}
+
+/* 5. Botões Arredondados */
+.social-button {
+  width: 40px; /* Define a largura do botão */
+  height: 40px; /* Define a altura do botão */
+  border-radius: 50%; /* Faz o botão ficar circular */
+  border: 1px solid rgba(6, 182, 212, 0.3); /* Borda ciano transparente */
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil levemente translúcido */
+  color: #ffffff; /* Cor do ícone dentro do botão */
+  
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  align-items: center; /* Centraliza verticalmente o ícone dentro do botão */
+  justify-content: center; /* Centraliza horizontalmente o ícone dentro do botão */
+  
+  text-decoration: none; /* Remove o sublinhado do link */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Suaviza a transição de cor e escala ao passar o mouse */
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+.social-button:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Aumenta a opacidade do fundo ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o tamanho do botão em 10% ao passar o mouse */
+}
+
+/*Linha divisória footer */
+
+.linha-divisoria-footer{
+    border: none; /*  Remove a borda padrão do elemento */
+    height: 1px; /* Define a altura da linha divisória */
+    background-color: rgba(72, 202, 228, 0.2); /* Define a cor da linha divisória com transparência */
+    width: 100%; /* Define a largura da linha divisória para ocupar toda a largura do contêiner pai */
+    max-width: 448px; /* Limita a largura centralizada da linha */
+    margin: 32px auto 24px auto; /* Dá 32px de espaço em cima e 24px em baixo */
+}
+
+/* Direito Autorais */
+
+.Direitos-Autorais{
+    font-size: 14px; /* Define o tamanho da fonte para o texto de direitos autorais */
+    color: #b8c5d6; /* Define a cor do texto de direitos autorais */
+    margin: 0; /* Remove a margem padrão do elemento */
+}
