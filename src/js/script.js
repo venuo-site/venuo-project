@@ -36,6 +36,19 @@ function navegarPara(idContainerDestino, caminhoArquivo) {
     carregarComponente(idContainerDestino, caminhoArquivo);
 }
 
+// abre o modal de login flutuante sobre a tela atual
+function abrirModalLogin() {
+    const container = document.getElementById('login-container');
+
+    if (container) {
+        // exibe o overlay aplicando flex para centralizar a caixa na tela
+        container.style.display = 'flex';
+
+        // carrega o conteudo do login de forma dinamica
+        carregarComponente('login-container', 'components/login/login.html');
+    }
+}
+
 // Mapeamento dos componentes
 document.addEventListener('DOMContentLoaded', () => {
 // carregarComponente('id-do-container', 'caminho/do/container.html')
