@@ -27,7 +27,7 @@
     color: #ffffff;
     padding: 0.4rem 1.2rem;       /* Formato achatado de pílula */
     border-radius: 2rem;                        
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 500;
     margin-bottom: 1.2rem;                     
 }
@@ -80,7 +80,7 @@
 .about-objective__text {
     font-size: 1.05rem;
     line-height: 1.6;        /* Aumenta a altura da linha */
-    color: #94a3b8;  
+    color: #c4cbd4;  
 }
 
 /* ------------------------------------------
@@ -168,6 +168,79 @@
 /* Descrição curta abaixo do título do card */
 .about-pillar-card p {
     font-size: 0.85rem;
-    color: #94a3b8;
+    color: #b8c1ce;
     line-height: 1.4;
+}
+
+/* ------------------------------------------
+   4. SESSÃO FUNCIONALIDADES (RECURSOS)
+   ------------------------------------------ */
+.about-features {
+    text-align: center; 
+    margin-bottom: 4rem;    
+}
+
+/* Cabeçalho centralizado do bloco de funcionalidades */
+.about-features__header {
+    max-width: 45rem;                    /* Limita a largura do texto */
+    margin: 0 auto 3rem;                 /* Centraliza horizontalmente e dá margem para os cards */
+}
+
+/* Etiqueta superior "FUNCIONALIDADES" */
+.about-features__label {
+    color: #f96302;                
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;              /* Espaça as letras */
+    display: block;                      /* Ocupa a linha inteira */
+    margin-bottom: 0.75rem;
+    margin-top: 30px;
+}
+
+/* Título "Recursos principais do sistema" */
+.about-features__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Subtítulo explicativo dos recursos */
+.about-features__description {
+    font-size: 1.05rem;
+    line-height: 1.6;        /* Melhora o espaçamento entre as linhas */
+    color: #c4cbd4;            
+}
+
+/* Grid que organiza os 4 Cards lado a lado */
+.about-features__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/* Cria 4 colunas idênticas */
+    gap: 1.5rem;                         /* Espaço entre cada card */
+}
+
+/* Cada Card individual de Funcionalidade */
+.about-feature-card {
+    background-color: #0d1e2e;          
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 1.2rem;               /* Cantos arredondados */
+    padding: 2rem 1.5rem;        
+    text-align: left;               
+    display: flex;
+    flex-direction: column;              /* Empilha ícone, título e texto */
+    align-items: flex-start;
+}
+
+/* Caixa do Ícone com gradiente */
+.about-feature-card__icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, #f96302 0%, #2a9d8f 100%); /* Gradiente do protótipo */
+    border-radius: 0.8rem;               /* Cantos suavemente arredondados */
+    display: flex;
+    align-items: center;                 /* Centraliza o ícone de forma vertical */
+    justify-content: center;              /* Centraliza o ícone de forma horizontal */
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
 }
