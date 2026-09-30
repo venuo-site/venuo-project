@@ -1,8 +1,14 @@
 /* 1. Container do Footer */
 .footer {
-  width: 100%; /*100% de toda a largura */
-  padding: 48px 0; /* Empurra a borda do próprio elemento para fora, aumentando a área do seu fundo.*/
-  text-align: center; /* Alinha o conteúdo do footer ao centro */
+  width: 100%; /*100% de toda a largura do elemento pai */
+  box-sizing: border-box; /* Mantém a caixa do footer dentro do limite de 100% definido no width*/
+  padding: 48px 20px; /* Cria um espaço interno de 48px top e bottom (cima/baixo), 20px left e right (laterais)*/
+
+  display: flex; /* Definindo box como flexível */
+  flex-direction: column; /* Definindo direção do fluxo principal do container flexível empilhando em forma vertical os elementos(column= fluxo vertical) */
+  align-items: center; /* Alinha os elementos filhos da tag footer horizontalmente no centro*/
+  justify-content: center; /* Centraliza todos os elementos filhos no eixo vertical */
+  text-align: center; /* Centraliza os textos dentro dos parágrafos */
   margin-top: auto;/* Empurra o footer para o final da tela quando não houver outro conteúdo */
 }
 
