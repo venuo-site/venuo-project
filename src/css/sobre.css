@@ -80,7 +80,7 @@
 .about-objective__text {
     font-size: 1.05rem;
     line-height: 1.6;        /* Aumenta a altura da linha */
-    color: #c4cbd4;  
+    color: #dce0e6;  
 }
 
 /* ------------------------------------------
@@ -116,7 +116,7 @@
 .about-pillars__text {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #e1e5eb;
+    color: #dce0e6;
 }
 
 /* Destaca em branco as palavras */
@@ -209,7 +209,7 @@
 .about-features__description {
     font-size: 1.05rem;
     line-height: 1.6;        /* Melhora o espaçamento entre as linhas */
-    color: #c4cbd4;            
+    color: #dce0e6;            
 }
 
 /* Grid que organiza os 4 Cards lado a lado */
@@ -243,4 +243,91 @@
     color: #ffffff;
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
+}
+
+/* Título de cada recurso (ex: "Geolocalização") */
+.about-feature-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+/* Descrição detalhada da funcionalidade */
+.about-feature-card p {
+    font-size: 0.9rem;
+    color: #aeb9c9;
+    line-height: 1.5;
+}
+
+/* ------------------------------------------
+   5. SESSÃO DIFERENCIAL DO PROJETO
+   ------------------------------------------ */
+.about-differential {
+    background-color: #0d1e2e;           /* Container escuro principal */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    padding: 3.5rem 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Grade de duas colunas (Texto na esquerda, Benefícios na direita) */
+.about-differential__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;      /* Divide a seção ao meio */
+    gap: 3rem;                           /* Espaço entre a coluna esquerda e a direita */
+    align-items: center;
+}
+
+/* Etiqueta superior "DIFERENCIAL DO PROJETO" */
+.about-differential__label {
+    color: #f96302;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+/* Título principal do diferencial */
+.about-differential__title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+}
+
+/* Parágrafo explicativo sobre o diferencial */
+.about-differential__description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #b4c0d1;
+}
+
+/* Lista de tópicos (Benefícios) no lado direito */
+.about-differential__list {
+    list-style: none;                    /* Remove os pontos padrão do HTML <ul> */
+    display: flex;
+    flex-direction: column;              /* Empilha as caixas de benefícios */
+    gap: 1rem;                           /* Espaçamento entre os itens */
+}
+
+/* ------------------------------------------
+   6. SESSÃO TECNOLOGIAS UTILIZADAS
+   ------------------------------------------ */
+.about-technologies{
+    background-color: #0d1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Título "Tecnologias Utilizadas" */
+.about-technologies__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.75rem;
 }
