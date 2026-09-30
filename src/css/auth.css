@@ -1,0 +1,221 @@
+/* Modal de autenticação */
+
+#login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 9999;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fundo */
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa de login */
+
+.modal-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 32px;
+
+    background: var(--bg-color);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+
+    color: var(--text-white);
+}
+
+/* Botão fechar */
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: var(--text-gray);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+}
+
+/* Título */
+
+.login-title {
+    margin-bottom: 8px;
+
+    text-align: center;
+
+    color: var(--text-white);
+}
+
+/* Texto */
+
+.modal-box > p {
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    color: var(--text-gray);
+}
+
+/* Campos */
+
+.input-title {
+    margin: 15px 0 6px;
+
+    color: var(--text-white);
+
+    font-size: 14px;
+}
+
+/* Inputs */
+
+#input-access,
+#input-senha {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+
+    background: #111a26;
+    color: var(--text-white);
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+/* Foco */
+
+#input-access:focus,
+#input-senha:focus {
+    border-color: var(--brand-blue);
+
+    box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.15);
+}
+
+/* Botão entrar */
+
+.login-button {
+    width: 100%;
+
+    margin-top: 22px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--brand-orange);
+    color: var(--text-white);
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login-button:hover {
+    opacity: 0.9;
+}
+
+/* Divisória */
+
+.p-divisoria {
+    margin: 20px 0;
+
+    text-align: center;
+
+    color: var(--text-gray);
+}
+
+/* Botão Google */
+
+.login-google-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #333;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.login-google-button:hover {
+    background: #f2f2f2;
+}
+
+/* Cadastro */
+
+.footer-register {
+    margin-top: 22px;
+
+    font-size: 14px;
+}
+
+.text-link {
+    color: var(--brand-blue);
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+    .modal-box {
+        width: calc(100% - 32px);
+
+        padding: 25px;
+    }
+}
