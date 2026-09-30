@@ -50,13 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   carregarComponente('categories-container', 'components/homepage/categories.html');
 
   // --- RESULTADOS ---
-<<<<<<< HEAD
   carregarComponente('results-container', 'components/results/results.html');
 
   // --- SOBRE ---
-  carregarComponente('hero-sobre-container', 'components/sobre/hero-sobre.html');
-  carregarComponente('pilares-container', 'components/sobre/pilares-equipe.html');
-=======
-    carregarComponente('results-container', 'components/results/results.html');
->>>>>>> 0b14dc6e4ba0da974ef428dc94cc510c19b1abf7
+  carregarComponente('about-container', 'components/about/about.html');
+
+
 });
