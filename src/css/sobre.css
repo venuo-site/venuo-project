@@ -1,29 +1,173 @@
-/* Configuração geral do container da página */
+
 #about-container {
-    max-width: 1000px;
+    max-width: 75rem;          /* Limita a largura máxima da página para não espalhar em telas ultrawide */
     margin: 0 auto;
-    padding: 20px;
+    padding: 2rem 1.5rem 4rem; 
+    color: #ffffff;     /* Define a cor padrão de todos os textos internos para branco */
+}
+
+/* ------------------------------------------
+   1. SESSÃO HERO (BANNER PRINCIPAL)
+   ------------------------------------------ */
+.about-hero {
+    /* Gradiente em diagonal */
+    background: linear-gradient(135deg, #f96302 0%, #e05200 25%, #2a9d8f 70%, #00b4d8 100%);
+    border-radius: 1.5rem;   /* Arredonda bem os 4 cantos do banner */
+    padding: 3.5rem 2rem;   
+    text-align: center;      
+    margin-bottom: 4rem;     
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25); 
+}
+
+/* Pílula "Projeto acadêmico" no topo */
+.about-hero__badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);        /* Efeito de vidro desfocado */
+    color: #ffffff;
+    padding: 0.4rem 1.2rem;       /* Formato achatado de pílula */
+    border-radius: 2rem;                        
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;                     
+}
+
+/* Título "Sobre o Projeto Venuo" */
+.about-hero__title {
+    font-size: 3.70rem;  
+    font-weight: 800; 
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em; /* Aproxima as letras para visual moderno */
+}
+
+/* Subtítulo "Plataforma inteligente..." */
+.about-hero__subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+/* ------------------------------------------
+   2. SESSÃO OBJETIVO (BLOCO CENTRALIZADO)
+   ------------------------------------------ */
+.about-objective {
+    text-align: center;      /* Centraliza todos os textos */
+    max-width: 50rem;        /* Deixa o bloco de texto mais estreito para facilitar a leitura */
+    margin: 0 auto 4rem; 
+    padding: 0 1rem;
+}
+
+/* Etiqueta superior "SOBRE O PROJETO" */
+.about-objective__label {
+    color: #f96302;     
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;  /* Espaça as letras em caixa alta */
+    display: block;        
+    margin-bottom: 0.75rem; 
+}
+
+/* Título "Qual é o objetivo do Venuo?" */
+.about-objective__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
     color: #ffffff;
 }
 
-/* 1. Sessão Hero */
-.about-hero {
-    text-align: center;
-    margin-bottom: 30px;
+/* Texto explicativo do objetivo */
+.about-objective__text {
+    font-size: 1.05rem;
+    line-height: 1.6;        /* Aumenta a altura da linha */
+    color: #94a3b8;  
 }
 
-.about-hero__badge {
-    color: #f96302;
-    font-weight: bold;
-    font-size: 14px;
+/* ------------------------------------------
+   3. SESSÃO 4 PILARES (CAIXA ESCURA GRANDE)
+   ------------------------------------------ */
+.about-pillars {
+    background-color: #0d1e2e; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 1.5rem;     
+    padding: 3rem 2.5rem;      
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2.5rem;               
+    align-items: start;        /* Alinha o topo das duas colunas */
 }
 
-.about-hero__title {
-    font-size: 32px;
-    margin: 10px 0;
+/* Coluna de Texto Explicativo */
+.about-pillars__header {
+    display: flex;
+    flex-direction: column;    /* título e parágrafos na vertical */
+    gap: 1.25rem;             
 }
 
-.about-hero__subtitle {
-    color: #cccccc;
-    font-size: 18px;
+/* Título "Uma plataforma feita para... */
+.about-pillars__title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #ffffff;
+}
+
+/* Parágrafos de texto dos pilares */
+.about-pillars__text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e1e5eb;
+}
+
+/* Destaca em branco as palavras */
+.about-pillars__text strong {
+    color: #ffffff;
+}
+
+/* Coluna dos 4 Cards*/
+.about-pillars__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de cards */
+    gap: 1.25rem;                          /* Espaçamento entre cada card */
+}
+
+/* Cada Card individual dos Pilares */
+.about-pillar-card {
+    background-color: #132738; /* Azul levemente mais claro que o fundo da caixa */
+    border: 1px solid rgba(255, 255, 255, 0.06); /* Borda fina nos cards */
+    border-radius: 1.2rem;     /* Arredondamento dos cards */
+    padding: 1.5rem 1.25rem;   /* Preenchimento interno do card */
+    display: flex;
+    flex-direction: column;    /* Empilha ícone, título e descrição */
+    align-items: flex-start;   /* Alinha o conteúdo à esquerda dentro do card */
+}
+
+/* Bolinha com o Ícone dentro dos Cards */
+.about-pillar-card__icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: linear-gradient(135deg, #f96302 0%, #e05200 100%);
+    color: #ffffff;
+    border-radius: 50%;        /* Deixa o fundo circular */
+    display: flex;
+    align-items: center;       /* Centraliza o ícone no meio da bolinha */
+    justify-content: center;   
+    font-size: 1.1rem;
+    margin-bottom: 1rem;     
+    box-shadow: 0 0.25rem 0.75rem rgba(249, 99, 2, 0.3);
+}
+
+/* Nome do pilar (ex: "1 só lugar", "+ praticidade") */
+.about-pillar-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f96302;           
+    margin-bottom: 0.5rem;
+}
+
+/* Descrição curta abaixo do título do card */
+.about-pillar-card p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.4;
 }
