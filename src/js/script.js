@@ -36,6 +36,19 @@ function navegarPara(idContainerDestino, caminhoArquivo) {
     carregarComponente(idContainerDestino, caminhoArquivo);
 }
 
+function voltarParaHome() {
+    // pega todos os elementos que têm a classe 'view-container' e os esconde
+    const todasAsTelas = document.querySelectorAll('.view-container');
+    todasAsTelas.forEach(tela => {
+        tela.style.display = 'none';
+    });
+
+    // revela apenas os conteineres que formam a pagina inicial
+    document.getElementById('hero-container').style.display = 'block';
+    document.getElementById('highlights-container').style.display = 'block';
+    document.getElementById('categories-container').style.display = 'block';
+}
+
 // Mapeamento dos componentes
 document.addEventListener('DOMContentLoaded', () => {
 // carregarComponente('id-do-container', 'caminho/do/container.html')
