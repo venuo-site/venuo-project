@@ -1,0 +1,29 @@
+/* Configuração geral do container da página */
+#about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff;
+}
+
+/* 1. Sessão Hero */
+.about-hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-hero__badge {
+    color: #f96302;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.about-hero__title {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.about-hero__subtitle {
+    color: #cccccc;
+    font-size: 18px;
+}
