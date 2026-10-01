@@ -84,7 +84,7 @@
 }
 
 /* ------------------------------------------
-   3. SESSÃO 4 PILARES (CAIXA ESCURA GRANDE)
+   3. SESSÃO 4 PILARES (CAIXA GRANDE)
    ------------------------------------------ */
 .about-pillars {
     background-color: #0d1e2e; 
@@ -133,10 +133,10 @@
 
 /* Cada Card individual dos Pilares */
 .about-pillar-card {
-    background-color: #132738; /* Azul levemente mais claro que o fundo da caixa */
-    border: 1px solid rgba(255, 255, 255, 0.06); /* Borda fina nos cards */
+    background-color: #132738; 
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 1.2rem;     /* Arredondamento dos cards */
-    padding: 1.5rem 1.25rem;   /* Preenchimento interno do card */
+    padding: 1.5rem 1.25rem;  
     display: flex;
     flex-direction: column;    /* Empilha ícone, título e descrição */
     align-items: flex-start;   /* Alinha o conteúdo à esquerda dentro do card */
@@ -235,10 +235,10 @@
 .about-feature-card__icon {
     width: 3rem;
     height: 3rem;
-    background: linear-gradient(135deg, #f96302 0%, #2a9d8f 100%); /* Gradiente do protótipo */
+    background: linear-gradient(135deg, #f96302 0%, #2a9d8f 100%);
     border-radius: 0.8rem;               /* Cantos suavemente arredondados */
     display: flex;
-    align-items: center;                 /* Centraliza o ícone de forma vertical */
+    align-items: center;                 
     justify-content: center;              /* Centraliza o ícone de forma horizontal */
     color: #ffffff;
     font-size: 1.25rem;
@@ -330,4 +330,70 @@
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 1.75rem;
+}
+
+/* Lista em linha contendo o nome das tecnologias */
+.about-technologies__list {
+    display: flex;
+    gap: 4rem;                    /* Espaço entre o nome */
+}
+
+/* Cada tag/nome de tecnologia na lista */
+.about-technology-item {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    transition: color 0.2s ease;
+}
+
+/* ------------------------------------------
+   7. SESSÃO CATEGORIAS DE ESTABELECIMENTOS
+   ------------------------------------------ */
+.about-categories {
+    margin-bottom: 4rem;
+}
+
+/* Cabeçalho da seção de categorias */
+.about-categories__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Título "Categorias de Estabelecimentos" */
+.about-categories__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Grid contendo os 6 cards das categorias */
+.about-categories__cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);/* 6 colunas para exibir todos lado a lado */
+    gap: 1.25rem;
+}
+
+
+/* ------------------------------------------
+   8. SESSÃO EQUIPE DO PROJETO
+   ------------------------------------------ */
+.about-team {
+    background-color: #0d1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    padding: 3.5rem 3rem;
+    text-align: center;
+}
+
+/* Cabeçalho do bloco de equipe */
+.about-team__header {
+    margin-bottom: 2.5rem;
+}
+
+/* Título "Nossa equipe" */
+.about-team__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
 }
