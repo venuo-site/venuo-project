@@ -64,7 +64,7 @@ Desenvolvimento Front-end: HTML5 semântico, CSS3 responsivo (Flexbox/Grid, Mobi
 Gestão de Projeto & Metodologia: Framework Scrum estruturado em sprints e gerenciado via GitHub.
 
 👥 Equipe do Projeto (Squad)
-André
+André Felipe Alves Torres
 Artur Humberto Moreira Julião Neto —
 Caio
 Carol Thalia Alves Silva — Quality Assurance (QA)

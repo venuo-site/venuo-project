@@ -72,5 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
   carregarComponente('categories-container', 'components/homepage/categories.html');
 
   // --- RESULTADOS ---
-    carregarComponente('results-container', 'components/results/results.html');
+  carregarComponente('results-container', 'components/results/results.html');
+
+  // --- SOBRE ---
+  carregarComponente('about-container', 'components/about/about.html');
+
+
 });
