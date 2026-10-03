@@ -27,14 +27,14 @@
     color: #ffffff;
     padding: 0.4rem 1.2rem;       /* Formato achatado de pílula */
     border-radius: 2rem;                        
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    margin-bottom: 1.2rem;                     
+    margin-bottom: 0.90rem;                     
 }
 
 /* Título "Sobre o Projeto Venuo" */
 .about-hero__title {
-    font-size: 3.70rem;  
+    font-size: 3rem;  
     font-weight: 800; 
     color: #ffffff;
     margin-bottom: 0.5rem;
@@ -260,9 +260,6 @@
     line-height: 1.5;
 }
 
-/* ------------------------------------------
-   5. SESSÃO DIFERENCIAL DO PROJETO
-   ------------------------------------------ */
 .about-differential {
     background-color: #0d1e2e;           /* Container escuro principal */
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -276,7 +273,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;      /* Divide a seção ao meio */
     gap: 3rem;                           /* Espaço entre a coluna esquerda e a direita */
-    align-items: center;
+    align-items: center;                 /* Centraliza os elementos na altura */
 }
 
 /* Etiqueta superior "DIFERENCIAL DO PROJETO" */
@@ -302,7 +299,7 @@
 .about-differential__description {
     font-size: 1.05rem;
     line-height: 1.6;
-    color: #b4c0d1;
+    color: #94a3b8;
 }
 
 /* Lista de tópicos (Benefícios) no lado direito */
@@ -313,10 +310,42 @@
     gap: 1rem;                           /* Espaçamento entre os itens */
 }
 
+/* Cada caixa/item individual da lista com checkmark */
+.about-differential__item {
+    background-color: #132738;           /* Tom de azul levemente mais claro */
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;                 /* Alinha o ícone e o texto na mesma linha */
+    gap: 1rem;                           /* Distância entre a bolinha verde e o texto */
+}
+
+/* Ícone de check dentro do círculo verde */
+.about-differential__item i {
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: #10b981;           /* Verde idêntico ao Figma para o ícone de sucesso */
+    color: #ffffff;
+    border-radius: 50%;                  /* Transforma a caixa num círculo perfeito */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;                      /* Impede o ícone de espremer em telas menores */
+}
+
+/* Texto de cada benefício */
+.about-differential__item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e1e5eb;
+}
+
 /* ------------------------------------------
    6. SESSÃO TECNOLOGIAS UTILIZADAS
    ------------------------------------------ */
-.about-technologies{
+.about-technologies {
     background-color: #0d1e2e;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 1.5rem;
@@ -335,15 +364,21 @@
 /* Lista em linha contendo o nome das tecnologias */
 .about-technologies__list {
     display: flex;
-    gap: 4rem;                    /* Espaço entre o nome */
+    flex-wrap: wrap;                     /* Permite que os itens dobrem de linha se não couberem */
+    gap: 1.5rem;                         /* Espaço entre o nome de cada tecnologia */
 }
 
 /* Cada tag/nome de tecnologia na lista */
 .about-technology-item {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #cbd5e1;
+    color: #cbd5e1;                      /* Tom acinzentado/azulado */
     transition: color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse por cima de uma tecnologia */
+.about-technology-item:hover {
+    color: #f96302;                      /* Realça com a cor laranja */
 }
 
 /* ------------------------------------------
@@ -369,10 +404,50 @@
 /* Grid contendo os 6 cards das categorias */
 .about-categories__cards {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);/* 6 colunas para exibir todos lado a lado */
+    grid-template-columns: repeat(6, 1fr); /* 6 colunas para exibir todos lado a lado */
     gap: 1.25rem;
 }
 
+/* Card individual da categoria */
+.about-category-card {
+    background-color: #0d1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.2rem;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efeito de destaque no card de categoria */
+.about-category-card:hover {
+    transform: translateY(-4px);
+    border-color: #f96302;
+}
+
+/* Bolinha com o ícone da categoria */
+.about-category-card__icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: #132738;
+    color: #f96302;                     
+    border-radius: 50%;                 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Nome da categoria (ex: "Bares e Pubs") */
+.about-category-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+}
 
 /* ------------------------------------------
    8. SESSÃO EQUIPE DO PROJETO
@@ -396,4 +471,58 @@
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 0.5rem;
+}
+
+/* Subtítulo "Pessoas por trás do Venuo" */
+.about-team__subtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* Grid com as caixas dos integrantes (4 por linha) */
+.about-team__members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+/* Caixinha individual com o nome do integrante */
+.about-team__member {
+    background-color: #132738;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    padding: 1.2rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e1e5eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Área separada para o Professor Orientador */
+.about-team__advisor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Linha divisória discreta */
+    padding-top: 2rem;
+}
+
+/* Rótulo "PROFESSOR ORIENTADOR" */
+.about-team__advisor-label {
+    color: #f96302;                  
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;           /* Deixa em letras maiúsculas */
+}
+
+/* Estilização diferenciada da caixa do professor */
+.about-team__advisor .about-team__member {
+    min-width: 18rem;                    /* Define uma largura mínima bonita para destacar */
+    border-color: rgba(249, 99, 2, 0.3); 
 }
