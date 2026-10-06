@@ -1,5 +1,6 @@
 ---
 name: Padrão de Issue
+about: Modelo de issue definido pelo professor
 ---
 
 ## Título da Issue
