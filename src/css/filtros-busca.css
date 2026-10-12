@@ -1,0 +1,18 @@
+/* ==========================================
+   ESTILIZAÇÃO DO MODAL DE FILTROS RÁPIDOS
+   ========================================== */
+
+/* Container Principal do Modal Flutuante */
+.filtros-modal-container {
+    background-color: #0b1929;                   /* Cor de fundo escuro padrão do painel */
+    border: 1px solid rgba(255, 255, 255, 0.1);  /* Borda sutil para dar contraste na tela */
+    border-radius: 1.5rem;                       /* Cantos bem arredondados */
+    padding: 1.75rem;                            
+    width: 100%;
+    max-width: 28rem;                            /* Garante largura fixa controlada em desktop */
+    color: #ffffff;                              /* Texto padrão em branco */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);  /* Sombra profunda para simular sobreposição */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;                                 /* Espaçamento vertical uniforme entre os grupos */
+}
