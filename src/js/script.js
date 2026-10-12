@@ -1,57 +1,12 @@
-// Função padrão para injetar HTML
-function carregarComponente(idContainer, caminhoArquivo, callback) {
-    const container = document.getElementById(idContainer);
-    
-    // Trava de segurança: se a div não existe na página atual, interrompe
-    if (!container) return;
-
-    fetch(caminhoArquivo)
-        .then(resposta => {
-            if (!resposta.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
-            return resposta.text();
-        })
-        .then(html => {
-            container.innerHTML = html;
-            if (callback) callback(); // Executa o código extra após o HTML estar na tela
-        })
-        .catch(erro => console.error(`[Venuo Modular] Erro:`, erro));
-}
-
-function navegarPara(idContainerDestino, caminhoArquivo) {
-    // pega todos os elementos com a classe 'view-container' no index.html
-    const todasAsTelas = document.querySelectorAll('.view-container');
-
-    // faz um loop e esconde todas as telas de uma vez só 
-    todasAsTelas.forEach(tela => {
-        tela.style.display = 'none';
-    })
-
-    // pega o container destino (a tela que o usuario quer ver) e revela
-    const containerDestino = document.getElementById(idContainerDestino);
-    if (containerDestino) {
-        containerDestino.style.display = 'block';
-    }
-
-    // faz o fetch do fragmento html e injeta na tela revelada
-    carregarComponente(idContainerDestino, caminhoArquivo);
-}
-
-// abre o modal de login flutuante sobre a tela atual
-function abrirModalLogin() {
+function abrirModalLogin() { // abre o modal de login flutuante sobre a tela atual
     const container = document.getElementById('login-container');
-
     if (container) {
-        // exibe o overlay aplicando flex para centralizar a caixa na tela
-        container.style.display = 'flex';
-
-        // carrega o conteudo do login de forma dinamica
-        carregarComponente('login-container', 'components/login/login.html');
+        container.style.display = 'flex'; // exibe o overlay aplicando flex para centralizar a caixa na tela
+        carregarComponente('login-container', 'components/login/login.html'); // carrega o conteudo do login de forma dinamica
     }
 }
-
 function fecharModalLogin() {
     const container = document.getElementById('login-container');
-
     if (container) {
         container.style.display = 'none' // esconde o modal
         container.innerHTML = ''; // limpa o html interno pra reiniciar limpo na próxima vez que for aberto
