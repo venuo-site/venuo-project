@@ -17,3 +17,83 @@
             <button id="btn-dist-10km" class="filtro-btn filtro-ativo">10km+</button>
         </div>
     </div>
+
+
+    <!-- GRUPO 2: SELEÇÃO DE FAIXA DE PREÇO -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Preço</span>
+        <div class="filtro-opcoes" id="grupo-preco">
+            <button id="btn-preco-1" class="filtro-btn">$</button>
+            <button id="btn-preco-2" class="filtro-btn">$$</button>
+            <button id="btn-preco-3" class="filtro-btn">$$$</button>
+            <!-- Item selecionado por padrão com cor de destaque -->
+            <button id="btn-preco-4" class="filtro-btn filtro-ativo">$$$$</button>
+        </div>
+    </div>
+
+
+    <!-- GRUPO 3: TOGGLE DE ESTABELECIMENTOS ABERTOS -->
+    <div class="filtro-grupo filtro-flex-row">
+        <span class="filtro-titulo">Aberto agora</span>
+        <!-- Componente de Switch interativo -->
+        <label class="switch">
+            <input type="checkbox" id="toggle-aberto">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+
+    <!-- GRUPO 4: AVALIAÇÃO MÍNIMA POR ESTRELAS -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Avaliação mínima</span>
+        <div class="filtro-estrelas" id="grupo-avaliacao">
+            <!-- Ícones do Font Awesome incorporados dentro de botões semânticos -->
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+        </div>
+    </div>
+
+
+    <!-- GRUPO 5: ESTILOS MUSICAIS -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Estilo Musical</span>
+        <div class="filtro-opcoes" id="grupo-estilo-musical">
+            <button class="filtro-btn">Samba</button>
+            <button class="filtro-btn">Sertanejo</button>
+            <button class="filtro-btn">Funk</button>
+            <button class="filtro-btn">Pagode</button>
+            
+            <!-- ícone de menos/mais para expandir opções -->
+            <button id="btn-toggle-mais-estilos" class="filtro-btn filtro-ativo-outline">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+            
+            <!-- Opções adicionais de estilos musicais -->
+            <button class="filtro-btn">MPB</button>
+            <button class="filtro-btn">Rock</button>
+            <button class="filtro-btn">Pop</button>
+            <button class="filtro-btn">Eletrônica</button>
+            <button class="filtro-btn">Jazz</button>
+            <button class="filtro-btn">Blues</button>
+            <button class="filtro-btn">Axé</button>
+            <button class="filtro-btn">Forró</button>
+            <button class="filtro-btn">Reggae</button>
+            <button class="filtro-btn">Hip-Hop</button>
+            <button class="filtro-btn">Bossa Nova</button>
+            <button class="filtro-btn">Gospel</button>
+        </div>
+    </div>
+    
+        <!-- RODAPÉ COM BOTÕES DE AÇÃO -->
+    <div class="filtro-footer">
+        <!-- Botão para limpar filtros -->
+        <button id="btn-limpar-filtros" class="btn-acao-secundario">Limpar filtros</button>
+        
+        <!-- Botão de confirmação de busca -->
+        <button id="btn-buscar-filtros" class="btn-acao-primario">Buscar</button>
+    </div>
+
+</div>
