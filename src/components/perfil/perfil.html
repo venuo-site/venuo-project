@@ -371,5 +371,161 @@
 
     </section>
 
+    <!-- ========================================
+         CONFIGURAÇÕES DO USUÁRIO
+         Informações pessoais, notificações e pagamentos.
+         ======================================== -->
+    <section class="profile-settings"
+             id="configuracoes-perfil"
+             aria-label="Configurações do perfil">
+
+        <!-- ========================================
+             INFORMAÇÕES PESSOAIS
+             ======================================== -->
+        <div class="profile-settings__personal">
+
+            <!-- Título da seção -->
+            <h2 class="profile-settings__title">
+                <i class="fa-regular fa-user" aria-hidden="true"></i>
+                Informações Pessoais
+            </h2>
+
+            <!-- Formulário de dados pessoais -->
+            <form class="profile-settings__form"
+                  id="form-informacoes-pessoais">
+
+                <!-- Campo: nome completo -->
+                <div class="profile-settings__field">
+                    <label for="perfil-nome">Nome Completo</label>
+                    <input
+                        type="text"
+                        id="perfil-nome"
+                        name="nome"
+                        value="João Silva"
+                    >
+                </div>
+
+                <!-- Campo: e-mail -->
+                <div class="profile-settings__field">
+                    <label for="perfil-email">Email</label>
+                    <input
+                        type="email"
+                        id="perfil-email"
+                        name="email"
+                        value="joao.silva@email.com"
+                    >
+                </div>
+
+                <!-- Campo: telefone -->
+                <div class="profile-settings__field">
+                    <label for="perfil-telefone">Telefone</label>
+                    <input
+                        type="tel"
+                        id="perfil-telefone"
+                        name="telefone"
+                        value="(11) 98765-4321"
+                    >
+                </div>
+
+                <!-- Botão para salvar as alterações -->
+                <button
+                    type="button"
+                    class="profile-settings__save"
+                    id="perfil-salvar-alteracoes">
+                    Salvar Alterações
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- ========================================
+             NOTIFICAÇÕES
+             Preferências de comunicação do usuário.
+             ======================================== -->
+        <div class="profile-settings__notifications">
+
+            <!-- Título da seção -->
+            <h2 class="profile-settings__title">
+                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                Notificações
+            </h2>
+
+            <!-- Preferência: ofertas e promoções -->
+            <label class="profile-settings__option"
+                   for="notificacao-ofertas">
+                <span>Ofertas e Promoções</span>
+                <input
+                    type="checkbox"
+                    id="notificacao-ofertas"
+                    name="notificacoes"
+                    value="ofertas"
+                    checked
+                >
+            </label>
+
+            <!-- Preferência: novos estabelecimentos -->
+            <label class="profile-settings__option"
+                   for="notificacao-estabelecimentos">
+                <span>Novos Estabelecimentos</span>
+                <input
+                    type="checkbox"
+                    id="notificacao-estabelecimentos"
+                    name="notificacoes"
+                    value="estabelecimentos"
+                    checked
+                >
+            </label>
+
+            <!-- Preferência: atualizações dos favoritos -->
+            <label class="profile-settings__option"
+                   for="notificacao-favoritos">
+                <span>Atualizações de Favoritos</span>
+                <input
+                    type="checkbox"
+                    id="notificacao-favoritos"
+                    name="notificacoes"
+                    value="favoritos"
+                    checked
+                >
+            </label>
+
+        </div>
+
+        <!-- ========================================
+             MÉTODOS DE PAGAMENTO
+             Apresenta o estado inicial sem cartões.
+             ======================================== -->
+        <div class="profile-settings__payments">
+
+            <!-- Título da seção -->
+            <h2 class="profile-settings__title">
+                <i class="fa-regular fa-credit-card" aria-hidden="true"></i>
+                Métodos de Pagamento
+            </h2>
+
+            <!-- Lista de cartões cadastrados.
+                 Inicialmente, não há cartões cadastrados. -->
+            <div class="profile-settings__payment-list"
+                 id="lista-metodos-pagamento">
+
+                <p class="profile-settings__empty-payment">
+                    Nenhum método de pagamento cadastrado
+                </p>
+
+            </div>
+
+            <!-- Botão para iniciar o cadastro de um cartão -->
+            <button
+                type="button"
+                class="profile-settings__add-card"
+                id="perfil-adicionar-cartao">
+                Adicionar Cartão
+            </button>
+
+        </div>
+
+    </section>
+
 </div>
 
