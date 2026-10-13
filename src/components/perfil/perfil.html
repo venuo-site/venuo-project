@@ -59,5 +59,196 @@
 
     </section>
 
+    <!-- ========================================
+         NAVEGAÇÃO DO PERFIL
+         Abas para favoritos, histórico e configurações.
+         ======================================== -->
+    <nav class="profile-navigation" aria-label="Navegação do perfil">
+
+        <!-- Aba de favoritos, selecionada inicialmente -->
+        <button
+            type="button"
+            class="profile-navigation__tab profile-navigation__tab--active"
+            id="perfil-aba-favoritos">
+
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            Favoritos
+        </button>
+
+        <!-- Aba de histórico -->
+        <button
+            type="button"
+            class="profile-navigation__tab"
+            id="perfil-aba-historico">
+
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            Histórico
+        </button>
+
+        <!-- Aba de configurações -->
+        <button
+            type="button"
+            class="profile-navigation__tab"
+            id="perfil-aba-configuracoes">
+
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            Configurações
+        </button>
+
+    </nav>
+
+    <!-- ========================================
+         LISTA DE ESTABELECIMENTOS FAVORITOS
+         Os dados abaixo são exemplos do protótipo.
+         ======================================== -->
+    <section class="profile-favorites" id="lista-favoritos"
+             aria-label="Estabelecimentos favoritos">
+
+        <!-- Card: Bar do João -->
+        <article class="profile-favorite-card">
+
+            <!-- Imagem do estabelecimento -->
+            <div class="profile-favorite-card__image-container">
+
+                <img
+                    src="src/img/bar-do-joao.png"
+                    alt="Interior do Bar do João"
+                    class="profile-favorite-card__image"
+                >
+
+                <!-- Botão para remover dos favoritos -->
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Bar do João dos favoritos"
+                    data-favorite-id="bar-do-joao">
+
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            <!-- Informações do estabelecimento -->
+            <div class="profile-favorite-card__content">
+
+                <h2 class="profile-favorite-card__title">
+                    Bar do João
+                </h2>
+
+                <div class="profile-favorite-card__details">
+
+                    <span class="profile-favorite-card__category">
+                        Bares
+                    </span>
+
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.8
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Card: Café Moinho -->
+        <article class="profile-favorite-card">
+
+            <!-- Imagem do estabelecimento -->
+            <div class="profile-favorite-card__image-container">
+
+                <img
+                    src="src/img/cafe-moinho.png"
+                    alt="Café Moinho"
+                    class="profile-favorite-card__image"
+                >
+
+                <!-- Botão para remover dos favoritos -->
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Café Moinho dos favoritos"
+                    data-favorite-id="cafe-moinho">
+
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            <!-- Informações do estabelecimento -->
+            <div class="profile-favorite-card__content">
+
+                <h2 class="profile-favorite-card__title">
+                    Café Moinho
+                </h2>
+
+                <div class="profile-favorite-card__details">
+
+                    <span class="profile-favorite-card__category">
+                        Lazer
+                    </span>
+
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.9
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Card: Pizzaria Bella Napoli -->
+        <article class="profile-favorite-card">
+
+            <!-- Imagem do estabelecimento -->
+            <div class="profile-favorite-card__image-container">
+
+                <img
+                    src="src/img/pizzaria-bella-napoli.png"
+                    alt="Pizza da Pizzaria Bella Napoli"
+                    class="profile-favorite-card__image"
+                >
+
+                <!-- Botão para remover dos favoritos -->
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Pizzaria Bella Napoli dos favoritos"
+                    data-favorite-id="pizzaria-bella-napoli">
+
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            <!-- Informações do estabelecimento -->
+            <div class="profile-favorite-card__content">
+
+                <h2 class="profile-favorite-card__title">
+                    Pizzaria Bella Napoli
+                </h2>
+
+                <div class="profile-favorite-card__details">
+
+                    <span class="profile-favorite-card__category">
+                        Restaurantes
+                    </span>
+
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.5
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
 </div>
 
