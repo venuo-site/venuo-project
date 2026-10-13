@@ -58,19 +58,26 @@ function fecharModalLogin() {
     }
 }
 
+
 // --- FUNÇÕES DO MODAL DE FILTROS ---
 
-// Função chamada diretamente pelo onclick do botão "+" no Hero (.add-btn)
+// Função para alternar a abertura e fechamento do modal de filtros pelo botão "+"
 function abrirModalFiltros() {
     const container = document.getElementById('filtros-container');
 
-if (container) {
-        // Exibe o container em bloco para respeitar o posicionamento CSS abaixo da barra
-        container.style.display = 'flex'; 
+    if (container) {
+        // Se o modal já estiver visível, nós o fechamos e limpamos
+        if (container.style.display === 'block' || container.style.display === 'flex') {
+            container.style.display = 'none';
+            container.innerHTML = '';
+        } else {
+            // Caso contrário, abrimos e carregamos o conteúdo
+            container.style.display = 'block'; 
 
-        carregarComponente('filtros-container', 'components/filtros/filtros-busca.html', () => {
-            inicializarLogicaFiltros();
-        });
+            carregarComponente('filtros-container', 'components/filtros/filtros-busca.html', () => {
+                inicializarLogicaFiltros();
+            });
+        }
     }
 }
 
@@ -85,19 +92,18 @@ function fecharModalFiltros() {
 
 // Lógica de interação interna dos elementos do Modal de Filtros
 function inicializarLogicaFiltros() {
-    // 1. Botão "+" de estilos musicais dentro do modal (para expandir/recolher as opções extras)
     const btnToggleMais = document.getElementById('btn-toggle-mais-estilos');
     const iconeToggle = document.getElementById('icone-toggle-estilos');
-    const estilosExtras = document.querySelectorAll('.estilo-extra');
-
+    
     if (btnToggleMais) {
         btnToggleMais.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Mostra ou esconde cada item extra de estilo musical
-            estilosExtras.forEach(item => item.classList.toggle('oculto'));
+            // Alterna a exibição dos itens extras de forma limpa
+            const itensExtras = document.querySelectorAll('.extra');
+            itensExtras.forEach(item => item.classList.toggle('oculto'));
             
-            // Troca o ícone do Font Awesome entre mais (+) e menos (-)
+            // Troca o ícone do Font Awesome
             if (iconeToggle) {
                 iconeToggle.classList.toggle('fa-plus');
                 iconeToggle.classList.toggle('fa-minus');
@@ -105,27 +111,24 @@ function inicializarLogicaFiltros() {
         });
     }
 
-    // 2. Seleção e deseleção dos botões de filtro (Distância, Preço, Estilos)
+    // Seleção dos botões de filtro gerais
     const botoesFiltro = document.querySelectorAll('.filtro-opcoes .filtro-btn');
     botoesFiltro.forEach(botao => {
         botao.addEventListener('click', (e) => {
             e.preventDefault();
             if (botao.id === 'btn-toggle-mais-estilos') return;
 
-            // Alterna a classe visual de ativo/inativo (mudando a cor para laranja)
             botao.classList.toggle('filtro-ativo');
-            botao.classList.toggle('filtro-inativo');
         });
     });
 
-    // 3. Botão de limpar todas as seleções no rodapé do modal
+    // Botão de limpar seleções
     const btnLimpar = document.getElementById('btn-limpar-filtros');
     if (btnLimpar) {
         btnLimpar.addEventListener('click', (e) => {
             e.preventDefault();
             botoesFiltro.forEach(botao => {
                 botao.classList.remove('filtro-ativo');
-                botao.classList.add('filtro-inativo');
             });
         });
     }

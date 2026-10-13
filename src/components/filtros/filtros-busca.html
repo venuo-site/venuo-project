@@ -13,8 +13,7 @@
             <button id="btn-dist-1km" class="filtro-btn">1km</button>
             <button id="btn-dist-3km" class="filtro-btn">3km</button>
             <button id="btn-dist-5km" class="filtro-btn">5km</button>
-            <!-- Classe 'filtro-ativo' aplica a cor de destaque laranja da marca -->
-            <button id="btn-dist-10km" class="filtro-btn filtro-ativo">10km+</button>
+            <button id="btn-dist-10km" class="filtro-btn">10km+</button>
         </div>
     </div>
 
@@ -26,8 +25,7 @@
             <button id="btn-preco-1" class="filtro-btn">$</button>
             <button id="btn-preco-2" class="filtro-btn">$$</button>
             <button id="btn-preco-3" class="filtro-btn">$$$</button>
-            <!-- Item selecionado por padrão com cor de destaque -->
-            <button id="btn-preco-4" class="filtro-btn filtro-ativo">$$$$</button>
+            <button id="btn-preco-4" class="filtro-btn">$$$$</button>
         </div>
     </div>
 
@@ -58,34 +56,30 @@
 
 
     <!-- GRUPO 5: ESTILOS MUSICAIS -->
-    <div class="filtro-grupo">
-        <span class="filtro-titulo">Estilo Musical</span>
-        <div class="filtro-opcoes" id="grupo-estilo-musical">
-            <button class="filtro-btn">Samba</button>
-            <button class="filtro-btn">Sertanejo</button>
-            <button class="filtro-btn">Funk</button>
-            <button class="filtro-btn">Pagode</button>
-            
-            <!-- ícone de menos/mais para expandir opções -->
-            <button id="btn-toggle-mais-estilos" class="filtro-btn filtro-ativo-outline">
-                <i class="fa-solid fa-minus"></i>
-            </button>
-            
-            <!-- Opções adicionais de estilos musicais -->
-            <button class="filtro-btn">MPB</button>
-            <button class="filtro-btn">Rock</button>
-            <button class="filtro-btn">Pop</button>
-            <button class="filtro-btn">Eletrônica</button>
-            <button class="filtro-btn">Jazz</button>
-            <button class="filtro-btn">Blues</button>
-            <button class="filtro-btn">Axé</button>
-            <button class="filtro-btn">Forró</button>
-            <button class="filtro-btn">Reggae</button>
-            <button class="filtro-btn">Hip-Hop</button>
-            <button class="filtro-btn">Bossa Nova</button>
-            <button class="filtro-btn">Gospel</button>
-        </div>
+<div class="filtro-grupo">
+    <span class="filtro-titulo">Estilo Musical</span>
+    <div class="filtro-opcoes" id="grupo-estilo-musical">
+        <button class="filtro-btn">Samba</button>
+        <button class="filtro-btn">Sertanejo</button>
+        <button class="filtro-btn">Funk</button>
+        <button class="filtro-btn">Pagode</button>
+        
+        <!-- Botão para expandir / recolher -->
+        <button id="btn-toggle-mais-estilos" class="filtro-btn">
+            <i id="icone-toggle-estilos" class="fa-solid fa-plus"></i>
+        </button>
+
+        <!-- Opções extras com classes bem curtas -->
+        <button class="filtro-btn extra oculto">MPB</button>
+        <button class="filtro-btn extra oculto">Rock</button>
+        <button class="filtro-btn extra oculto">Pop</button>
+        <button class="filtro-btn extra oculto">Eletrônica</button>
+        <button class="filtro-btn extra oculto">Jazz</button>
+        <button class="filtro-btn extra oculto">Blues</button>
+        <button class="filtro-btn extra oculto">Axé</button>
+        <button class="filtro-btn extra oculto">Forró</button>
     </div>
+</div>
     
         <!-- RODAPÉ COM BOTÕES DE AÇÃO -->
     <div class="filtro-footer">

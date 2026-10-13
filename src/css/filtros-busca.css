@@ -4,32 +4,194 @@
     position: relative; 
 }
 
-/* Posiciona o container do modal logo abaixo da barra de pesquisa, alinhado à esquerda */
+/* Posiciona o container do modal logo abaixo da barra de pesquisa */
 #filtros-container {
     position: absolute;
-    top: calc(100% + 0.75rem); /* Fica logo abaixo da barra com uma pequena distância */
+    top: calc(100% + 0.5rem);
     left: 0;
     z-index: 1000;
-    width: 320px; /* Largura controlada para o modal de filtros */
+    width: 320px;
+    text-align: left;
 }
 
-/* Modal propriamente dito */
+/* ----------------------------------------------------------
+   1. CLASSE UTILITÁRIA DE OCULTAÇÃO
+   ---------------------------------------------------------- */
+/* Garante que os elementos extras de estilos musicais fiquem invisíveis 
+   até que o usuário clique no botão de expandir (+) */
+.oculto {
+    display: none !important;
+}
+
+/* ----------------------------------------------------------
+   2. CONTAINER PRINCIPAL DO MODAL
+   ---------------------------------------------------------- */
 .filtros-modal-container {
-    background-color: #0b1929;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.25rem;
-    padding: 1.25rem;
-    width: 300px;               /* Largura compacta similar à foto de referência */
-    color: #ffffff;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
+    background-color: #16202c;                   /* Tom de azul escuro*/
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 1.25rem;                      /* Cantos bem arredondados */
+    padding: 1.5rem;                             
+    width: 320px;                                
+    color: #ffffff;                             
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.6);/* Sombra profunda para destacar a sobreposição */
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.25rem;                                /* Espaçamento vertical uniforme entre cada grupo de filtro */
+    font-family: inherit;
 }
 
-/* Estrutura individual de cada grupo de filtros */
+/* ----------------------------------------------------------
+   3. ESTRUTURA DOS GRUPOS DE FILTROS
+   ---------------------------------------------------------- */
 .filtro-grupo {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
+}
+
+/* Alinhar horizontalmente (ex: título à esquerda e switch à direita) */
+.filtro-flex-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Títulos descritivos de cada seção (Distância, Preço, etc.) */
+.filtro-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Container flexível que organiza os botões em linha */
+.filtro-opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* ----------------------------------------------------------
+   4. ESTILOS DOS BOTÕES DE SELEÇÃO (CHIPS EM PÍLULA)
+   ---------------------------------------------------------- */
+.filtro-btn {
+    padding: 0.45rem 1rem;
+    border-radius: 2rem; /* Formato de pílula */
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Estado Ativo (Quando o usuário clica e seleciona o filtro) */
+.filtro-btn.filtro-ativo {
+    background-color: #f96302;
+    border-color: #f96302;
+    color: #ffffff;
+}
+
+/* Ajuste específico para o botão que contém o ícone (+/-) */
+.filtro-btn-icon {
+    padding: 0.45rem 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ----------------------------------------------------------
+   5. AVALIAÇÃO MÍNIMA POR ESTRELAS
+   ---------------------------------------------------------- */
+.filtro-estrelas {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ----------------------------------------------------------
+   6. Aberto agora
+   ---------------------------------------------------------- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+/* Esconde o checkbox padrão do HTML */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Trilha de fundo do switch */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #334155;                   /* Cor de fundo quando desativado */
+    transition: .3s;
+    border-radius: 24px;
+}
+
+/* Bolinha deslizante interna do switch */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+/* Altera a cor de fundo para laranja quando o switch é ativado */
+input:checked + .slider {
+    background-color: #f96302;
+}
+
+/* Desloca a bolinha para a direita quando ativado */
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* ----------------------------------------------------------
+   7. RODAPÉ (Limpar e Buscar)
+   ---------------------------------------------------------- */
+
+/* Container que organiza os botões do rodapé lado a lado nas pontas */
+.filtro-footer {
+    display: flex;
+    justify-content: space-between; /* Empurra cada um para uma ponta (esquerda e direita) */
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil acima dos botões */
+}
+
+/* Botão "Limpar filtros" */
+.btn-acao-secundario {
+    background-color: transparent;
+    border: none;
+    color: #94a3b8; /* Cor cinza clara / esmaecida */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0.2rem;
+    transition: color 0.2s ease;
+}
+
+/* Botão "Buscar" (fundo laranja da marca) */
+.btn-acao-primario {
+    background-color: #f96302 !important; /* Laranja Venuo */
+    border: 1px solid #f96302 !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem; /* Formato de pílula arredondada */
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-acao-primario:hover {
+    opacity: 0.9; /* Efeito leve de transparência ao passar o mouse */
 }
