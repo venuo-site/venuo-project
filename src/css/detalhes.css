@@ -426,3 +426,26 @@ Tela de Detalhes do Estabelecimento - Mobile-First
         flex: 1;
     }
 }
+
+.botton-opcao-disponivel{
+    padding: 1rem;
+}
+
+.botton-opcao {
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    flex-wrap: wrap;         /* se não couber, quebra para a linha de baixo */
+    gap: 8px;                /* espaço entre os botões (substitui o margin) */
+    padding: 3rem;
+}
+
+.button-opcao {
+    background: transparent;
+    border-top: 1px solid;
+    color: #ddd;
+    border-radius: 1em;
+    padding: 2rem 0.5rem;
+    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
+    font-size: 1.1rem;
+    margin: auto;
+}
