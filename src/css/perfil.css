@@ -259,3 +259,251 @@
         font-size: 22px;
     }
 }
+
+/* ========================================
+   NAVEGAÇÃO DO PERFIL
+   ======================================== */
+
+/* Abas para navegar pelas seções do perfil */
+.profile-navigation {
+    display: flex;
+    gap: 12px;
+    padding: 0 5%;
+    border-bottom: 1px solid #263e54;
+    overflow-x: auto;
+}
+
+/* Botões das abas */
+.profile-navigation__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 14px 20px;
+    color: #d6e1eb;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Aba selecionada */
+.profile-navigation__tab--active {
+    color: #ff7138;
+    border-bottom-color: #ff7138;
+}
+
+/* ========================================
+   LISTA DE FAVORITOS
+   ======================================== */
+
+/* Grade de cartões dos estabelecimentos favoritos */
+.profile-favorites {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding: 32px 5%;
+}
+
+/* Cartão individual */
+.profile-favorite-card {
+    overflow: hidden;
+    background: #142638;
+    border: 1px solid #263e54;
+    border-radius: 16px;
+}
+
+/* Área da imagem e do botão de remover */
+.profile-favorite-card__image-container {
+    position: relative;
+}
+
+/* Imagem do estabelecimento */
+.profile-favorite-card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+/* Botão para remover dos favoritos */
+.profile-favorite-card__remove {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    background: #263e54;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Conteúdo do cartão */
+.profile-favorite-card__content {
+    padding: 18px;
+}
+
+/* Nome do estabelecimento */
+.profile-favorite-card__title {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/* Categoria e avaliação */
+.profile-favorite-card__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Categoria */
+.profile-favorite-card__category {
+    color: #d6e1eb;
+    font-size: 14px;
+}
+
+/* Nota do estabelecimento */
+.profile-favorite-card__rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.profile-favorite-card__rating i {
+    color: #ffb547;
+}
+
+/* ========================================
+   RESPONSIVIDADE DOS FAVORITOS
+   ======================================== */
+
+@media (max-width: 900px) {
+    .profile-favorites {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-navigation {
+        gap: 4px;
+        padding: 0 4%;
+    }
+
+    .profile-navigation__tab {
+        gap: 6px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .profile-favorites {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px 5%;
+    }
+
+    .profile-favorite-card__content {
+        padding: 16px;
+    }
+}
+
+/* ========================================
+   HISTÓRICO DO USUÁRIO
+   ======================================== */
+
+/* Lista de locais visitados */
+.profile-history {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 5%;
+}
+
+/* Item individual do histórico */
+.profile-history__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: #142638;
+    border: 1px solid #263e54;
+    border-radius: 12px;
+}
+
+/* Ícone do local visitado */
+.profile-history__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: #ff7138;
+    background: #263e54;
+    border-radius: 50%;
+}
+
+/* Informações do histórico */
+.profile-history__info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Nome do estabelecimento */
+.profile-history__title {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Data e horário da visita */
+.profile-history__date {
+    margin: 0;
+    color: #d6e1eb;
+    font-size: 14px;
+}
+
+/* Avaliação do estabelecimento */
+.profile-history__rating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    color: #ffb547;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+    .profile-history {
+        gap: 12px;
+        padding: 24px 5%;
+    }
+
+    .profile-history__item {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .profile-history__icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-history__title {
+        font-size: 15px;
+    }
+
+    .profile-history__date {
+        font-size: 12px;
+    }
+}
