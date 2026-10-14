@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componen
 
   // --- SOBRE ---
   carregarComponente('about-container', 'components/about/about.html');
-  
- // --- PERFI
+
+ // --- PERFIL
   carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
 
 });
