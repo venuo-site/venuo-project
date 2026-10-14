@@ -70,3 +70,63 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+/* ========================================
+    NOTIFICAÇÕES
+   ======================================== */
+
+.profile-settings__notifications {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-settings__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.profile-settings__option input {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff7138;
+    cursor: pointer;
+}
+
+
+/* ========================================
+    MÉTODOS DE PAGAMENTO
+   ======================================== */
+
+.profile-settings__payments {
+    grid-column: 2;
+}
+
+.profile-settings__payment-list {
+    margin-bottom: 20px;
+}
+
+.profile-settings__empty-payment {
+    margin: 0 0 20px;
+    color: #d6e1eb;
+}
+
+/* Botão para adicionar um cartão */
+.profile-settings__add-card {
+    width: 100%;
+    padding: 14px 20px;
+    color: #ffffff;
+    background: #263e54;
+    border: 1px solid #35536e;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.profile-settings__add-card:hover {
+    background: #34516b;
+}
