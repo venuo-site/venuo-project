@@ -79,3 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+// Alterna o tema ao clicar no botão
+function alternarTema() {
+    const temaClaro = document.body.classList.toggle("tema-claro");
+
+    // Salva a preferência do usuário
+    localStorage.setItem("tema", temaClaro ? "claro" : "escuro");
+}
+
+// Recupera a preferência salva
+document.addEventListener("DOMContentLoaded", function () {
+    const temaSalvo = localStorage.getItem("tema");
+    document.body.classList.toggle("tema-claro", temaSalvo === "claro");
+}); 
