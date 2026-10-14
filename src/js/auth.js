@@ -1,3 +1,5 @@
+import { carregarComponente, navegarPara } from './navegacao.js';
+
 export function abrirModalLogin() { // abre o modal de login flutuante sobre a tela atual
     const container = document.getElementById('login-container');
     if (container) {

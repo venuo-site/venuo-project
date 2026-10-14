@@ -1,5 +1,13 @@
-// Mapeamento dos componentes
-document.addEventListener('DOMContentLoaded', () => {
+// importa as funções dos modulos
+import { carregarComponente, navegarPara } from './navegacao.js';
+import { abrirModalLogin, fecharModalLogin } from './auth.js';
+
+// torna as funções globais para o html enxergar os onclicks
+window.navegarPara = navegarPara;
+window.abrirModalLogin = abrirModalLogin;
+window.fecharModalLogin = fecharModalLogin;
+
+document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componentes
 // carregarComponente('id-do-container', 'caminho/do/container.html')
 
   // --- GLOBAIS (Executados em todas as telas que contêm as divs) ---
@@ -16,6 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- SOBRE ---
   carregarComponente('about-container', 'components/about/about.html');
-
-
 });
