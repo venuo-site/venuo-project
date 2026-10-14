@@ -5,20 +5,20 @@
 <!-- Galeria / Banner do Estabelecimento -->
 <div class="detalhe-media-container">
     <img id="detalhe-foto" src="" alt="Imagem do Estabelecimento" class="detalhe-foto-principal">
-    <span id="detalhe-status" class="detalhe-status-badge">--</span>
+    <span id="detalhe-status" class="detalhe-status-badge">Aberto</span>
 </div>
 
 <!-- Cabeçalho de Informações Principais -->
 <header class="detalhe-header">
     <div class="detalhe-titulo-categoria">
-        <span id="detalhe-categoria" class="detalhe-categoria-tag">--</span>
+        <button id="detalhe-categoria" class="detalhe-categoria-tag" onclick="navegarPara('categories-container', 'components/homepage/categories.html')">bares</button>
         <span id="detalhe-avaliacao" class="detalhe-avaliacao-tag">
             <i class="fa-solid fa-star"></i> <span id="detalhe-nota">0.0</span>
         </span>
     </div>
-    <h1 id="detalhe-nome" class="detalhe-nome"></h1>
+    <h1 id="detalhe-nome" class="detalhe-nome">Bar exemplo 1</h1>
     <p id="detalhe-endereco" class="detalhe-endereco">
-        <i class="fa-solid fa-location-dot"></i> <span id="detalhe-endereco-texto"></span>
+        <i class="fa-solid fa-location-dot"></i> <span id="detalhe-endereco-texto">Rua tal, numero tal. setor tal</span>
     </p>
 </header>
 
@@ -36,8 +36,8 @@
 <section id="detalhe-cupom-info" class="detalhe-cupom-card">
     <i class="fa-solid fa-tag"></i>
     <div>
-        <h3 id="detalhe-cupom-titulo">--</h3>
-        <p id="detalhe-cupom-regras">--</p>
+        <h3 id="detalhe-cupom-titulo">10%</h3>
+        <p id="detalhe-cupom-regras">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quidem impedit aperiam accusamus eum reprehenderit fuga esse. Officia quasi labore sunt beatae ut doloribus facilis nesciunt? Vero ea modi accusantium?</p>
     </div>
 </section>
 
@@ -45,19 +45,19 @@
 <section class="detalhe-conteudo">
     <div class="detalhe-bloco">
         <h2>Sobre o Local</h2>
-        <p id="detalhe-descricao" class="detalhe-descricao"></p>
+        <p id="detalhe-descricao" class="detalhe-descricao">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt neque blanditiis rerum quae dignissimos nihil, architecto omnis perspiciatis pariatur. Aperiam possimus perferendis, ipsa debitis reiciendis autem voluptatem non rerum sit.</p>
     </div>
 
     <div class="detalhe-bloco">
         <h2><i class="fa-regular fa-clock"></i> Horário de Funcionamento</h2>
-        <p id="detalhe-horario" class="detalhe-horario"></p>
+        <p id="detalhe-horario" class="detalhe-horario"> 14:00 as 00:00 horas</p>
     </div>
 
     <div class="detalhe-bloco">
-        <h2><i class="fa-solid fa-phone"></i> Contato e Redes</h2>
+        <h2><i class="fa-solid fa-phone"></i> Contato</h2>
         <div class="detalhe-contatos">
-            <span id="detalhe-telefone"></span>
-            <span id="detalhe-redes"></span>
+            <span id="detalhe-telefone">(62) 98574-5625</span>
+            
         </div>
     </div>
 </section>
