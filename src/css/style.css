@@ -41,3 +41,16 @@ body {
 #um-lugar {
     font-size: 3rem;
 }
+
+/* TEMA CLARO: altera as variáveis visuais quando essa classe está no body */
+body.tema-claro {
+    /* Define a cor de fundo do tema claro */
+    --bg-color: #f5f7fa;
+
+    /* Remove o gradiente escuro do fundo */
+    --bg-gradient: none;
+
+    /* Define uma cor escura para facilitar a leitura dos textos no fundo claro */
+    --text-white: #1f2937;
+
+}
