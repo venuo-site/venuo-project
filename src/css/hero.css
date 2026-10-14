@@ -108,3 +108,6 @@ acho interessante explicar pq eu uso a medida 'rem':
     gap: 0.5rem;
     transition: all 0.2s;
 }
+
+
+.btn-sobre { color: var(--brand-orange); }

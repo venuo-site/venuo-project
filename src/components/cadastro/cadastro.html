@@ -1,0 +1,97 @@
+<div class="auth-card">
+  <!-- Botão Fechar Modal -->
+  <button 
+    type="button" 
+    class="btn-close-modal" 
+    aria-label="Fechar" 
+    onclick="document.getElementById('cadastro-container').style.display = 'none';
+     ['hero-container', 'highlights-container', 'categories-container'].forEach(id => {
+       const el = document.getElementById(id);
+       if (el) el.style.display = 'block';
+     });
+   ">
+   X
+  </button>
+
+  <!-- Cabeçalho -->
+  <header class="auth-header">
+    <h2 class="auth-title">Crie sua conta</h2>
+    <p class="auth-subtitle">Descubra os melhores locais e experiências em Goiânia</p>
+  </header>
+
+  <!-- Formulário Principal -->
+  <form class="auth-form" id="form-cadastro-b2c" onsubmit="event.preventDefault();">
+    
+    <!-- Nome Completo -->
+    <div class="form-field">
+      <label for="input-nome-cadastro" class="form-label">Nome completo</label>
+      <input 
+        type="text" 
+        id="input-nome-cadastro" 
+        name="nome" 
+        class="form-control" 
+        placeholder="Digite seu nome" 
+        required 
+        autocomplete="name"
+      >
+    </div>
+
+    <!-- Campo E-mail ou Celular -->
+    <div class="form-field">
+      <label for="input-contato-cadastro" class="form-label">E-mail ou Celular</label>
+      <input 
+        type="text" 
+        id="input-contato-cadastro" 
+        name="contato" 
+        class="form-control" 
+        placeholder="seuemail@exemplo.com ou (62) 99999-9999" 
+        required 
+        autocomplete="username"
+      >
+    </div>
+
+    <!-- Senha -->
+    <div class="form-field">
+      <label for="input-senha-cadastro" class="form-label">Senha</label>
+      <input 
+        type="password" 
+        id="input-senha-cadastro" 
+        name="senha" 
+        class="form-control" 
+        placeholder="Mínimo de 6 caracteres exigido" 
+        minlength="6"
+        required 
+        autocomplete="new-password"
+      >
+    </div>
+
+    <!-- Botão de Cadastro -->
+    <button type="button" class="btn-primary" id="btn-submit-cadastro">
+      Cadastrar
+    </button>
+  </form>
+
+  <!-- Divisor "Ou" -->
+  <div class="auth-divider">
+    <span>Ou</span>
+  </div>
+
+  <!-- Botão Google (Branco, igual ao Login) -->
+  <div class="auth-social-wrapper">
+    <button type="button" class="btn-google" id="btn-google-cadastro">
+      <span>Continuar com Google</span>
+    </button>
+  </div>
+
+  <!-- Alternância para Login -->
+  <footer class="auth-footer">
+    <span class="auth-footer-text">Já tem uma conta?</span>
+    <button 
+      type="button" 
+      class="btn-link" 
+      id="btn-ir-login" 
+      onclick="navegarPara('login-container', 'components/login/login.html')">
+      Entrar
+    </button>
+  </footer>
+</div>

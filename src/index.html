@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/hero.css"> <!-- Estilo do Hero -->
     <link rel="stylesheet" href="css/highlights.css"> <!-- Estilo dos Destaques -->
     <link rel="stylesheet" href="css/categories.css"> <!-- Estilo Seção de Categorias -->
+    <link rel="stylesheet" href="css/footer.css"> <!-- Estilo do Footer -->
+    <link rel="stylesheet" href="css/auth.css"> <!-- Estilo do Modal de Login -->
+    <link rel="stylesheet" href="css/cadastro.css"> <!-- Adicione aqui -->
+    <link rel="stylesheet" href="css/sobre.css"> <!-- Estilo da pagina Sobre o Projeto -->
 
     <!-- Biblioteca dos Icones (temporario) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,7 +21,9 @@
 <body class="dark-theme"> <!-- Classe para facilitar criação um tema claro no futuro -->
 
     <div id="header-container"></div> <!-- Seção do Header -->
-    
+    <div id="login-container" class="view-container" style="display: none;"></div> <!-- Modal de Login -->
+    <div id="cadastro-container" class="view-container" style="display: none;"></div> <!-- Adicione aqui -->
+
     <main> <!-- Conteudo Principal -->
         <div id="hero-container" class="view-container"></div> <!-- Seção Hero -->
 
@@ -26,15 +32,15 @@
         <div id="categories-container" class="view-container"></div> <!-- Seção de Categorias -->
         
         <div id="results-container" class="view-container" style="display: none;"></div> <!-- Seção de Resultados -->
-        <button onclick="navegarPara('results-container', 'components/results/results.html')">
-            Buscar Bares Próximos
+        
+        <div id="about-container" class="view-container" style="display: none;"></div> <!-- Seção Sobre o Projeto -->
+        <button onclick="navegarPara('about-container', 'components/about/about.html')">
+            Ver Sobre o Projeto
         </button>
         
-        <div id="login-container" class="view-container" style="display: none;"></div> <!-- Seção de Login -->
-
-        <div id="about-container" class="view-container" style="display: none;"></div> <!-- Seção Sobre o Projeto -->
-
     </main>
+
+    <div id="footer-container"></div>
 
     <script src="js/script.js"></script> <!-- Script de Carregamento -->
 </body>
