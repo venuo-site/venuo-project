@@ -2,10 +2,35 @@
         <i class="fa-solid fa-arrow-left"></i> Voltar
 </button>
 
-<!-- Galeria / Banner do Estabelecimento -->
-<div class="detalhe-media-container">
-    <img id="detalhe-foto" src="" alt="Imagem do Estabelecimento" class="detalhe-foto-principal">
+<div class="detalhe-media-container galeria-3" id="detalhe-galeria">
     <span id="detalhe-status" class="detalhe-status-badge">Aberto</span>
+
+    <div class="galeria-destaque" onclick="expandirFoto(this)">
+        <img id="detalhe-foto-1" src="https://picsum.photos/id/10/800/600" alt="Foto Destaque">
+    </div>
+
+    <div class="galeria-grid-lateral">
+        <div class="galeria-item" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-2" src="https://picsum.photos/id/20/400/300" alt="Foto 2">
+        </div>
+        <div class="galeria-item" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-3" src="https://picsum.photos/id/30/400/300" alt="Foto 3">
+        </div>
+        <div class="galeria-item item-mais-fotos" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-4" src="https://picsum.photos/id/40/400/300" alt="Foto 4">
+            <div id="galeria-overlay-mais" class="galeria-overlay">
+                <span id="galeria-contador-mais">+3</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal / Lightbox de Ampliação da Foto (80% da tela) -->
+<div id="modal-foto-zoom" class="modal-zoom" onclick="fecharModalFoto(event)">
+    <div class="modal-zoom-conteudo" onclick="event.stopPropagation()">
+        <button type="button" class="btn-fechar-zoom" onclick="fecharModalFoto()" aria-label="Fechar">&times;</button>
+        <img id="foto-ampliada-img" src="" alt="Foto Ampliada">
+    </div>
 </div>
 
 <!-- Cabeçalho de Informações Principais -->

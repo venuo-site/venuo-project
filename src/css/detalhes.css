@@ -38,23 +38,204 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 .detalhe-media-container {
     position: relative;
     width: 100%;
-    height: 220px;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 coluna */
+    gap: 8px;
+    height: 280px;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #222;
-    cursor: pointer;
+    background-color: #1e1e1e;
 }
 
-.detalhe-foto-principal {
+/* Badge de Status mantido por cima */
+.detalhe-status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2; /* CORRIGIDO: garante que fique acima das fotos */
+    background-color: #00b894; /* Verde "Aberto" */
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Foto Destaque (Esquerda) */
+.galeria-destaque {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.galeria-destaque img,
+.galeria-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
 }
 
+.galeria-destaque:hover img,
+.galeria-item:hover img {
+    transform: scale(1.03);
+}
 
-#detalhe-categoria{
-    background-color: #ff6b35; /* laranja "Aberto" */
+/* Grid Lateral oculto em telas pequenas */
+.galeria-grid-lateral {
+    display: none;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    height: 100%;
+    min-height: 0; /* CORRIGIDO: movido para cá (evita estourar a altura) */
+}
+
+.galeria-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Overlay com o Sinal de + (escondido por padrão) */
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none; /* CORRIGIDO: antes era flex; agora só aparece com .galeria-mais */
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+}
+
+/* Breakpoint para Telas Médias e Desktops */
+@media (min-width: 600px) {
+    .detalhe-media-container {
+        grid-template-columns: 2fr 1fr; /* Foto maior na esquerda, grid na direita */
+        height: 380px;
+    }
+
+    .galeria-grid-lateral {
+        display: grid; /* Exibe os quadros à direita */
+    }
+}
+
+/* ==========================================================================
+   Layout da galeria conforme a quantidade de fotos
+   (troque a classe no .detalhe-media-container)
+   ========================================================================== */
+
+/* 1 foto: só a destaque, ocupando tudo */
+.detalhe-media-container.galeria-1 {
+    grid-template-columns: 1fr;
+}
+.detalhe-media-container.galeria-1 .galeria-grid-lateral {
+    display: none;
+}
+
+/* 2 fotos: destaque + 1 foto na altura toda */
+.detalhe-media-container.galeria-2 .galeria-grid-lateral {
+    grid-template-rows: 1fr;
+}
+.detalhe-media-container.galeria-2 .galeria-item:nth-child(n+2) {
+    display: none;
+}
+
+/* 3 fotos: destaque + 2 empilhadas */
+.detalhe-media-container.galeria-3 .galeria-grid-lateral {
+    grid-template-rows: repeat(2, 1fr);
+}
+.detalhe-media-container.galeria-3 .galeria-item:nth-child(n+3) {
+    display: none;
+}
+
+/* 4 fotos: destaque + 3 empilhadas */
+.detalhe-media-container.galeria-4 .galeria-grid-lateral {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+/* Mais de 4 fotos: igual a 4, mas com o "+N" na última */
+.detalhe-media-container.galeria-mais .galeria-grid-lateral {
+    grid-template-rows: repeat(3, 1fr);
+}
+.detalhe-media-container.galeria-mais .galeria-overlay {
+    display: flex;
+}
+
+/* ==========================================================================
+   Modal / Lightbox de Ampliação (80% da tela)
+   ========================================================================== */
+
+.modal-zoom {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-zoom.ativo {
+    display: flex;
+}
+
+.modal-zoom-conteudo {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-zoom-conteudo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.btn-fechar-zoom {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.btn-fechar-zoom:hover {
+    color: var(--primary-color, #e50914);
+}
+
+/* ==========================================================================
+   Cabeçalho do Estabelecimento
+   ========================================================================== */
+
+#detalhe-categoria {
+    background-color: #ff6b35; /* laranja */
     backdrop-filter: blur(4px);
     color: #ffffff;
     padding: 4px 10px;
@@ -66,21 +247,6 @@ Tela de Detalhes do Estabelecimento - Mobile-First
     cursor: pointer;
 }
 
-.detalhe-status-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background-color: #00b894; /* Verde "Aberto" */
-    backdrop-filter: blur(4px);
-    color: #ffffff;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* Cabeçalho do Estabelecimento */
 .detalhe-header {
     display: flex;
     flex-direction: column;
@@ -131,7 +297,10 @@ Tela de Detalhes do Estabelecimento - Mobile-First
     word-break: break-word;
 }
 
-/* Botões de Ação Primária (Ações de Conversão) */
+/* ==========================================================================
+   Botões de Ação Primária (Ações de Conversão)
+   ========================================================================== */
+
 .detalhe-acoes-principais {
     display: flex;
     flex-direction: column;
@@ -245,13 +414,10 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-Breakpoints (Telas Maiores / Desktop)
+   Breakpoints (Telas Maiores / Desktop)
+   Fica no final de propósito: precisa vir DEPOIS das regras base dos botões
    ========================================================================== */
 @media (min-width: 600px) {
-    .detalhe-media-container {
-        height: 320px;
-    }
-
     .detalhe-acoes-principais {
         flex-direction: row;
     }
