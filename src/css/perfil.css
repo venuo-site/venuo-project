@@ -161,3 +161,101 @@
         padding: 14px;
     }
 }
+
+/* ========================================
+   CABEÇALHO DO PERFIL
+   ======================================== */
+
+/* Organiza a foto, os dados pessoais e o botão de sair */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 40px 5%;
+}
+
+/* Foto do usuário */
+.profile-header__photo {
+    width: 136px;
+    height: 136px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 4px solid #071b2c;
+    border-radius: 50%;
+}
+
+/* Área com os dados pessoais */
+.profile-header__info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Nome do usuário */
+.profile-header__name {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+/* E-mail, telefone e data de entrada */
+.profile-header__email,
+.profile-header__phone,
+.profile-header__member {
+    margin: 8px 0;
+    color: #d6e1eb;
+}
+
+/* Alinha o ícone e a data de entrada */
+.profile-header__member {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Botão para sair da conta */
+.profile-header__logout {
+    padding: 14px 24px;
+    color: #ff7138;
+    background: #263e54;
+    border: 1px solid #35536e;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-wrap: wrap;
+        padding: 28px 5%;
+    }
+
+    .profile-header__photo {
+        width: 96px;
+        height: 96px;
+    }
+
+    .profile-header__name {
+        font-size: 24px;
+    }
+
+    .profile-header__logout {
+        margin-left: auto;
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .profile-header {
+        align-items: flex-start;
+    }
+
+    .profile-header__photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-header__name {
+        font-size: 22px;
+    }
+}
