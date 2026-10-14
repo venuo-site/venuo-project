@@ -130,3 +130,34 @@
 .profile-settings__add-card:hover {
     background: #34516b;
 }
+
+/* ========================================
+    RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .profile-settings {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 28px 5%;
+    }
+
+    .profile-settings__payments {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-settings__title {
+        font-size: 20px;
+    }
+
+    .profile-settings__field input {
+        padding: 12px;
+    }
+
+    .profile-settings__save,
+    .profile-settings__add-card {
+        padding: 14px;
+    }
+}
