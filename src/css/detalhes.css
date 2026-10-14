@@ -1,0 +1,247 @@
+/* ==========================================================================
+Tela de Detalhes do Estabelecimento - Mobile-First
+   ========================================================================== */
+
+#detalhes-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-color, #ffffff);
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--primary-color, #e50914);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    transition: opacity 0.2s ease;
+}
+
+.btn-voltar:hover {
+    opacity: 0.8;
+}
+
+/* Galeria / Imagem Principal */
+.detalhe-media-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.detalhe-foto-principal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detalhe-status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #4cd137;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Cabeçalho do Estabelecimento */
+.detalhe-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detalhe-titulo-categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalhe-categoria-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    font-weight: 600;
+}
+
+.detalhe-avaliacao-tag {
+    background-color: #ffb100;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.detalhe-nome {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.detalhe-endereco {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    word-break: break-word;
+}
+
+/* Botões de Ação Primária (Ações de Conversão) */
+.detalhe-acoes-principais {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-cta {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cta:active {
+    transform: scale(0.98);
+}
+
+.btn-rota {
+    background-color: #2f3640;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.btn-rota:hover {
+    background-color: #3a4149;
+}
+
+.btn-cupom {
+    background: linear-gradient(135deg, #e50914 0%, #ff4757 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.btn-cupom:hover {
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+/* Card de Cupom/Destaque */
+.detalhe-cupom-card {
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px dashed #e50914;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #fff;
+}
+
+.detalhe-cupom-card i {
+    font-size: 1.5rem;
+    color: #e50914;
+    margin-top: 2px;
+}
+
+.detalhe-cupom-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.detalhe-cupom-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+/* Seções Informativas */
+.detalhe-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid #333;
+    padding-top: 16px;
+}
+
+.detalhe-bloco h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ddd;
+}
+
+.detalhe-descricao,
+.detalhe-horario {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #aaa;
+    margin: 0;
+    white-space: pre-line;
+}
+
+.detalhe-contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* ==========================================================================
+Breakpoints (Telas Maiores / Desktop)
+   ========================================================================== */
+@media (min-width: 600px) {
+    .detalhe-media-container {
+        height: 320px;
+    }
+
+    .detalhe-acoes-principais {
+        flex-direction: row;
+    }
+
+    .btn-cta {
+        flex: 1;
+    }
+}

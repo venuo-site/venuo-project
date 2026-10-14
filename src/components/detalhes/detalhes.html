@@ -1,0 +1,63 @@
+<button type="button" class="btn-voltar" id="detalhe-btn-voltar" aria-label="Voltar">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+</button>
+
+<!-- Galeria / Banner do Estabelecimento -->
+<div class="detalhe-media-container">
+    <img id="detalhe-foto" src="" alt="Imagem do Estabelecimento" class="detalhe-foto-principal">
+    <span id="detalhe-status" class="detalhe-status-badge">--</span>
+</div>
+
+<!-- Cabeçalho de Informações Principais -->
+<header class="detalhe-header">
+    <div class="detalhe-titulo-categoria">
+        <span id="detalhe-categoria" class="detalhe-categoria-tag">--</span>
+        <span id="detalhe-avaliacao" class="detalhe-avaliacao-tag">
+            <i class="fa-solid fa-star"></i> <span id="detalhe-nota">0.0</span>
+        </span>
+    </div>
+    <h1 id="detalhe-nome" class="detalhe-nome"></h1>
+    <p id="detalhe-endereco" class="detalhe-endereco">
+        <i class="fa-solid fa-location-dot"></i> <span id="detalhe-endereco-texto"></span>
+    </p>
+</header>
+
+<!-- Bloco de Ações de Conversão Primária (CTA) -->
+<section class="detalhe-acoes-principais">
+    <button type="button" id="detalhe-btn-rota" class="btn-cta btn-rota">
+        <i class="fa-solid fa-route"></i> Ver Rota
+    </button>
+    <button type="button" id="detalhe-btn-cupom" class="btn-cta btn-cupom" onclick="abrirModalLogin()">
+        <i class="fa-solid fa-ticket"></i> Resgatar Cupom
+    </button>
+</section>
+
+<!-- Detalhes do Cupom / Oferta Ativa (se houver) -->
+<section id="detalhe-cupom-info" class="detalhe-cupom-card">
+    <i class="fa-solid fa-tag"></i>
+    <div>
+        <h3 id="detalhe-cupom-titulo">--</h3>
+        <p id="detalhe-cupom-regras">--</p>
+    </div>
+</section>
+
+<!-- Descrição e Horários -->
+<section class="detalhe-conteudo">
+    <div class="detalhe-bloco">
+        <h2>Sobre o Local</h2>
+        <p id="detalhe-descricao" class="detalhe-descricao"></p>
+    </div>
+
+    <div class="detalhe-bloco">
+        <h2><i class="fa-regular fa-clock"></i> Horário de Funcionamento</h2>
+        <p id="detalhe-horario" class="detalhe-horario"></p>
+    </div>
+
+    <div class="detalhe-bloco">
+        <h2><i class="fa-solid fa-phone"></i> Contato e Redes</h2>
+        <div class="detalhe-contatos">
+            <span id="detalhe-telefone"></span>
+            <span id="detalhe-redes"></span>
+        </div>
+    </div>
+</section>

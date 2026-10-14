@@ -77,5 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- SOBRE ---
   carregarComponente('about-container', 'components/about/about.html');
 
+  // --- Detalhes do estabelecimento ---
+  carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
+
 
 });
