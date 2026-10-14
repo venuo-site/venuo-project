@@ -63,7 +63,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // carregarComponente('id-do-container', 'caminho/do/container.html')
 
   // --- GLOBAIS (Executados em todas as telas que contêm as divs) ---
-  carregarComponente('header-container', 'components/global/header.html');
+  carregarComponente('header-container', 'components/global/header.html', () => {
+
+        // Captura o botão pelo ID
+        const botaoTema = document.getElementById("btn-toggle-tema");
+
+        // Verifica se o botão foi encontrado
+        if (botaoTema) {
+
+            // Alterna o tema ao clicar no botão
+            botaoTema.onclick = function() {
+                const temaClaro = document.body.classList.toggle("tema-claro");
+
+                // Salva a preferência do usuário
+                localStorage.setItem("tema", temaClaro ? "claro" : "escuro");
+            };
+        }
+    });
+
   carregarComponente('footer-container', 'components/global/footer.html');
 
   // --- HOMEPAGE (index.html) ---
@@ -79,17 +96,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
-
-// Alterna o tema ao clicar no botão
-function alternarTema() {
-    const temaClaro = document.body.classList.toggle("tema-claro");
-
-    // Salva a preferência do usuário
-    localStorage.setItem("tema", temaClaro ? "claro" : "escuro");
-}
-
-// Recupera a preferência salva
-document.addEventListener("DOMContentLoaded", function () {
-    const temaSalvo = localStorage.getItem("tema");
-    document.body.classList.toggle("tema-claro", temaSalvo === "claro");
-}); 
