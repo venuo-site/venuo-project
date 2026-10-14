@@ -1,0 +1,72 @@
+
+/* ========================================
+    CONFIGURAÇÕES DO PERFIL
+   ======================================== */
+
+/* Área principal das configurações */
+.profile-settings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    padding: 40px 4%;
+}
+
+/* Títulos das seções */
+.profile-settings__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.profile-settings__title i {
+    color: #ff7138;
+}
+
+/* Formulário de informações pessoais */
+.profile-settings__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Campos do formulário */
+.profile-settings__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-settings__field label {
+    color: #d6e1eb;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.profile-settings__field input {
+    width: 100%;
+    padding: 14px 16px;
+    color: #ffffff;
+    background: #19354d;
+    border: 1px solid transparent;
+    border-radius: 12px;
+}
+
+.profile-settings__field input:focus {
+    border-color: #ff7138;
+    outline: none;
+}
+
+/* Botão para salvar alterações */
+.profile-settings__save {
+    width: 100%;
+    padding: 14px 20px;
+    color: #ffffff;
+    background: #ff7138;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
