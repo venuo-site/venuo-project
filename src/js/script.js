@@ -9,7 +9,7 @@ window.abrirModalLogin = abrirModalLogin;
 window.fecharModalLogin = fecharModalLogin;
 window.inicializarNavegacaoPerfil = inicializarNavegacaoPerfil;
 
-document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componentes
+document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos componentes
 // carregarComponente('id-do-container', 'caminho/do/container.html')
 
   // --- GLOBAIS (Executados em todas as telas que contêm as divs) ---
@@ -28,7 +28,5 @@ document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componen
     carregarComponente('about-container', 'components/about/about.html');
 
  // --- PERFIL
-    carregarComponente('perfil-container', 'components/perfil/perfil.html');
-    window.inicializarNavegacaoPerfil()
-
+    carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
 });

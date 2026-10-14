@@ -9,21 +9,32 @@ export function carregarComponente(idContainer, caminhoArquivo, callback) {
             return resposta.text();
         })
         .then(html => {
+            console.log(`Conteudo baixado para ${caminhoArquivo}`);
             container.innerHTML = html;
             if (callback) callback(); // Executa o código extra após o HTML estar na tela
         })
         .catch(erro => console.error(`[Venuo Modular] Erro:`, erro));
 }
-export function navegarPara(idContainerDestino, caminhoArquivo) {
-    const todasAsTelas = document.querySelectorAll('.view-container'); // pega todos os elementos com a classe 'view-container' no index.html
+
+export function navegarPara(idContainerDestino, caminhoArquivo, callbackOpcional) {
+    const todasAsTelas = document.querySelectorAll('.view-container');
     
-    todasAsTelas.forEach(tela => { // faz um loop e esconde todas as telas de uma vez só 
+    todasAsTelas.forEach(tela => { 
         tela.style.display = 'none';
-    })
+    });
     
-    const containerDestino = document.getElementById(idContainerDestino); // pega o container destino (a tela que o usuario quer ver) e revela
+    const containerDestino = document.getElementById(idContainerDestino);
+    
     if (containerDestino) {
         containerDestino.style.display = 'block';
+        
+        // Verifica se a tela ainda está vazia
+        if (containerDestino.innerHTML.trim() === "") {
+            // Se estiver vazia, faz o fetch e passa o callback
+            carregarComponente(idContainerDestino, caminhoArquivo, callbackOpcional);
+        } else {
+            // Se o HTML já foi baixado antes, não faz fetch de novo!
+            if (callbackOpcional) callbackOpcional();
+        }
     }
-    carregarComponente(idContainerDestino, caminhoArquivo); // faz o fetch do fragmento html e injeta na tela revelada
 }
