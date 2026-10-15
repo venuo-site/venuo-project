@@ -19,39 +19,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body class="dark-theme"> <!-- Classe para facilitar criação um tema claro no futuro -->
+<body class="dark-theme"> 
 
-    <div id="header-container"></div> <!-- Seção do Header -->
-    
-    <div id="login-container" class="view-container" style="display: none;"></div> <!-- Modal de Login -->
-    
-    <div id="cadastro-container" class="view-container" style="display: none;"></div> <!-- Adicione aqui -->
+    <!-- 1. O Header agora atua como a BARRA LATERAL (Esquerda) -->
+    <!-- (Transformei em <aside> por semântica, mas mantive o ID para o seu JS não quebrar) -->
+    <aside id="header-container"></aside> 
 
-    <main> <!-- Conteudo Principal -->
-        <div id="hero-container" class="view-container"></div> <!-- Seção Hero -->
-
-        <div id="highlights-container" class="view-container"></div> <!-- Seção de Destaques -->
-
-        <div id="categories-container" class="view-container"></div> <!-- Seção de Categorias -->
+    <!-- 2. Conteúdo Principal (Direita) -->
+    <main> 
+        <!-- Modais de Sobreposição -->
+        <div id="login-container" class="view-container" style="display: none;"></div> 
+        <div id="cadastro-container" class="view-container" style="display: none;"></div> 
         
-        <div id="results-container" class="view-container" style="display: none;"></div> <!-- Seção de Resultados -->
+        <!-- Telas da Aplicação (Injetadas via JS) -->
+        <div id="hero-container" class="view-container"></div> 
+        <div id="highlights-container" class="view-container"></div> 
+        <div id="categories-container" class="view-container"></div> 
+        <div id="results-container" class="view-container" style="display: none;"></div> 
         
-        <div id="about-container" class="view-container" style="display: none;"></div> <!-- Seção Sobre o Projeto -->
-
-        <div id="detalhes-container" class="view-container" style="display: none;"></div><!-- Seção Sobre os detalhes do estabelecimento -->
-
-        <button onclick="navegarPara('about-container', 'components/about/about.html')">
-            Ver Sobre o Projeto
-        </button>
-
-        <button onclick="navegarPara('detalhes-container', 'components/detalhes/detalhes.html')">
-            detalhes do estabelecimento
-        </button>
-
+        <div id="about-container" class="view-container" style="display: none;"></div> 
     </main>
 
-    <div id="footer-container"></div>
+    <!-- O footer pode ser injetado dentro do main depois, ou removido no novo design -->
+    <div id="footer-container" style="display: none;"></div>
 
-    <script type="module" src="js/script.js"></script> <!-- Script de Carregamento -->
+    <script type="module" src="js/script.js"></script> 
 </body>
 </html>
