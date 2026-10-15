@@ -414,8 +414,8 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-   Breakpoints (Telas Maiores / Desktop)
-   Fica no final de propósito: precisa vir DEPOIS das regras base dos botões
+    Breakpoints (Telas Maiores / Desktop)
+    Fica no final de propósito: precisa vir DEPOIS das regras base dos botões
    ========================================================================== */
 @media (min-width: 600px) {
     .detalhe-acoes-principais {
@@ -446,6 +446,39 @@ Tela de Detalhes do Estabelecimento - Mobile-First
     border-radius: 1em;
     padding: 2rem 0.5rem;
     cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
-    font-size: 1.1rem;
-    margin: auto;
+    font-size: 1rem;
+    flex: 0 0 calc(20% - 10px);
+}
+
+#button-1{
+    
+    /* ...o que você já tem... */
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+#button-1{
+    color: #39ff14;
+    border-color: #39ff14;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.8);
+    box-shadow:
+        0 0 6px rgba(57, 255, 20, 0.7),          /* brilho por fora */
+        inset 0 0 6px rgba(57, 255, 20, 0.35);   /* brilho por dentro */
+}
+
+
+#button-4{
+    
+    /* ...o que você já tem... */
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+#button-4{
+    color: #39ff14;
+    border-color: #39ff14;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.8);
+    box-shadow:
+        0 0 6px rgba(57, 255, 20, 0.7),          /* brilho por fora */
+        inset 0 0 6px rgba(57, 255, 20, 0.35);   /* brilho por dentro */
 }
