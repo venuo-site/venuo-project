@@ -1,0 +1,106 @@
+<button type="button" class="btn-voltar" id="detalhe-btn-voltar" aria-label="Voltar">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+</button>
+
+<div class="detalhe-media-container galeria-3" id="detalhe-galeria">
+    <span id="detalhe-status" class="detalhe-status-badge">Aberto</span>
+    <span id="detalhe-avaliacao" class="detalhe-avaliacao-tag">
+        <i class="fa-solid fa-star"></i> <span id="detalhe-nota">4.8</span>
+    </span>
+
+    <div class="galeria-destaque" onclick="expandirFoto(this)">
+        <img id="detalhe-foto-1" src="https://picsum.photos/id/10/800/600" alt="Foto Destaque">
+    </div>
+
+    <div class="galeria-grid-lateral">
+        <div class="galeria-item" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-2" src="https://picsum.photos/id/20/400/300" alt="Foto 2">
+        </div>
+        <div class="galeria-item" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-3" src="https://picsum.photos/id/30/400/300" alt="Foto 3">
+        </div>
+        <div class="galeria-item item-mais-fotos" onclick="expandirFoto(this)">
+            <img id="detalhe-foto-4" src="https://picsum.photos/id/40/400/300" alt="Foto 4">
+            <div id="galeria-overlay-mais" class="galeria-overlay">
+                <span id="galeria-contador-mais">+3</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal / Lightbox de Ampliação da Foto (80% da tela) -->
+<div id="modal-foto-zoom" class="modal-zoom" onclick="fecharModalFoto(event)">
+    <div class="modal-zoom-conteudo" onclick="event.stopPropagation()">
+        <button type="button" class="btn-fechar-zoom" onclick="fecharModalFoto()" aria-label="Fechar">&times;</button>
+        <img id="foto-ampliada-img" src="" alt="Foto Ampliada">
+    </div>
+</div>
+
+<!-- Cabeçalho de Informações Principais -->
+<header class="detalhe-header">
+    <div class="detalhe-titulo-categoria">
+        <button id="detalhe-categoria" class="detalhe-categoria-tag" onclick="navegarPara('categories-container', 'components/homepage/categories.html')">bares</button>
+        
+    </div>
+    <h1 id="detalhe-nome" class="detalhe-nome">Bar exemplo 1</h1>
+    <p id="detalhe-endereco" class="detalhe-endereco">
+        <i class="fa-solid fa-location-dot"></i> <span id="detalhe-endereco-texto">Rua tal, numero tal. setor tal</span>
+    </p>
+</header>
+
+<!-- Bloco de Ações de Conversão Primária (CTA) -->
+<section class="detalhe-acoes-principais">
+    <button type="button" id="detalhe-btn-rota" class="btn-cta btn-rota">
+        <i class="fa-solid fa-route"></i> Ver Rota
+    </button>
+    <button type="button" id="detalhe-btn-cupom" class="btn-cta btn-cupom" onclick="abrirModalLogin()">
+        <i class="fa-solid fa-ticket"></i> Resgatar Cupom
+    </button>
+</section>
+
+<!-- Detalhes do Cupom / Oferta Ativa (se houver) -->
+<section id="detalhe-cupom-info" class="detalhe-cupom-card">
+    <i class="fa-solid fa-tag"></i>
+    <div>
+        <h3 id="detalhe-cupom-titulo">10%</h3>
+        <p id="detalhe-cupom-regras">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quidem impedit aperiam accusamus eum reprehenderit fuga esse. Officia quasi labore sunt beatae ut doloribus facilis nesciunt? Vero ea modi accusantium?</p>
+    </div>
+</section>
+
+<section id="botton-opcao" class="botton-opcao-disponivel">
+    <h2>Características</h2>
+    <div class="botton-opcao">
+        <button class="button-opcao" id="button-1">Wi-fi grátis</button>
+        <button class="button-opcao" id="button-2">Estacionamento</button>
+        <button class="button-opcao" id="button-3">Tv\Telão</button>
+        <button class="button-opcao" id="button-4">Música ao vivo</button>
+        <button class="button-opcao" id="button-5">Pet friendly</button>
+        <button class="button-opcao" id="button-6">Aceita cartão</button>
+        <button class="button-opcao" id="button-7">Happy-Hour</button>
+        <button class="button-opcao" id="button-8">Ambiente Aberto</button>
+        <button class="button-opcao" id="button-9">Acessibilidade</button>
+        <button class="button-opcao" id="button-10">Espaço kid</button>
+    </div>
+
+</section>
+
+<!-- Descrição e Horários -->
+<section class="detalhe-conteudo">
+    <div class="detalhe-bloco">
+        <h2>Sobre o Local</h2>
+        <p id="detalhe-descricao" class="detalhe-descricao">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt neque blanditiis rerum quae dignissimos nihil, architecto omnis perspiciatis pariatur. Aperiam possimus perferendis, ipsa debitis reiciendis autem voluptatem non rerum sit.</p>
+    </div>
+
+    <div class="detalhe-bloco">
+        <h2><i class="fa-regular fa-clock"></i> Horário de Funcionamento</h2>
+        <p id="detalhe-horario" class="detalhe-horario"> 14:00 as 00:00 horas</p>
+    </div>
+
+    <div class="detalhe-bloco">
+        <h2><i class="fa-solid fa-phone"></i> Contato</h2>
+        <div class="detalhe-contatos">
+            <span id="detalhe-telefone">(62) 98574-5625</span>
+            
+        </div>
+    </div>
+</section>

@@ -25,4 +25,7 @@ document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componen
   // --- SOBRE ---
   carregarComponente('about-container', 'components/about/about.html');
 
+  // --- Detalhes do estabelecimento ---
+  carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
+  
 });
