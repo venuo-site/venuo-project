@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componen
 
   // --- HOMEPAGE (index.html) ---
   carregarComponente('hero-container', 'components/homepage/hero.html');
-  carregarComponente('highlights-container', 'components/homepage/highlights.html');
-  carregarComponente('categories-container', 'components/homepage/categories.html');
+
+  // carregarComponente('highlights-container', 'components/homepage/highlights.html');
+  // carregarComponente('categories-container', 'components/homepage/categories.html');
 
   // --- RESULTADOS ---
   carregarComponente('results-container', 'components/results/results.html');
