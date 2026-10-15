@@ -50,8 +50,8 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 /* Badge de Status mantido por cima */
 .detalhe-status-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 1em;
+    right: 1em;
     z-index: 2; /* CORRIGIDO: garante que fique acima das fotos */
     background-color: #00b894; /* Verde "Aberto" */
     backdrop-filter: blur(4px);
@@ -62,6 +62,24 @@ Tela de Detalhes do Estabelecimento - Mobile-First
     font-weight: 600;
     text-transform: uppercase;
 }
+
+.detalhe-avaliacao-tag {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 2; /* CORRIGIDO: garante que fique acima das fotos */
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    color: #f8f8f8;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 
 /* Foto Destaque (Esquerda) */
 .galeria-destaque {
@@ -133,8 +151,8 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-   Layout da galeria conforme a quantidade de fotos
-   (troque a classe no .detalhe-media-container)
+    Layout da galeria conforme a quantidade de fotos
+    (troque a classe no .detalhe-media-container)
    ========================================================================== */
 
 /* 1 foto: só a destaque, ocupando tudo */
@@ -175,7 +193,7 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-   Modal / Lightbox de Ampliação (80% da tela)
+    Modal / Lightbox de Ampliação (80% da tela)
    ========================================================================== */
 
 .modal-zoom {
@@ -231,7 +249,7 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-   Cabeçalho do Estabelecimento
+    Cabeçalho do Estabelecimento
    ========================================================================== */
 
 #detalhe-categoria {
@@ -267,17 +285,6 @@ Tela de Detalhes do Estabelecimento - Mobile-First
     font-weight: 600;
 }
 
-.detalhe-avaliacao-tag {
-    background-color: #ffb100;
-    color: #111;
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 4px 8px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
 
 .detalhe-nome {
     font-size: 1.75rem;
@@ -298,7 +305,7 @@ Tela de Detalhes do Estabelecimento - Mobile-First
 }
 
 /* ==========================================================================
-   Botões de Ação Primária (Ações de Conversão)
+    Botões de Ação Primária (Ações de Conversão)
    ========================================================================== */
 
 .detalhe-acoes-principais {
