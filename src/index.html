@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="css/categories.css"> <!-- Estilo Seção de Categorias -->
     <link rel="stylesheet" href="css/footer.css"> <!-- Estilo do Footer -->
     <link rel="stylesheet" href="css/auth.css"> <!-- Estilo do Modal de Login -->
+    <link rel="stylesheet" href="css/cadastro.css"> <!-- Adicione aqui -->
     <link rel="stylesheet" href="css/sobre.css"> <!-- Estilo da pagina Sobre o Projeto -->
     <link rel="stylesheet" href="css/perfil.css"> <!-- Estilo da página de Perfil -->
+    <link rel="stylesheet" href="css/detalhes.css"> <!--Estilo da pagina sobre detalhes do estabelecimento-->
 
     <!-- Biblioteca dos Icones (temporario) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,8 +23,11 @@
 <body class="dark-theme"> <!-- Classe para facilitar criação um tema claro no futuro -->
 
     <div id="header-container"></div> <!-- Seção do Header -->
+    
     <div id="login-container" class="view-container" style="display: none;"></div> <!-- Modal de Login -->
     
+    <div id="cadastro-container" class="view-container" style="display: none;"></div> <!-- Adicione aqui -->
+
     <main> <!-- Conteudo Principal -->
         <div id="hero-container" class="view-container"></div> <!-- Seção Hero -->
 
@@ -35,6 +40,15 @@
         <div id="about-container" class="view-container" style="display: none;"></div> <!-- Seção Sobre o Projeto -->
 
         <div id="perfil-container" class="view-container" style="display: none;"></div> <!-- Seção do Perfil -->
+        <div id="detalhes-container" class="view-container" style="display: none;"></div><!-- Seção Sobre os detalhes do estabelecimento -->
+
+        <button onclick="navegarPara('about-container', 'components/about/about.html')">
+            Ver Sobre o Projeto
+        </button>
+
+        <button onclick="navegarPara('detalhes-container', 'components/detalhes/detalhes.html')">
+            detalhes do estabelecimento
+        </button>
 
     </main>
 

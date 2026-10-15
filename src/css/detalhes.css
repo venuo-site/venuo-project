@@ -1,0 +1,491 @@
+/* ==========================================================================
+Tela de Detalhes do Estabelecimento - Mobile-First
+   ========================================================================== */
+
+#detalhes-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-color, #ffffff);
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--primary-color, #e50914);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    transition: opacity 0.2s ease;
+}
+
+.btn-voltar:hover {
+    opacity: 0.8;
+}
+
+/* Galeria / Imagem Principal */
+.detalhe-media-container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 coluna */
+    gap: 8px;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1e1e1e;
+}
+
+/* Badge de Status mantido por cima */
+.detalhe-status-badge {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 2; /* CORRIGIDO: garante que fique acima das fotos */
+    background-color: #00b894; /* Verde "Aberto" */
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.detalhe-avaliacao-tag {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 2; /* CORRIGIDO: garante que fique acima das fotos */
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    color: #f8f8f8;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+/* Foto Destaque (Esquerda) */
+.galeria-destaque {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.galeria-destaque img,
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.galeria-destaque:hover img,
+.galeria-item:hover img {
+    transform: scale(1.03);
+}
+
+/* Grid Lateral oculto em telas pequenas */
+.galeria-grid-lateral {
+    display: none;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    height: 100%;
+    min-height: 0; /* CORRIGIDO: movido para cá (evita estourar a altura) */
+}
+
+.galeria-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Overlay com o Sinal de + (escondido por padrão) */
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none; /* CORRIGIDO: antes era flex; agora só aparece com .galeria-mais */
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+}
+
+/* Breakpoint para Telas Médias e Desktops */
+@media (min-width: 600px) {
+    .detalhe-media-container {
+        grid-template-columns: 2fr 1fr; /* Foto maior na esquerda, grid na direita */
+        height: 380px;
+    }
+
+    .galeria-grid-lateral {
+        display: grid; /* Exibe os quadros à direita */
+    }
+}
+
+/* ==========================================================================
+    Layout da galeria conforme a quantidade de fotos
+    (troque a classe no .detalhe-media-container)
+   ========================================================================== */
+
+/* 1 foto: só a destaque, ocupando tudo */
+.detalhe-media-container.galeria-1 {
+    grid-template-columns: 1fr;
+}
+.detalhe-media-container.galeria-1 .galeria-grid-lateral {
+    display: none;
+}
+
+/* 2 fotos: destaque + 1 foto na altura toda */
+.detalhe-media-container.galeria-2 .galeria-grid-lateral {
+    grid-template-rows: 1fr;
+}
+.detalhe-media-container.galeria-2 .galeria-item:nth-child(n+2) {
+    display: none;
+}
+
+/* 3 fotos: destaque + 2 empilhadas */
+.detalhe-media-container.galeria-3 .galeria-grid-lateral {
+    grid-template-rows: repeat(2, 1fr);
+}
+.detalhe-media-container.galeria-3 .galeria-item:nth-child(n+3) {
+    display: none;
+}
+
+/* 4 fotos: destaque + 3 empilhadas */
+.detalhe-media-container.galeria-4 .galeria-grid-lateral {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+/* Mais de 4 fotos: igual a 4, mas com o "+N" na última */
+.detalhe-media-container.galeria-mais .galeria-grid-lateral {
+    grid-template-rows: repeat(3, 1fr);
+}
+.detalhe-media-container.galeria-mais .galeria-overlay {
+    display: flex;
+}
+
+/* ==========================================================================
+    Modal / Lightbox de Ampliação (80% da tela)
+   ========================================================================== */
+
+.modal-zoom {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-zoom.ativo {
+    display: flex;
+}
+
+.modal-zoom-conteudo {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-zoom-conteudo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.btn-fechar-zoom {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.btn-fechar-zoom:hover {
+    color: var(--primary-color, #e50914);
+}
+
+/* ==========================================================================
+    Cabeçalho do Estabelecimento
+   ========================================================================== */
+
+#detalhe-categoria {
+    background-color: #ff6b35; /* laranja */
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.detalhe-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detalhe-titulo-categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalhe-categoria-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    font-weight: 600;
+}
+
+
+.detalhe-nome {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.detalhe-endereco {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    word-break: break-word;
+}
+
+/* ==========================================================================
+    Botões de Ação Primária (Ações de Conversão)
+   ========================================================================== */
+
+.detalhe-acoes-principais {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-cta {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cta:active {
+    transform: scale(0.98);
+}
+
+.btn-rota {
+    background-color: #2f3640;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.btn-rota:hover {
+    background-color: #3a4149;
+}
+
+.btn-cupom {
+    background: linear-gradient(135deg, #e50914 0%, #ff4757 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.btn-cupom:hover {
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+/* Card de Cupom/Destaque */
+.detalhe-cupom-card {
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px dashed #e50914;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #fff;
+}
+
+.detalhe-cupom-card i {
+    font-size: 1.5rem;
+    color: #e50914;
+    margin-top: 2px;
+}
+
+.detalhe-cupom-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.detalhe-cupom-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+/* Seções Informativas */
+.detalhe-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid #333;
+    padding-top: 16px;
+}
+
+.detalhe-bloco h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ddd;
+}
+
+.detalhe-descricao,
+.detalhe-horario {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #aaa;
+    margin: 0;
+    white-space: pre-line;
+}
+
+.detalhe-contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* ==========================================================================
+    Breakpoints (Telas Maiores / Desktop)
+    Fica no final de propósito: precisa vir DEPOIS das regras base dos botões
+   ========================================================================== */
+@media (min-width: 600px) {
+    .detalhe-acoes-principais {
+        flex-direction: row;
+    }
+
+    .btn-cta {
+        flex: 1;
+    }
+}
+
+.botton-opcao-disponivel{
+    padding: 1rem;
+}
+
+.botton-opcao {
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    flex-wrap: wrap;         /* se não couber, quebra para a linha de baixo */
+    gap: 8px;                /* espaço entre os botões (substitui o margin) */
+    padding: 3rem;
+}
+
+.button-opcao {
+    background: transparent;
+    border-top: 1px solid;
+    color: #ddd;
+    border-radius: 1em;
+    padding: 2rem 0.5rem;
+    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
+    font-size: 1rem;
+    flex: 0 0 calc(20% - 10px);
+}
+
+#button-1{
+    
+    /* ...o que você já tem... */
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+#button-1{
+    color: #39ff14;
+    border-color: #39ff14;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.8);
+    box-shadow:
+        0 0 6px rgba(57, 255, 20, 0.7),          /* brilho por fora */
+        inset 0 0 6px rgba(57, 255, 20, 0.35);   /* brilho por dentro */
+}
+
+
+#button-4{
+    
+    /* ...o que você já tem... */
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+#button-4{
+    color: #39ff14;
+    border-color: #39ff14;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.8);
+    box-shadow:
+        0 0 6px rgba(57, 255, 20, 0.7),          /* brilho por fora */
+        inset 0 0 6px rgba(57, 255, 20, 0.35);   /* brilho por dentro */
+}

@@ -29,4 +29,8 @@ document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos co
 
  // --- PERFIL
     carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
+  
+  // --- Detalhes do estabelecimento ---
+    carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
+  
 });
