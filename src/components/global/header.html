@@ -1,25 +1,47 @@
-<!-- barra de navegacaoo -->
-<header class="navbar">
-    <!-- logo -->
-    <div class="logo">
-        <img src="./img/logo-venuo-mod.png" alt="Logo Venuo">
+<div class="sidebar-content">
+    <!-- Logo -->
+    <div class="logo-container" onclick="voltarParaHome()" style="cursor: pointer;">
+        <img src="./img/logo-venuo-mod.png" alt="Logo Venuo" style="max-width: 120px;">
     </div>
 
-    <!-- pesquisa -->
-    <div class="search-container-header">
-        <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
-        <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
-        <div class="search-actions">
-            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
-            <button class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-        </div>
-    </div>
-
-    <!-- botoes de acao -->
-    <nav class="nav-actions">
-        <button class="icon-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-        <button class="icon-btn" aria-label="Perfil" onclick="abrirModalLogin()"><i class="fa-regular fa-user"></i></button>
-        <button class="icon-btn" aria-label="Alterar Tema"><i class="fa-solid fa-moon"></i></button>
+    <!-- Menu Principal -->
+    <nav class="sidebar-nav">
+        <p class="nav-title">SEU PRÓXIMO ROLÊ</p>
+        
+        <!-- O botão ativo recebe a classe 'active' -->
+        <button class="nav-item active" onclick="voltarParaHome()">
+            <i class="fa fa-compass"></i> Explorar
+        </button>
+        
+        <button class="nav-item">
+            <i class="fa fa-calendar-alt"></i> Agenda
+        </button>
+        
+        <button class="nav-item">
+            <i class="fa fa-heart"></i> Favoritos
+        </button>
     </nav>
-</header>
+
+    <!-- Menu Inferior (Parceiro e Login) -->
+    <div class="sidebar-bottom">
+        <div class="partner-area">
+            <i class="fa fa-store"></i>
+            <div>
+                <p class="partner-title">Seu lugar no Venuo</p>
+                <p class="partner-subtitle">Mais encontros.<br>Novas possibilidades.</p>
+                <a href="#" class="partner-link">Área do parceiro ↗</a>
+            </div>
+        </div>
+
+        <button class="user-profile-btn" onclick="abrirModalLogin()">
+            <div class="user-avatar">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="user-info">
+                <p class="user-name">Olá, visitante</p>
+                <p class="user-action">Entre e descubra mais</p>
+            </div>
+            <i class="fa fa-arrow-right"></i>
+        </button>
+    </div>
+</div>
