@@ -135,7 +135,6 @@ function inicializarLogicaFiltros() {
 }
 
 
-
 // Mapeamento dos componentes
 document.addEventListener('DOMContentLoaded', () => {
 // carregarComponente('id-do-container', 'caminho/do/container.html')
