@@ -1,235 +1,203 @@
-/* Importação de fonte moderna */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
-  padding: 20px;
+  background-color: #08131e; /* Fundo azul bem escuro conforme o Figma */
+  color: #ffffff;
+  padding: 40px 24px;
 }
 
-/* Container Grid principal para listar os cards */
-section.cards-grid {
+/* Container do Header do Resultado */
+.busca-header {
+  max-width: 1280px;
+  margin: 0 auto 32px auto;
+}
+
+.busca-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.busca-header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* Grid configurada para 3 colunas no desktop */
+section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
-/* Card Principal */
+/* Ajuste para telas menores/mobile */
+@media (max-width: 1024px) {
+  section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estrutura do Card */
 .card-resultado {
-  background: #ffffff;
+  background-color: transparent; /* Transparente para integrar ao fundo */
   border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease;
 }
 
 .card-resultado:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Área de Imagem e Tags da Foto */
-.card-thumb-header {
+/* Imagem e área da foto */
+.card-resultado > div:first-child {
   position: relative;
   width: 100%;
-  height: 200px;
-  background-color: #e2e8f0; /* Cor de fundo caso a imagem falhe/carregue */
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
-.card-thumb-header img {
+.card-resultado > div:first-child img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 16px;
 }
 
-/* Badge de Status (Aberto/Fechado) */
-.badge-status {
+/* Badge de Horário (Aberto até...) */
+.card-resultado > div:first-child > span {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(16, 185, 129, 0.9); /* Verde vibrante */
+  bottom: 14px;
+  left: 14px;
+  background-color: #10b981;
   color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
 }
 
-/* Botões de Ação na Imagem (Favoritar, Compartilhar) */
-.thumb-actions {
+/* Botões da Imagem (Favorito / Compartilhar) */
+.card-resultado > div:first-child > div {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  right: 14px;
   display: flex;
   gap: 8px;
 }
 
-.thumb-actions button {
+.card-resultado > div:first-child > div button {
   width: 36px;
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.7); /* Translúcido como no print */
+  color: #1e293b;
+  font-size: 0.95rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.2s;
   backdrop-filter: blur(4px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.2s;
 }
 
-.thumb-actions button:hover {
-  background: #ffffff;
-  transform: scale(1.1);
+.card-resultado > div:first-child > div button:hover {
+  background: rgba(255, 255, 255, 0.95);
 }
 
-/* Conteúdo/Informações do Card */
-.card-content {
-  padding: 20px;
+/* Informações do Card */
+.card-resultado > div:last-child {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 8px;
 }
 
-.card-header-title {
+/* Título e Preço ($$) */
+.card-resultado > div:last-child > div:first-child {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
 }
 
-.card-header-title h3 {
-  font-size: 1.2rem;
+.card-resultado h3 {
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #ffffff;
 }
 
-.card-preco {
-  color: #10b981;
+.card-resultado > div:last-child > div:first-child > span {
+  color: #38bdf8; /* Azul claro do Preço $$ */
   font-weight: 700;
-  font-size: 0.95rem;
-}
-
-/* Avaliações */
-.card-avaliacao {
-  font-size: 0.88rem;
-  color: #64748b;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.card-avaliacao .estrela {
-  color: #f59e0b;
   font-size: 1rem;
 }
 
-/* Tags/Comodidades */
-.card-tags {
+/* Estrelas e Avaliação */
+.card-resultado p:nth-of-type(1) {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-resultado p:nth-of-type(1) span {
+  color: #f97316; /* Laranja da estrela */
+  font-size: 1rem;
+}
+
+/* Lista de ícones e benefícios */
+.card-resultado ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-top: 2px;
 }
 
-.card-tags li {
-  background-color: #f1f5f9;
-  color: #475569;
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: 6px;
+.card-resultado ul li {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 500;
 }
 
-/* Descrição */
-.card-descricao {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.45;
-  margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limita texto a 3 linhas */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Descrição, Endereço e Horários */
+.card-resultado p:nth-of-type(2),
+.card-resultado p:nth-of-type(3),
+.card-resultado p:nth-of-type(4) {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
 }
 
-/* Detalhes de Endereço e Horários */
-.card-info-extra {
-  font-size: 0.82rem;
-  color: #64748b;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.card-resultado p:nth-of-type(3) span {
+  color: #f97316;
+  font-weight: 700;
 }
 
-.card-info-extra span.distancia {
-  font-weight: 600;
-  color: #3b82f6;
-}
-
-/* Rodapé do Card / Botões de Ação */
-.card-footer-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 16px;
-}
-
-.btn-detalhes {
-  flex: 1;
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  text-decoration: none;
-  text-align: center;
-}
-
-.btn-detalhes:hover {
-  background-color: #1d4ed8;
-}
-
-.btn-contato {
-  background-color: #f1f5f9;
-  color: #1e293b;
-  border: 1px solid #cbd5e1;
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-  text-decoration: none;
-}
-
-.btn-contato:hover {
-  background-color: #e2e8f0;
+/* Esconde botões do rodapé se não estiverem visíveis no grid do Figma */
+.card-resultado > div:last-child > div:last-child {
+  display: none; 
 }
