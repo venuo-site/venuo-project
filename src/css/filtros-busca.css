@@ -1,190 +1,215 @@
-/* Torna a barra de pesquisa a referência para o modal flutuante */
+/* ==========================================================
+   1. POSICIONAMENTO DO CONTAINER DA PESQUISA 
+   ========================================================== */
 .search-container {
-    position: relative; 
+    position: relative; /* Define a referência para o posicionamento */
 }
 
-/* Posiciona o container do modal logo abaixo da barra de pesquisa */
+/* 
+  Posiciona a barra de filtros flutuante logo abaixo da barra de pesquisa.
+  O uso de calc(100% + 0.5rem) garante uma distância segura e respiros visuais.
+*/
 #filtros-container {
     position: absolute;
     top: calc(100% + 0.5rem);
     left: 0;
-    z-index: 1000;
-    width: 320px;
+    z-index: 1000; /* Garante que o modal fique sobreposto aos demais elementos da tela */
+    width: 100%;
     text-align: left;
 }
 
-/* ----------------------------------------------------------
-   1. CLASSE UTILITÁRIA DE OCULTAÇÃO
-   ---------------------------------------------------------- */
+/*  Classe utilitária universal para ocultar elementos 
+    !important força a prioridade máxima do estilo, ignorando regras conflitantes de outros arquivos.
+*/
 .oculto {
     display: none !important;
 }
 
-/* ----------------------------------------------------------
-   2. CONTAINER PRINCIPAL DO MODAL
-   ---------------------------------------------------------- */
-.filtros-modal-container {
-    background-color: #16202c;                     /* Tom de azul escuro*/
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    border-radius: 1.25rem;                        /* Cantos bem arredondados */
-    padding: 1.5rem;                               
-    width: 320px;                                  
-    color: #ffffff;                                
-    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.6);/* Sombra profunda para destacar a sobreposição */
+/* ==========================================================
+   2. CONTAINER PRINCIPAL DO MODAL (LAYOUT HORIZONTAL FLUIDO)
+   ========================================================== */
+/* 
+  Usar #filtros-modal.filtros-modal-container eleva o peso da regra CSS,
+  fazendo com que ela ignore estilos genéricos vindos de outros arquivos.
+*/
+#filtros-modal.filtros-modal-container {
+    background-color: #17202e; 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    color: #ffffff;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+    
+    /* Configuração do Flexbox para o modo Horizontal */
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;                                  /* Espaçamento vertical uniforme entre cada grupo de filtro */
+    flex-wrap: wrap;             /* Permite que os grupos quebrem para a linha de baixo de forma organizada (se faltar espaço) */
+    align-items: center;         /* Alinha todos os itens verticalmente ao centro */
+    gap: 1.5rem;                 /* Espaçamento entre cada grupo de filtro */
     font-family: inherit;
 }
 
-/* ----------------------------------------------------------
+/* ==========================================================
    3. ESTRUTURA DOS GRUPOS DE FILTROS
-   ---------------------------------------------------------- */
-.filtro-grupo {
+   ========================================================== */
+#filtros-modal .filtro-grupo {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.4rem; /* Espaço entre o título do grupo e seus botões */
 }
 
-/* Cabeçalho do primeiro grupo (Título + Botão Fechar) */
-.filtro-cabecalho {
+/* Cabeçalho interno do bloco de filtros */
+#filtros-modal .filtro-cabecalho {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
 }
 
-/* Estilo do botão X de fechar */
-.filtro-fechar-btn {
+/* Botão de fechar (X) estilizado de forma discreta */
+#filtros-modal .filtro-fechar-btn {
     background-color: transparent;
     border: none;
-    color: #94a3b8; /* Cor cinza sutil */
-    font-size: 1rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
     cursor: pointer;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem;
     border-radius: 0.375rem;
-    transition: color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease;
 }
 
-.filtro-fechar-btn:hover {
+#filtros-modal .filtro-fechar-btn:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Alinhar horizontalmente (ex: título à esquerda e switch à direita) */
-.filtro-flex-row {
+/* Alinhamento horizontal específico para componentes como o switch "Aberto agora" */
+#filtros-modal .filtro-flex-row {
     flex-direction: row;
-    justify-content: space-between;
+    gap: 0.75rem;
     align-items: center;
 }
 
-/* Títulos descritivos de cada seção (Distância, Preço, etc.) */
-.filtro-titulo {
-    font-size: 1rem;
+/* Títulos descritivos das categorias (Distância, Preço, etc.) */
+#filtros-modal .filtro-titulo {
+    font-size: 0.85rem;
     font-weight: 700;
     color: #ffffff;
 }
 
-/* Container flexível que organiza os botões em linha */
-.filtro-opcoes {
+/* Container que agrupa os botões de opção em linha */
+#filtros-modal .filtro-opcoes {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.45rem;
 }
 
-/* ----------------------------------------------------------
-   4. ESTILOS DOS BOTÕES DE SELEÇÃO (CHIPS EM PÍLULA)
-   ---------------------------------------------------------- */
-.filtro-btn {
-    background-color: #1e293b;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
-    padding: 0.45rem 1rem;
-    border-radius: 2rem; /* Formato de pílula */
-    font-size: 0.85rem;
-    font-weight: 600;
+/* ==========================================================
+   4. ESTILOS DOS BOTÕES DE SELEÇÃO (CHIPS / PÍLULAS)
+   ========================================================== */
+#filtros-modal .filtro-btn {
+    background-color: #0d1520;                /* Fundo escuro padrão do Figma */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* Borda fina arredondada */
+    color: #ffffff;
+    padding: 0.45rem 0.95rem;
+    border-radius: 2rem;                       /* Formato arredondado de pílula */
+    font-size: 0.825rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.filtro-btn:hover {
-    background-color: #334155;
-    color: #ffffff;
+/* Efeito suave de hover para feedback visual de interatividade */
+#filtros-modal .filtro-btn:hover {
+    background-color: #1a2638;
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Estado Ativo (Quando o usuário clica e seleciona o filtro) */
-.filtro-btn.filtro-ativo {
-    background-color: #f96302;
-    border-color: #f96302;
-    color: #ffffff;
+/* Estado Ativo padrão (quando o usuário clica na opção) */
+#filtros-modal .filtro-btn.filtro-ativo {
+    background-color: #f96302 !important; /* Força o laranja da marca contra conflitos externos */
+    border-color: #f96302 !important;
+    color: #ffffff !important;
 }
 
-/* Ajuste específico para o botão que contém o ícone (+/-) */
-.filtro-btn-icon {
-    padding: 0.45rem 0.85rem;
+/* ==========================================================
+   5. SELETOR AVANÇADO CSS (:has) PARA O BOTÃO DE EXPANDIR (+ / -)
+   ========================================================== */
+/* 
+  CONCEITO AVANÇADO (PSEUDO-CLASSE :has):
+  O seletor `:has(.fa-minus)` verifica dinamicamente se o botão contém o ícone de menos dentro dele.
+  Se o JavaScript alterou o ícone para `fa-minus` (indicando que está aberto), 
+  esta regra aplica automaticamente o fundo laranja sem precisar de classes extras no botão!
+*/
+#filtros-modal #btn-toggle-mais-estilos:has(.fa-minus) {
+    background-color: #f96302 !important;
+    border-color: #f96302 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================
+   6. AVALIAÇÃO MÍNIMA POR ESTRELAS 
+   ========================================================== */
+#filtros-modal .filtro-estrelas {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 0.3rem;
 }
 
-/* ----------------------------------------------------------
-   5. AVALIAÇÃO MÍNIMA POR ESTRELAS
-   ---------------------------------------------------------- */
-.filtro-estrelas {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.filtro-estrela-btn {
-    background-color: #1e293b;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.75rem;
+/* Botão individual da estrela limpo e sem fundo de pílula */
+#filtros-modal .filtro-estrela-btn {
+    background-color: transparent;
+    border: 1px solid transparent; 
+    color: #64748b;                
+    padding: 0.35rem 0.45rem;
+    border-radius: 0.5rem;        
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all 0.2s ease;
 }
 
-.filtro-estrela-btn:hover,
-.filtro-estrela-btn.filtro-ativo {
-    background-color: #f96302;
-    border-color: #f96302;
-    color: #ffffff;
+/* 
+  USO DO !IMPORTANT 
+  O `!important` aqui força o ícone a mudar para preenchido (`font-weight: 900`)
+*/
+#filtros-modal .filtro-estrela-btn.filtro-ativo i,
+#filtros-modal .filtro-estrela-btn:hover i {
+    font-weight: 900 !important; /* Força a versão preenchida */
+    color: #f96302 !important;   /* Cor laranja da marca */
 }
 
-/* ----------------------------------------------------------
-   6. Aberto agora
-   ---------------------------------------------------------- */
+
+/* ==========================================================
+   7. SWITCH INTERATIVO (ABERTO AGORA)
+   ========================================================== */
 .switch {
     position: relative;
     display: inline-block;
-    width: 44px;
-    height: 24px;
+    width: 42px;
+    height: 22px;
 }
 
-/* Esconde o checkbox padrão do HTML */
+/* Esconde o checkbox padrão do HTML nativo */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* Trilha de fundo do switch */
+/* Trilha de fundo estática do switch */
 .slider {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #334155;                     /* Cor de fundo quando desativado */
+    background-color: #334155;
     transition: .3s;
-    border-radius: 24px;
+    border-radius: 22px;
 }
 
 /* Bolinha deslizante interna do switch */
 .slider:before {
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
+    height: 16px;
+    width: 16px;
     left: 3px;
     bottom: 3px;
     background-color: white;
@@ -192,9 +217,9 @@
     border-radius: 50%;
 }
 
-/* Altera a cor de fundo para laranja quando o switch é ativado */
+/* Altera a trilha para o laranja da marca quando o input está checado */
 input:checked + .slider {
-    background-color: #f96302;
+    background-color: #f96302 !important;
 }
 
 /* Desloca a bolinha para a direita quando ativado */
@@ -202,49 +227,51 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
-/* ----------------------------------------------------------
-   7. RODAPÉ (Limpar e Buscar)
-   ---------------------------------------------------------- */
-
-/* Container que organiza os botões do rodapé lado a lado nas pontas */
-.filtro-footer {
+/* ==========================================================
+   8. RODAPÉ (BOTÕES DE AÇÃO: "LIMPAR FILTROS" E "BUSCAR")
+   ========================================================== */
+#filtros-modal .filtro-footer {
     display: flex;
-    justify-content: space-between; /* Empurra cada um para uma ponta (esquerda e direita) */
     align-items: center;
-    margin-top: 0.5rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil acima dos botões */
+    gap: 0.75rem;
+    margin-left: auto; /* Empurra os botões de ação totalmente para o canto direito da barra */
+    padding-top: 0;
+    border-top: none;
 }
 
-/* Botão "Limpar filtros" */
-.btn-acao-secundario {
-    background-color: transparent;
-    border: none;
-    color: #94a3b8; /* Cor cinza clara / esmaecida */
-    font-size: 0.85rem;
+/* Botão secundário ("Limpar filtros") com visual limpo e translúcido */
+#filtros-modal .btn-acao-secundario {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 0.5rem 0.2rem;
-    transition: color 0.2s ease;
+    padding: 0.45rem 0.9rem;
+    border-radius: 2rem;
+    transition: all 0.2s ease;
 }
 
-.btn-acao-secundario:hover {
+#filtros-modal .btn-acao-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Botão "Buscar" (fundo laranja da marca) */
-.btn-acao-primario {
-    background-color: #f96302 !important; /* Laranja Venuo */
+/* Botão primário ("Buscar") destacado com o fundo em laranja sólido */
+#filtros-modal .btn-acao-primario {
+    background-color: #f96302 !important;
     border: 1px solid #f96302 !important;
     color: #ffffff !important;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2rem; /* Formato de pílula arredondada */
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.45rem 1.25rem;
+    border-radius: 2rem;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.btn-acao-primario:hover {
-    opacity: 0.9; /* Efeito leve de transparência ao passar o mouse */
+#filtros-modal .btn-acao-primario:hover {
+    background-color: #e05800 !important;
+    opacity: 1;
 }
