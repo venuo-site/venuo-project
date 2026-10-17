@@ -9,7 +9,10 @@
 
     <!-- barra de pesquisa maneira -->
     <div class="search-container">
-        <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+
+        <!-- onclick aqui para abrir o modal de filtros -->
+        <button class="add-btn" onclick="abrirModalFiltros()"><i class="fa-solid fa-plus"></i></button>
+        <div id="filtros-container" style="display: none;"></div>
         <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
         <div class="search-actions">
             <button class="search-btn" onclick="navegarPara('results-container', 'components/results/resultados.html')"><i class="fa-solid fa-magnifying-glass"></i></button>
