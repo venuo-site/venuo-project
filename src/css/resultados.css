@@ -43,6 +43,7 @@ body {
 .card-resultado {
   background-color: transparent;
   border-radius: 16px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
@@ -62,7 +63,7 @@ body {
   margin-bottom: 14px;
 }
 
-.card-thumb img {
+.card-foto img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -111,6 +112,7 @@ body {
 .card-info {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 8px;
 }
 
@@ -148,18 +150,37 @@ body {
 .card-tags {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
   margin: 2px 0;
+
+  /* --- TRAVA DE 1 LINHA COM TRES PONTOS (...) --- */
+  white-space: nowrap;       /* Impede que os itens passem para a linha de baixo */
+  overflow: hidden;          /* Oculta o conteúdo que passar do limite */
+  text-overflow: ellipsis;  /* Coloca os 3 pontos (...) no final da linha */
+  max-width: 100%;           /* Garante que respeite a largura do card */
 }
 
+/* Garante que os itens da lista fiquem em linha contínua */
 .card-tags li {
   font-size: 0.82rem;
   color: #94a3b8;
+  display: inline;           /* Trata as tags como elementos de texto contínuos */
 }
 
 /* Textos de Apoio */
-.card-descricao,
+.card-descricao {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  
+  /* Corta descricoes longas em 2 linhas com '...' */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card-endereco,
 .card-horario {
   font-size: 0.85rem;
