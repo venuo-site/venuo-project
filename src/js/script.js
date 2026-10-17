@@ -1,63 +1,13 @@
-// Função padrão para injetar HTML
-function carregarComponente(idContainer, caminhoArquivo, callback) {
-    const container = document.getElementById(idContainer);
-    
-    // Trava de segurança: se a div não existe na página atual, interrompe
-    if (!container) return;
+// importa as funções dos modulos
+import { carregarComponente, navegarPara } from './navegacao.js';
+import { abrirModalLogin, fecharModalLogin } from './auth.js';
+import { inicializarNavegacaoPerfil} from './perfil.js';
 
-    fetch(caminhoArquivo)
-        .then(resposta => {
-            if (!resposta.ok) throw new Error(`Erro ao carregar ${caminhoArquivo}`);
-            return resposta.text();
-        })
-        .then(html => {
-            container.innerHTML = html;
-            if (callback) callback(); // Executa o código extra após o HTML estar na tela
-        })
-        .catch(erro => console.error(`[Venuo Modular] Erro:`, erro));
-}
-
-function navegarPara(idContainerDestino, caminhoArquivo) {
-    // pega todos os elementos com a classe 'view-container' no index.html
-    const todasAsTelas = document.querySelectorAll('.view-container');
-
-    // faz um loop e esconde todas as telas de uma vez só 
-    todasAsTelas.forEach(tela => {
-        tela.style.display = 'none';
-    })
-
-    // pega o container destino (a tela que o usuario quer ver) e revela
-    const containerDestino = document.getElementById(idContainerDestino);
-    if (containerDestino) {
-        containerDestino.style.display = 'block';
-    }
-
-    // faz o fetch do fragmento html e injeta na tela revelada
-    carregarComponente(idContainerDestino, caminhoArquivo);
-}
-
-// abre o modal de login flutuante sobre a tela atual
-function abrirModalLogin() {
-    const container = document.getElementById('login-container');
-
-    if (container) {
-        // exibe o overlay aplicando flex para centralizar a caixa na tela
-        container.style.display = 'flex';
-
-        // carrega o conteudo do login de forma dinamica
-        carregarComponente('login-container', 'components/login/login.html');
-    }
-}
-
-function fecharModalLogin() {
-    const container = document.getElementById('login-container');
-
-    if (container) {
-        container.style.display = 'none' // esconde o modal
-        container.innerHTML = ''; // limpa o html interno pra reiniciar limpo na próxima vez que for aberto
-    }
-}
-
+// torna as funções globais para o html enxergar os onclicks
+window.navegarPara = navegarPara;
+window.abrirModalLogin = abrirModalLogin;
+window.fecharModalLogin = fecharModalLogin;
+window.inicializarNavegacaoPerfil = inicializarNavegacaoPerfil;
 
 // --- FUNÇÕES DO MODAL DE FILTROS ---
 
@@ -134,25 +84,28 @@ function inicializarLogicaFiltros() {
     }
 }
 
-
-// Mapeamento dos componentes
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos componentes
 // carregarComponente('id-do-container', 'caminho/do/container.html')
 
   // --- GLOBAIS (Executados em todas as telas que contêm as divs) ---
-  carregarComponente('header-container', 'components/global/header.html');
-  carregarComponente('footer-container', 'components/global/footer.html');
+    carregarComponente('header-container', 'components/global/header.html');
+    carregarComponente('footer-container', 'components/global/footer.html');
 
   // --- HOMEPAGE (index.html) ---
-  carregarComponente('hero-container', 'components/homepage/hero.html');
-  carregarComponente('highlights-container', 'components/homepage/highlights.html');
-  carregarComponente('categories-container', 'components/homepage/categories.html');
+    carregarComponente('hero-container', 'components/homepage/hero.html');
+    carregarComponente('highlights-container', 'components/homepage/highlights.html');
+    carregarComponente('categories-container', 'components/homepage/categories.html');
 
   // --- RESULTADOS ---
-  carregarComponente('results-container', 'components/results/results.html');
+    carregarComponente('results-container', 'components/results/results.html');
 
   // --- SOBRE ---
-  carregarComponente('about-container', 'components/about/about.html');
+    carregarComponente('about-container', 'components/about/about.html');
 
-
+ // --- PERFIL
+    carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
+  
+  // --- Detalhes do estabelecimento ---
+    carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
+  
 });

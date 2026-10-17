@@ -15,7 +15,9 @@
         <input type="password" name="campo senha" id="input-senha">
 
         <!-- botão para efetuar o login -->
-        <button class="login-button">Entrar</button>
+        <button class="login-button" onclick="navegarPara('perfil-container', 'components/perfil/perfil.html', 'window.inicializarNavegacaoPerfil')">
+            Entrar
+        </button>
 
         <!-- divisoria -->
         <p class="p-divisoria">Ou</p>
@@ -23,7 +25,7 @@
         <button class="login-google-button">Continuar com Google</button>
 
         <p class="footer-register">Não tem uma conta? 
-            <span class="text-link" onclick="">Cadastre-se</span>
+            <span class="text-link" onclick="navegarPara('cadastro-container', 'components/cadastro/cadastro.html')">Cadastre-se</span>
         </p> 
     </div>
 </section>
