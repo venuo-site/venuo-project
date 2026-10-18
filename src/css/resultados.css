@@ -108,16 +108,50 @@ body {
 
 /* Aplica os tamanhos, cores e pesos das fontes para título, preço, avaliação e a cor laranja da estrela. */
 .card-header h3 { font-size: 1.2rem; color: #ffffff; }
-.card-preco { color: #38bdf8; font-weight: bold; }
+.card-header .card-preco{
+  color: rgb(75, 200, 212);
+  font-size: 13px;
+  font-weight: 500; /* Define o peso da fonte do preço como médio (500). */
+  flex-shrink: 0; /* Impede que o preço encolha e empurre o título para a esquerda. */
+}
+
 .card-avaliacao { font-size: 0.85rem; color: #cbd5e1; }
-.estrela{ color: #f97316; }
+
+.estrela {
+  width: 16px;
+  height: 16px;
+  fill: #FF7A3D;             /* Preenchimento laranja do SVG */
+  stroke: #FF7A3D;           /* Cor do contorno */
+  stroke-width: 2px;         /* Espessura do contorno original */
+  stroke-linecap: round;     /* Pontas das linhas arredondadas */
+  stroke-linejoin: round;    /* Cantos das linhas arredondados */
+  display: inline-block;     /* Alinha como elemento de bloco em linha */
+  vertical-align: -2px;      /* Ajusta o alinhamento de altura com o texto da nota */
+}
+
+.font-bold {
+  font-weight: bold; /* Define o peso da fonte como negrito (bold). */
+}
+
+.comodidades-icones {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: rgb(75, 200, 212);   /* Cor azul clara do ícone */
+  stroke-width: 2px;            /* Espessura da linha */
+  stroke-linecap: round;        /* Pontas das linhas arredondadas */
+  stroke-linejoin: round;       /* Cantos das linhas arredondados */
+  display: inline-block;        /* Garante o alinhamento correto em linha */
+  vertical-align: middle;       /* Alinha com o texto da tag */
+  flex-shrink: 0;               /* Impede que o ícone encolha no Flexbox */
+}
 
 .card-tags {
   /* Trava a lista de comodidades (tags) em 1 única linha contínua, cortando tudo o que não couber na largura do card.  */
   list-style: none; /* Remove os marcadores padrão da lista. */
   display: flex; /* Ativa o Flexbox para organizar as tags em uma linha horizontal. */
   gap: 10px; /* Cria um espaçamento fixo de 10px entre cada tag. */
-  font-size: 0.8rem; /* Define o tamanho da fonte das tags para 0.8rem. */
+  font-size: 0.7rem !important; /* Define o tamanho da fonte das tags para 0.8rem. */
   color: #94a3b8; /* Define a cor das tags para um tom de cinza claro. */
   white-space: nowrap; /* Impede que as tags quebrem para a próxima linha, mantendo-as em uma única linha horizontal. */
   overflow: hidden; /* Oculta qualquer tag que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
@@ -146,7 +180,7 @@ body {
 }
 
 .distancia {
-  color: #f97316;
+  color: #f97316 !important;
   font-weight: bold;
 }
 
