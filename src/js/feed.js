@@ -51,7 +51,10 @@ export function renderizarFeed(filtroCategoria = "Todos") {
     });
 }
 
+// ---------------------------------------------
 // --- CONFIGURA OS CLIQUES NAS ABAS DO HERO ---
+// ---------------------------------------------
+
 export function configurarFiltrosAbas() {
     const abas = document.querySelectorAll('.tab-btn');
     abas.forEach(aba => {
@@ -63,5 +66,36 @@ export function configurarFiltrosAbas() {
             const categoria = abaClicada.textContent.trim();
             renderizarFeed(categoria);
         });
+    });
+}
+
+// ------------------------------------------
+// --- CONFIGURA O TOGGLE DE LISTA E MAPA ---
+// ------------------------------------------
+
+export function configurarToggleMapa() {
+    // Busca os dois botões
+    const botoes = document.querySelectorAll('.toggle-btn');
+    const btnLista = botoes[0];
+    const btnMapa = botoes[1];
+    
+    // Busca os contêineres
+    const gridResultados = document.getElementById('feed-resultados');
+    const mapaView = document.getElementById('mapa-view');
+
+    if (!btnLista || !btnMapa || !gridResultados || !mapaView) return;
+
+    btnLista.addEventListener('click', () => {
+        btnLista.classList.add('active');
+        btnMapa.classList.remove('active');
+        gridResultados.style.display = 'grid';
+        mapaView.style.display = 'none';
+    });
+
+    btnMapa.addEventListener('click', () => {
+        btnMapa.classList.add('active');
+        btnLista.classList.remove('active');
+        gridResultados.style.display = 'none';
+        mapaView.style.display = 'block';
     });
 }

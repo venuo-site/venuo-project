@@ -1,7 +1,7 @@
 // importa as funções dos modulos
 import { carregarComponente, navegarPara } from './navegacao.js';
 import { abrirModalLogin, fecharModalLogin } from './auth.js';
-import { renderizarFeed, configurarFiltrosAbas } from './feed.js'; // novo modulo do feed
+import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
@@ -9,6 +9,7 @@ window.abrirModalLogin = abrirModalLogin;
 window.fecharModalLogin = fecharModalLogin;
 window.renderizarFeed = renderizarFeed;
 window.configurarFiltrosAbas = configurarFiltrosAbas;
+window.configurarToggleMapa = configurarToggleMapa;
 
 document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componentes
 // carregarComponente('id-do-container', 'caminho/do/container.html')
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componen
   // injeta os resultados e logo depois renderiza os cards mockados
   carregarComponente('results-container', 'components/results/results.html', () => {
     renderizarFeed("Todos");
+    configurarToggleMapa(); // ativa o botao do mapa lá
   });
 
   // --- SOBRE ---
