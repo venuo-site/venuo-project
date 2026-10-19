@@ -146,6 +146,20 @@ body {
   flex-shrink: 0;               /* Impede que o ícone encolha no Flexbox */
 }
 
+.card-info .hr-loc-icones {
+  color: #dbeaff; /* Define a cor do ícone de horário e localização para um tom de cinza claro. */
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;        /* Herda a cor do texto pai */
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  vertical-align: -0.250rem;
+  flex-shrink: 0;
+}
+
 .card-tags {
   /* Trava a lista de comodidades (tags) em 1 única linha contínua, cortando tudo o que não couber na largura do card.  */
   list-style: none; /* Remove os marcadores padrão da lista. */
@@ -175,6 +189,15 @@ body {
 }
 
 .card-info .endereco {
+  color: #dbeaff; /* Define a cor do endereço para um tom de cinza claro. */
+  font-size: 0.70rem; /* Define o tamanho da fonte do endereço para 0.85rem. */
+  white-space: nowrap; /* Impede que o endereço quebre para a próxima linha, mantendo-o em uma única linha horizontal. */
+  overflow: hidden; /* Oculta qualquer parte do endereço que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
+}
+
+.card-info .horario {
+  color: #dbeaff; /* Define a cor do endereço para um tom de cinza claro. */
+  font-size: 0.70rem; /* Define o tamanho da fonte do endereço para 0.85rem. */
   white-space: nowrap; /* Impede que o endereço quebre para a próxima linha, mantendo-o em uma única linha horizontal. */
   overflow: hidden; /* Oculta qualquer parte do endereço que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
 }
