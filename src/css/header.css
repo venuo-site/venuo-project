@@ -92,3 +92,9 @@ header {
     margin-right: 0.5rem;
     display: flex;
 }
+
+/* Mantém os ícones brancos nos dois temas */
+.navbar .icon-btn,
+.navbar .icon-btn i {
+    color: #ffffff;
+}

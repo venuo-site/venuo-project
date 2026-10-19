@@ -159,3 +159,38 @@
 
 .prev-btn { left: -20px; }  /* Posiciona a seta esquerda levemente saindo do container */
 .next-btn { right: -20px; } /* Posiciona a seta direita levemente saindo do container */
+
+/* Altera o fundo dos cards de Destaques no tema claro */
+body.tema-claro .card {
+    /* Define o fundo dos cards como branco sólido */
+    background-color: #ffffff;
+    /* Adiciona uma borda cinza clara para separar o card do fundo */
+    border: 1px solid #d1d5db;
+    /* Define a cor principal dos textos dentro dos cards */
+    color: #172334;
+    /* Remove o efeito de transparência e desfoque */
+    backdrop-filter: none;
+}
+
+/* Define a cor escura dos títulos dos cards */
+body.tema-claro .card h3 {
+    /* Facilita a leitura dos títulos */
+    color: #172334;
+}
+
+/* Define a cor das descrições dos cards */
+body.tema-claro .card p {
+    /* Mantém as descrições legíveis sobre o fundo branco */
+    color: #5b6675;
+}
+
+/* Define a cor das informações secundárias */
+body.tema-claro .card .amenities-container {
+    color: #6b7280;
+}
+
+
+/* Tema claro: escurece somente a letra das categorias */
+body.tema-claro .card-content [class^="category-"] {
+    color: #000000;
+}

@@ -41,16 +41,39 @@ body {
 #um-lugar {
     font-size: 3rem;
 }
-
-/* TEMA CLARO: altera as variáveis visuais quando essa classe está no body */
+    
+/* Define as cores e o fundo do tema claro */
 body.tema-claro {
-    /* Define a cor de fundo do tema claro */
-    --bg-color: #f5f7fa;
+    /* Define a cor de fundo principal da página */
+    --bg-color: #f1f5f9;
+    /* Espalha os tons de azul e laranja por toda a página */
+    --bg-gradient:
+        /* Cria uma mancha azul suave no lado esquerdo */
+        radial-gradient(
+            ellipse at 10% 20%,
+            rgba(0, 180, 216, 0.13),
+            transparent 60%
+        ),
+        /* Cria uma mancha laranja suave no lado direito */
+        radial-gradient(
+            ellipse at 90% 60%,
+            rgba(255, 107, 53, 0.10),
+            transparent 60%
+        ),
+        /* Mantém uma base cinza-azulada suave */
+        linear-gradient(
+            180deg,
+            #e8edf0 0%,
+            #edf0f2 50%,
+            #e8edf0 100%
+        );
+    /* Define a cor principal dos textos */
+    --text-white: #172334;
+    /* Define a cor dos textos secundários */
+    --text-gray: #5b6675;
 
-    /* Remove o gradiente escuro do fundo */
-    --bg-gradient: none;
-
-    /* Define uma cor escura para facilitar a leitura dos textos no fundo claro */
-     --text-white: #1f2937;
-
+/* Mantém o fundo colorido ao longo de toda a página */
+    background: var(--bg-gradient);
+    background-color: var(--bg-color);
+    background-attachment: fixed;
 }

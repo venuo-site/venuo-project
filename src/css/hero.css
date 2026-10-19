@@ -111,3 +111,36 @@ acho interessante explicar pq eu uso a medida 'rem':
 
 
 .btn-sobre { color: var(--brand-orange); }
+
+/* Tema claro: barra de pesquisa branca */
+body.tema-claro .search-container {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Texto digitado e placeholder */
+body.tema-claro .search-container input {
+    color: #172334;
+}
+
+body.tema-claro .search-container input::placeholder {
+    color: #6b7280;
+}
+
+/* Tema claro: categorias pequenas brancas */
+body.tema-claro .filter-pill {
+    background-color: #ffffff;
+    color: #172334;
+    border: 1px solid #d1d5db;
+    transition: background-color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+body.tema-claro .filter-pill:hover {
+    background-color: #f3f4f6;
+    border-color: #ff6b35;
+    transform: translateY(-2px);
+}

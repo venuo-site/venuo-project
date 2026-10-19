@@ -219,3 +219,41 @@
         padding: 25px;
     }
 }
+
+
+/* Campos de e-mail e senha no tema claro */
+body.tema-claro #input-access,
+body.tema-claro #input-senha {
+    background: #ffffff;
+    color: #222222;
+    border: 1px solid #cccccc;
+}
+
+/* Texto de exemplo dos campos no tema claro */
+body.tema-claro #input-access::placeholder,
+body.tema-claro #input-senha::placeholder {
+    color: #777777;
+}
+
+/* Destaque ao selecionar os campos no tema claro */
+body.tema-claro #input-access:focus,
+body.tema-claro #input-senha:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.15);
+}
+
+
+/* Personaliza somente o card de login no tema claro */
+body.tema-claro .modal-box {
+    background-color: #ffffff; /* Deixa o fundo do card branco */
+    color: #252b33; /* Define a cor padrão dos textos */
+    border: 1px solid #e2e6eb; /* Adiciona uma borda cinza suave */
+    border-radius: 16px; /* Arredonda os cantos do card */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12); /* Cria uma sombra discreta */
+}
+
+
+/* Deixa o texto do botão Entrar branco somente no tema claro */
+body.tema-claro .login-button {
+    color: #e4dada;
+}

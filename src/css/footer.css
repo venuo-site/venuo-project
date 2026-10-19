@@ -80,3 +80,13 @@
     color: #b8c5d6; /* Define a cor do texto de direitos autorais */
     margin: 0; /* Remove a margem padrão do elemento */
 }
+
+/* Deixa os ícones sociais pretos no tema claro */
+body.tema-claro .footer .social-button {
+    color: #000000;
+}
+
+/* Slogan do rodapé preto no tema claro */
+body.tema-claro .footer .footer-slogan {
+    color: #000000;
+}

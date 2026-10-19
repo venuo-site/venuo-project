@@ -421,3 +421,49 @@
 .card-content-category-lazer {
     padding: 1.25rem; /* Margem interna para o texto não colar na borda do card */
 }
+
+/* Ajusta as cores dos cards no tema claro */
+body.tema-claro .card-category-bares,
+body.tema-claro .card-category-restaurante,
+body.tema-claro .card-category-evento,
+body.tema-claro .card-category-lazer {
+    background-color: #ffffff;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+}
+
+/* Melhora a leitura dos textos dentro dos cards */
+body.tema-claro .card-category-bares h3,
+body.tema-claro .card-category-bares p,
+body.tema-claro .card-category-restaurante h3,
+body.tema-claro .card-category-restaurante p,
+body.tema-claro .card-category-evento h3,
+body.tema-claro .card-category-evento p,
+body.tema-claro .card-category-lazer h3,
+body.tema-claro .card-category-lazer p {
+    color: #1f2937;
+}
+
+/* Deixa a borda dos botões da mesma cor do texto no tema claro */
+body.tema-claro .categoria-bares-homepage a,
+body.tema-claro .categoria-restaurantes-homepage a,
+body.tema-claro .categoria-eventos-homepage a,
+body.tema-claro .categoria-lazer-homepage a {
+    border-color: var(--brand-orange);
+}
+
+
+/* Tema claro: escurece somente o texto das etiquetas */
+body.tema-claro .category-bares,
+body.tema-claro .category-restaurante,
+body.tema-claro .category-lazer {
+    color: #000000 !important;
+}
+
+
+/* Tema claro: deixa as comodidades dos cards em preto */
+body.tema-claro .amenities-container,
+body.tema-claro .amenity-item,
+body.tema-claro .amenity-more {
+    color: #2a2525;
+}
