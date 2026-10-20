@@ -341,12 +341,19 @@
     padding: 32px 5%;
 }
 
-/* Cartão individual */
+/* Cartão individual — padrão da tela principal */
 .profile-favorite-card {
     overflow: hidden;
-    background: #142638;
-    border: 1px solid #263e54;
-    border-radius: 16px;
+    background-color: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.profile-favorite-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Área da imagem e do botão de remover */
@@ -362,47 +369,53 @@
     object-fit: cover;
 }
 
-/* Botão para remover dos favoritos */
+/* Botão de favoritos — padrão da tela principal */
 .profile-favorite-card__remove {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #ffffff;
-    background: #263e54;
-    border: none;
+    width: 32px;
+    height: 32px;
+    color: var(--text-white);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Conteúdo do cartão */
+.profile-favorite-card__remove:hover {
+    background-color: var(--brand-orange);
+    border-color: var(--brand-orange);
+}
+
+/* Conteúdo do cartão — padrão da tela principal */
 .profile-favorite-card__content {
-    padding: 18px;
+    padding: 1.2rem;
 }
 
-/* Nome do estabelecimento */
+/* Nome do estabelecimento — padrão da tela principal */
 .profile-favorite-card__title {
-    margin: 0 0 12px;
-    color: #ffffff;
-    font-size: 18px;
+    margin: 0 0 1rem;
+    color: var(--text-white);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-/* Categoria e avaliação */
 .profile-favorite-card__details {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    font-size: 0.8rem;
 }
 
-/* Categoria */
 .profile-favorite-card__category {
-    color: #d6e1eb;
-    font-size: 14px;
+    color: var(--text-gray);
+    font-size: 0.8rem;
 }
 
 /* Nota do estabelecimento */
@@ -415,7 +428,7 @@
 }
 
 .profile-favorite-card__rating i {
-    color: #ffb547;
+    color: var(--brand-orange);
 }
 
 /* ========================================
