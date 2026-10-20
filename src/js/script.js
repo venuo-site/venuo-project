@@ -1,13 +1,23 @@
 // importa as funções dos modulos
 import { carregarComponente, navegarPara } from './navegacao.js';
 import { abrirModalLogin, fecharModalLogin } from './auth.js';
+<<<<<<< HEAD
 import { inicializarNavegacaoPerfil} from './perfil.js';
+=======
+import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
+>>>>>>> 3bfe2fcb3a5007ed37b37badf9038ae14a6ddef9
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
 window.abrirModalLogin = abrirModalLogin;
 window.fecharModalLogin = fecharModalLogin;
+<<<<<<< HEAD
 window.inicializarNavegacaoPerfil = inicializarNavegacaoPerfil;
+=======
+window.renderizarFeed = renderizarFeed;
+window.configurarFiltrosAbas = configurarFiltrosAbas;
+window.configurarToggleMapa = configurarToggleMapa;
+>>>>>>> 3bfe2fcb3a5007ed37b37badf9038ae14a6ddef9
 
 // --- FUNÇÕES DO MODAL DE FILTROS ---
 
@@ -92,12 +102,30 @@ document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos co
     carregarComponente('footer-container', 'components/global/footer.html');
 
   // --- HOMEPAGE (index.html) ---
+<<<<<<< HEAD
     carregarComponente('hero-container', 'components/homepage/hero.html');
     carregarComponente('highlights-container', 'components/homepage/highlights.html');
     carregarComponente('categories-container', 'components/homepage/categories.html');
 
   // --- RESULTADOS ---
     carregarComponente('results-container', 'components/results/results.html');
+=======
+
+  // injeta o hero e logo depois configura as abas de filtro
+  carregarComponente('hero-container', 'components/homepage/hero.html', () => {
+    configurarFiltrosAbas();
+  });
+
+  // carregarComponente('highlights-container', 'components/homepage/highlights.html');
+  // carregarComponente('categories-container', 'components/homepage/categories.html');
+
+  // --- RESULTADOS ---
+  // injeta os resultados e logo depois renderiza os cards mockados
+  carregarComponente('results-container', 'components/results/results.html', () => {
+    renderizarFeed("Todos");
+    configurarToggleMapa(); // ativa o botao do mapa lá
+  });
+>>>>>>> 3bfe2fcb3a5007ed37b37badf9038ae14a6ddef9
 
   // --- SOBRE ---
     carregarComponente('about-container', 'components/about/about.html');

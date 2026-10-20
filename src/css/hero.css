@@ -1,113 +1,131 @@
-/* sect do HEROI */
-.hero-sect{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-    padding: 4rem 2rem 2rem;
+.hero-content {
+    padding: 4rem 4rem 2rem 4rem; /* Espaçamento interno respirável */
+    max-width: 1200px;
 }
 
-/* 
-acho interessante explicar pq eu uso a medida 'rem':
-    - o rem é igual a 16px, entao 4rem = 4 * 16px = 64px.
-    - uso "rem" em vez de "px" por acessibilidade 
-      se o querido usuario aumenta o tamanho da font pelo browser, 
-      os elementos em rem crescem proporcionalmente, 
-      enquanto os em px permanecem fixos.
-*/
-
-.main-title{
-    font-size: 4rem;
+.hero-title {
+    font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
 }
 
-.text-orange { color: var(--brand-orange); }
-.text-blue { color: var(--brand-blue); }
-.text-withe { color: var(--text-white); }
+.highlight-orange {
+    color: var(--brand-orange);
+}
 
-.subtitle {
+.highlight-blue {
+    color: var(--brand-blue);
+}
+
+.highlight-white {
     color: var(--text-white);
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
 }
 
-/* barra de pesquisa maneira */
-.search-container { /* caixinha aonde fica a pesquisa */
+.hero-description {
+    color: var(--text-gray);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* --- BARRA DE BUSCA --- */
+.search-bar-container {
     display: flex;
     align-items: center;
-    background: var(--surface-color);
-    border-radius: var(--border-radius-pill);
-    padding: 0.5rem 1rem;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s;
 }
 
+.search-bar-container:focus-within {
+    border-color: rgba(255, 255, 255, 0.2);
+}
 
-/* trem de pesquisar */
-.search-container input {
-    flex: 1; /* flex é tipo pra definir um comprimento adaptavel */
+.search-icon {
+    color: var(--text-gray);
+    margin-right: 1rem;
+}
+
+.search-bar-container input {
+    flex-grow: 1;
     background: transparent;
     border: none;
     color: var(--text-white);
-    padding: 0.8rem 1rem;
     font-size: 1rem;
     outline: none;
-    min-width: 0;
 }
 
-.search-actions { /* conjunto dos botões na barra de pesquisa */
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-shrink: 0;
-}
-
-/* butoes */
-.search-container button {
-    background: transparent;
-    border: none;
+.search-bar-container input::placeholder {
     color: var(--text-gray);
-    padding: 0.5rem;
-    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
-    font-size: 1.1rem;
 }
 
-.search-container .search-btn {
-    background: var(--brand-orange);
-    color: white;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    display: flex;
+.location-text {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    padding-right: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* pilulas de filtro */
-.filters {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.filter-pill {
-    background: var(--surface-color);
+.filter-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
     color: var(--text-white);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.6rem 1.5rem;
-    border-radius: var(--border-radius-pill);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: all 0.2s;
+    transition: background 0.3s;
+    font-weight: 500;
 }
 
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
-.btn-sobre { color: var(--brand-orange); }
+/* --- ABAS DE CATEGORIAS --- */
+.category-tabs {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto; /* Permite rolar pro lado em telas menores */
+    padding-bottom: 0.5rem;
+}
+
+/* Esconde a barra de rolagem (opcional para ficar mais limpo) */
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-gray);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--text-white);
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Estado da aba selecionada (Laranja) */
+.tab-btn.active {
+    background-color: var(--brand-orange);
+    border-color: var(--brand-orange);
+    color: #fff;
+    font-weight: 500;
+}

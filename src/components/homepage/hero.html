@@ -1,31 +1,22 @@
-<section class="hero-sect">
-    <!-- titulo principal -->
-    <h1 class="main-title">
-        <span class="text-orange">Descubra.</span>
-        <span class="text-blue">Conecte.</span>
-        <span class="text-white">Viva.</span>
-    </h1>
-    <p class="subtitle">Encontre seu lazer ideal em segundos.</p>
+<div class="hero-content">
+    <h1 class="hero-title"><span class="highlight-orange">Descubra.</span> <span class="highlight-blue">Conecte.</span> <span class="highlight-white">Viva.</span></h1>
+    <p class="hero-description">Encontre seu lazer ideal em segundos.</p>
 
-    <!-- barra de pesquisa maneira -->
-    <div class="search-container">
-
-        <!-- onclick aqui para abrir o modal de filtros -->
-        <button class="add-btn" onclick="abrirModalFiltros()"><i class="fa-solid fa-plus"></i></button>
-        <div id="filtros-container" style="display: none;"></div>
-        <input type="text" placeholder="Para onde vamos hoje?" id="searchInput">
-        <div class="search-actions">
-            <button class="search-btn" onclick="navegarPara('results-container', 'components/results/resultados.html')"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button class="mic-btn"><i class="fa-solid fa-microphone"></i></button>
-            <button class="location-btn"><i class="fa-solid fa-location-crosshairs"></i></button>
-        </div>
+    <!-- barra de busca unificada -->
+    <div class="search-bar-container">
+        <i class="fa fa-search search-icon"></i>
+        <input type="text" placeholder="Busque um lugar, uma vibe ou um bairro..." id="searchInput">
+        <span class="location-text">Goiânia, GO</span>
+        <button class="filter-btn"><i class="fa fa-sliders-h"></i> Filtros</button>
     </div>
 
-    <!-- filtros em "pilulas" -->
-    <div class="filters">
-        <button class="filter-pill">Bares</button>
-        <button class="filter-pill">Restaurantes</button>
-        <button class="filter-pill">Eventos</button>
-        <button class="filter-pill">Cafés</button>
+    <!-- abas de categorias (Filtros Rápidos) -->
+    <div class="category-tabs">
+        <button class="tab-btn active"><i class="fa fa-compass"></i> Todos</button>
+        <button class="tab-btn"><i class="fa fa-wine-glass"></i> Bares</button>
+        <button class="tab-btn"><i class="fa fa-utensils"></i> Restaurantes</button>
+        <button class="tab-btn"><i class="fa fa-music"></i> Música ao vivo</button>
+        <button class="tab-btn"><i class="fa fa-coffee"></i> Cafés</button>
+        <button class="tab-btn"><i class="fa fa-tree"></i> Ao ar livre</button>
     </div>
-</section>
+</div>
