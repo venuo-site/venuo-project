@@ -225,12 +225,33 @@ body {
   cursor: pointer; /* Adiciona um cursor de ponteiro ao passar o mouse sobre o botão, indicando que é clicável. */
 }
 
-.botão-telefone {
-  width: 40px; /* Define a largura fixa do botão "Telefone" para 40px, mantendo-o quadrado. */
-  height: 40px; /*  Define a altura fixa do botão "Telefone" para 40px, mantendo-o quadrado. */
-  background-color: #132738; /* Define a cor de fundo do botão "Telefone" para um tom escuro de azul. */
-  color: #38bdf8; /* Define a cor do ícone do telefone para um tom de azul claro. */
-  border: 1px solid #1e3a5f; /* Adiciona uma borda de 1px ao redor do botão "Telefone" com um tom mais escuro de azul. */
-  border-radius: 10px; /* Arredonda os cantos do botão "Telefone" com um raio de 10px. */
-  cursor: pointer; /* Adiciona um cursor de ponteiro ao passar o mouse sobre o botão, indicando que é clicável. */
+/* Container do botão de telefone */
+.box-telefone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; /* equivalente a p-2 (8px) */
+  border-radius: 0.5rem; /* equivalente a rounded-lg (8px) */
+  border: none; /* Remove a borda padrão do botão */
+  background: rgba(75, 200, 212, 0.15);
+  color: rgb(75, 200, 212);
+  cursor: pointer; /* Garante o ícone de mão ao passar o mouse */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efeito Hover (equivalente a hover:scale-105) */
+.box-telefone:hover {
+  transform: scale(1.05);
+}
+
+/* Estilização do ícone SVG interno */
+.box-telefone svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor; /* Herda a cor do botão */
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
 }
