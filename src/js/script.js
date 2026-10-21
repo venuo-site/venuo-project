@@ -2,6 +2,7 @@
 import { carregarComponente, navegarPara } from './navegacao.js';
 import { abrirModalLogin, fecharModalLogin } from './auth.js';
 import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
+import { abrirModalFiltros, fecharModalFiltros } from './filtros-busca.js'; // módulo de filtros
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
@@ -10,6 +11,8 @@ window.fecharModalLogin = fecharModalLogin;
 window.renderizarFeed = renderizarFeed;
 window.configurarFiltrosAbas = configurarFiltrosAbas;
 window.configurarToggleMapa = configurarToggleMapa;
+window.abrirModalFiltros = abrirModalFiltros;       // Expõe para o botão do Hero
+window.fecharModalFiltros = fecharModalFiltros;     // Expõe para o botão "X" do modal
 
 document.addEventListener('DOMContentLoaded', () => { // Mapeamento dos componentes
 // carregarComponente('id-do-container', 'caminho/do/container.html')
