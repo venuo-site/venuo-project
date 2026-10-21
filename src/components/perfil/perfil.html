@@ -486,9 +486,15 @@
                     name="notificacoes"
                     value="favoritos"
                     checked
-                >
+                >   
             </label>
-
+            <button 
+                type="button" 
+                class="profile-settings__save" 
+                style="margin-top: 15px; background-color: #00b4d8;"
+                onclick="if(document.getElementById('notificacao-ofertas').checked) window.dispararNotificacao('🍻 Happy-Hour Rolando!', 'O <strong>Madalena Gastrobar</strong> liberou chopp em dobro até as 20h. Não perca!', 'fa-solid fa-beer-mug-empty'); else alert('Ative as notificações de ofertas!');">
+                <i class="fa-solid fa-bullhorn"></i> Testar Alerta de Promoção
+            </button>
         </div>
 
         <!-- ========================================
