@@ -13,6 +13,26 @@ window.renderizarFeed = renderizarFeed;
 window.configurarFiltrosAbas = configurarFiltrosAbas;
 window.configurarToggleMapa = configurarToggleMapa;
 
+
+window.atualizarUsuarioSidebar = function() {
+    const avatar = document.querySelector('.user-avatar');
+    const nome = document.querySelector('.user-name');
+    const acao = document.querySelector('.user-action');
+
+    if (avatar) {
+        avatar.innerHTML = '<img src="img/perfil-usuario.png" alt="Foto do perfil">';
+    }
+
+    if (nome) {
+        nome.textContent = 'João Silva';
+    }
+
+    if (acao) {
+        acao.textContent = 'Ver perfil';
+    }
+};
+
+
 // --- FUNÇÕES DO MODAL DE FILTROS ---
 
 // Função para alternar a abertura e fechamento do modal de filtros pelo botão "+"
