@@ -116,8 +116,12 @@ document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos co
     carregarComponente('about-container', 'components/about/about.html');
 
  // --- PERFIL
-    carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
-  
+carregarComponente(
+    'perfil-container',
+    'components/perfil/perfil.html',
+    inicializarNavegacaoPerfil
+  );
+
   // --- Detalhes do estabelecimento ---
     carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
   
