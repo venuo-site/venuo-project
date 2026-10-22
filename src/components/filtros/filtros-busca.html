@@ -1,0 +1,95 @@
+
+<div id="filtros-modal" class="filtros-modal-container">
+    
+    <!-- GRUPO 1: SELEÇÃO DE DISTÂNCIA -->
+    <div class="filtro-grupo">
+        <!-- Cabeçalho do grupo com título e botão de fechar -->
+        <button id="btn-fechar-filtros" class="filtro-fechar-btn" onclick="fecharModalFiltros()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span class="filtro-titulo">Distância</span>
+
+        <!-- Container dos botões de rádio/opções -->
+        <div class="filtro-opcoes" id="grupo-distancia">
+            <button id="btn-dist-500m" class="filtro-btn">500m</button>
+            <button id="btn-dist-1km" class="filtro-btn">1km</button>
+            <button id="btn-dist-3km" class="filtro-btn">3km</button>
+            <button id="btn-dist-5km" class="filtro-btn">5km</button>
+            <button id="btn-dist-10km" class="filtro-btn">10km+</button>
+        </div>
+    </div>
+
+    
+    <!-- GRUPO 2: SELEÇÃO DE FAIXA DE PREÇO -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Preço</span>
+        <div class="filtro-opcoes" id="grupo-preco">
+            <button id="btn-preco-1" class="filtro-btn">$</button>
+            <button id="btn-preco-2" class="filtro-btn">$$</button>
+            <button id="btn-preco-3" class="filtro-btn">$$$</button>
+            <button id="btn-preco-4" class="filtro-btn">$$$$</button>
+        </div>
+    </div>
+
+
+    <!-- GRUPO 3: TOGGLE DE ESTABELECIMENTOS ABERTOS -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Aberto agora</span>
+        <!-- Componente de Switch interativo -->
+        <label class="switch">
+            <input type="checkbox" id="toggle-aberto">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+
+    <!-- GRUPO 4: AVALIAÇÃO MÍNIMA POR ESTRELAS -->
+    <div class="filtro-grupo">
+        <span class="filtro-titulo">Avaliação mínima</span>
+        <div class="filtro-estrelas" id="grupo-avaliacao">
+            <!-- Ícones do Font Awesome incorporados dentro de botões semânticos -->
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+            <button class="filtro-estrela-btn"><i class="fa-regular fa-star"></i></button>
+        </div>
+    </div>
+
+
+    <!-- GRUPO 5: ESTILOS MUSICAIS -->
+<div class="filtro-grupo">
+    <span class="filtro-titulo">Estilo Musical</span>
+    <div class="filtro-opcoes" id="grupo-estilo-musical">
+        <button class="filtro-btn">Samba</button>
+        <button class="filtro-btn">Sertanejo</button>
+        <button class="filtro-btn">Funk</button>
+        <button class="filtro-btn">Pagode</button>
+        
+        <!-- Botão para expandir / recolher -->
+        <button id="btn-toggle-mais-estilos" class="filtro-btn">
+            <i id="icone-toggle-estilos" class="fa-solid fa-plus"></i>
+        </button>
+
+        <!-- Opções extras com classes bem curtas -->
+        <button class="filtro-btn extra oculto">MPB</button>
+        <button class="filtro-btn extra oculto">Rock</button>
+        <button class="filtro-btn extra oculto">Pop</button>
+        <button class="filtro-btn extra oculto">Eletrônica</button>
+        <button class="filtro-btn extra oculto">Jazz</button>
+        <button class="filtro-btn extra oculto">Blues</button>
+        <button class="filtro-btn extra oculto">Axé</button>
+        <button class="filtro-btn extra oculto">Forró</button>
+    </div>
+</div>
+    
+        <!-- RODAPÉ COM BOTÕES DE AÇÃO -->
+    <div class="filtro-footer">
+        <!-- Botão para limpar filtros -->
+        <button id="btn-limpar-filtros" class="btn-acao-secundario">Limpar filtros</button>
+        
+        <!-- Botão de confirmação de busca -->
+        <button id="btn-buscar-filtros" class="btn-acao-primario">Buscar</button>
+    </div>
+
+</div>

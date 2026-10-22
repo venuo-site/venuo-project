@@ -7,7 +7,15 @@
         <i class="fa fa-search search-icon"></i>
         <input type="text" placeholder="Busque um lugar, uma vibe ou um bairro..." id="searchInput">
         <span class="location-text">Goiânia, GO</span>
-        <button class="filter-btn"><i class="fa fa-sliders-h"></i> Filtros</button>
+        <!-- Apenas adicionada a chamada onclick="abrirModalFiltros()" -->
+        <button class="filter-btn" onclick="abrirModalFiltros()">
+            <i class="fa fa-sliders-h"></i> Filtros
+        </button>
+
+        <!-- Container onde o modal de filtros flutuante é renderizado dinamicamente -->
+        <div id="filtros-container"></div>
+
+
     </div>
 
     <!-- abas de categorias (Filtros Rápidos) -->

@@ -1,0 +1,244 @@
+/* ==========================================================
+   1. CONFIGURAÇÃO DO CONTAINER DA PESQUISA
+   ========================================================== */
+.search-container {
+    position: relative; 
+}
+
+/* Posiciona a barra de filtros flutuante logo abaixo da pesquisa */
+#filtros-container {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    
+    z-index: 1000;
+    width: auto;
+    text-align: left;
+}
+
+/*  Classe para ocultar elementos 
+    !important usado no codigo força a prioridade máxima do estilo, ignorando regras conflitantes de outros arquivos.
+*/
+.oculto {
+    display: none !important;
+}
+
+/* ==========================================================
+   2. CONTAINER PRINCIPAL DO MODAL (BARRA HORIZONTAL)
+   ========================================================== */
+#filtros-modal.filtros-modal-container {
+    background-color: #17202e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    padding-top: 2rem;           /* Espaço extra para o botão X não ficar em cima dos textos */
+    width: 100%;
+    max-width: 42rem;
+    margin-left: auto;
+    color: #ffffff;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+
+    /* Layout Horizontal com alinhamento pelo topo */
+    display: flex;
+    flex-wrap: wrap;             
+    align-items: flex-start;     
+    gap: 1.5rem;                 
+    font-family: inherit;
+}
+
+/* ==========================================================
+   3. ESTILOS DO BOTÃO DE FECHAR (X NO CANTO DIREITO)
+   ========================================================== */
+#filtros-modal .filtro-fechar-btn {
+    position: absolute;          /* Posiciona livremente dentro do modal */
+    top: 1rem;                   /* Distância do topo */
+    right: 1.25rem;              /* Distância da lateral direita */
+    background-color: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 0.375rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+#filtros-modal .filtro-fechar-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================
+   4. ESTRUTURA DOS GRUPOS DE FILTROS
+   ========================================================== */
+#filtros-modal .filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* Ajuste do primeiro cabeçalho */
+#filtros-modal .filtro-cabecalho {
+    display: flex;
+    align-items: center;
+}
+
+/* Títulos descritivos das categorias */
+#filtros-modal .filtro-titulo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Container que agrupa os botões de opção */
+#filtros-modal .filtro-opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+/* ==========================================================
+   5. ESTILOS DOS BOTÕES DE SELEÇÃO
+   ========================================================== */
+#filtros-modal .filtro-btn {
+    background-color: #0d1520;                
+    border: 1px solid rgba(255, 255, 255, 0.12); 
+    color: #ffffff;
+    padding: 0.45rem 0.95rem;
+    border-radius: 2rem;                       
+    font-size: 0.825rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#filtros-modal .filtro-btn:hover {
+    background-color: #1a2638;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Estado Ativo padrão (Laranja) */
+#filtros-modal .filtro-btn.filtro-ativo {
+    background-color: #f96302 !important;
+    border-color: #f96302 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================
+   6. SELETOR AVANÇADO PARA O BOTÃO DE EXPANDIR (+ / -)
+   ========================================================== */
+#filtros-modal #btn-toggle-mais-estilos:has(.fa-minus) {
+    background-color: #f96302 !important;
+    border-color: #f96302 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================
+   7. AVALIAÇÃO MÍNIMA POR ESTRELAS
+   ========================================================== */
+#filtros-modal .filtro-estrelas {
+    display: flex;
+    gap: 0.3rem;
+}
+
+#filtros-modal .filtro-estrela-btn {
+    background-color: transparent;
+    border: 1px solid transparent; 
+    color: #64748b;                
+    padding: 0.35rem 0.45rem;
+    border-radius: 0.5rem;         
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+#filtros-modal .filtro-estrela-btn.filtro-ativo i,
+#filtros-modal .filtro-estrela-btn:hover i {
+    font-weight: 900 !important;
+    color: #f96302 !important;
+}
+
+/* ==========================================================
+   8. SWITCH (ABERTO AGORA)
+   ========================================================== */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #334155;
+    transition: .3s;
+    border-radius: 22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+/* Garante o movimento da bolinha e a mudança de cor */
+input:checked + .slider {
+    background-color: #f96302 !important;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* ==========================================================
+   9. RODAPÉ (BOTÕES: "LIMPAR FILTROS" E "BUSCAR")
+   ========================================================== */
+#filtros-modal .filtro-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto; 
+    padding-top: 0;
+    border-top: none;
+}
+
+#filtros-modal .btn-acao-secundario {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.45rem 0.9rem;
+    border-radius: 2rem;
+}
+
+#filtros-modal .btn-acao-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+#filtros-modal .btn-acao-primario {
+    background-color: #f96302 !important; 
+    border: 1px solid #f96302 !important; 
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.45rem 1.25rem;
+    border-radius: 2rem;
+}

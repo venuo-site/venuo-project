@@ -30,6 +30,7 @@
 
 /* --- BARRA DE BUSCA --- */
 .search-bar-container {
+    position: relative; /* Adicionado para servir de âncora ao modal de filtros flutuante */
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.03);
