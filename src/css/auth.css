@@ -1,221 +1,172 @@
-/* Modal de autenticação */
-
+/* Fundo que cobre tudo */
 #login-container {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100vw;
     height: 100vh;
-
-    background: rgba(0, 0, 0, 0.75);
-
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Efeito de vidro moderno */
     z-index: 9999;
-
-    display: none;
-
+    display: none; /* Inicia oculto */
     justify-content: center;
     align-items: center;
 }
 
-/* Fundo */
-
-.modal-overlay {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Caixa de login */
-
+/* Caixa do Modal */
 .modal-box {
+    background-color: var(--bg-color); /* Fundo escuro do Venuo */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 450px;
+    max-width: 95%;
     position: relative;
-
-    width: 100%;
-    max-width: 400px;
-
-    padding: 32px;
-
-    background: var(--bg-color);
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     color: var(--text-white);
 }
-
-/* Botão fechar */
 
 .close-button {
     position: absolute;
-    top: 15px;
-    right: 15px;
-
-    width: 32px;
-    height: 32px;
-
-    border: none;
-    border-radius: 50%;
-
+    top: 1.5rem;
+    right: 1.5rem;
     background: transparent;
+    border: none;
     color: var(--text-gray);
-
-    font-size: 18px;
-    font-weight: bold;
-
+    font-size: 1.2rem;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .close-button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
+    color: var(--brand-orange);
 }
 
-/* Título */
+.modal-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
 .login-title {
-    margin-bottom: 8px;
-
-    text-align: center;
-
-    color: var(--text-white);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
-/* Texto */
-
-.modal-box > p {
-    margin-bottom: 25px;
-
-    text-align: center;
-
+.modal-header p {
     color: var(--text-gray);
+    font-size: 0.9rem;
 }
 
-/* Campos */
+.input-group {
+    margin-bottom: 1.5rem;
+}
 
 .input-title {
-    margin: 15px 0 6px;
-
-    color: var(--text-white);
-
-    font-size: 14px;
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
-/* Inputs */
-
-#input-access,
-#input-senha {
+.modal-box input {
     width: 100%;
-
-    padding: 12px 14px;
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-
-    background: #111a26;
-    color: var(--text-white);
-
-    font-size: 15px;
-
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
     outline: none;
+    transition: border-color 0.3s;
 }
 
-/* Foco */
-
-#input-access:focus,
-#input-senha:focus {
-    border-color: var(--brand-blue);
-
-    box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.15);
+.modal-box input:focus {
+    border-color: var(--brand-orange);
 }
-
-/* Botão entrar */
 
 .login-button {
     width: 100%;
-
-    margin-top: 22px;
-    padding: 12px;
-
+    background-color: var(--brand-orange);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
     border: none;
-    border-radius: 8px;
-
-    background: var(--brand-orange);
-    color: var(--text-white);
-
-    font-size: 16px;
     font-weight: bold;
-
+    font-size: 1rem;
     cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 0.5rem;
 }
 
 .login-button:hover {
-    opacity: 0.9;
+    background-color: #e55c2b;
 }
 
-/* Divisória */
-
 .p-divisoria {
-    margin: 20px 0;
-
     text-align: center;
+    position: relative;
+    margin: 1.5rem 0;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
 
+.p-divisoria::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.p-divisoria span {
+    background-color: var(--bg-color);
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.google-login-button {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s;
+}
+
+.google-login-button:hover {
+    background-color: #f1f1f1;
+}
+
+.footer-register {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
     color: var(--text-gray);
 }
 
-/* Botão Google */
-
-.login-google-button {
-    width: 100%;
-
-    padding: 12px;
-
-    border: 1px solid #ddd;
-    border-radius: 8px;
-
-    background: #fff;
-    color: #333;
-
-    font-size: 15px;
-
-    cursor: pointer;
-}
-
-.login-google-button:hover {
-    background: #f2f2f2;
-}
-
-/* Cadastro */
-
-.footer-register {
-    margin-top: 22px;
-
-    font-size: 14px;
-}
-
-.text-link {
-    color: var(--brand-blue);
-
+.link-button {
+    background: transparent;
+    border: none;
+    color: var(--brand-orange);
     font-weight: bold;
-
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
-.text-link:hover {
+.link-button:hover {
     text-decoration: underline;
-}
-
-/* Responsividade */
-
-@media (max-width: 480px) {
-    .modal-box {
-        width: calc(100% - 32px);
-
-        padding: 25px;
-    }
 }

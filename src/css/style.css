@@ -27,11 +27,33 @@ body {
     background-color: var(--bg-color);
     color: var(--text-white);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: flex; 
+    flex-direction: row; 
+    overflow-x: hidden; /* evita rolagem horizontal */
 }
 
-/* Posicionamento e propriedades da seção categorias*/
+/* congela o header à esquerda */
+#header-container {
+    width: 280px; /* largura fixa do menu lateral */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    border-right: 1px solid rgba(255, 255, 255, 0.05); /* linha sutil separando o menu */
+    flex-shrink: 0; /* impede que o menu seja esmagado */
+}
+
+/* a área principal ocupa o resto do espaço */
+main {
+    flex-grow: 1; /* ocupa todo o espaço restante da tela à direita */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* aspaçamento interno para a tela respirar */
+    padding: 0; 
+}
+
+/* posicionamento e propriedades da seção categorias */
 
 .categoria-bares-homepage{
     text-align: center;

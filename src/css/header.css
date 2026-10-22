@@ -1,94 +1,142 @@
-header {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.navbar {
+.sidebar-content {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2rem 1.5rem;
     justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 1.5rem;
-    background: #030213; /* Anexado cor de fundo para destacar o header */
-    height: 75px; /* Definido o tamanho do box do header */
 }
 
-.logo img{
-    width: 125px;
+.logo-container {
+    margin-bottom: 3rem;
+}
+
+.sidebar-nav {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
-    padding-right: 1rem;
+    flex-grow: 1;
 }
 
-.nav-actions {
-    display: flex;
-    gap: 1rem;
-    padding-left: 1.5rem;
+.nav-title {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
 }
 
-.icon-btn {
-    background: var(--surface-color);
-    border: none;
-    color: var(--text-white);
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.icon-btn:hover {background: rgba(255, 255, 255, 0.1);}
-
-/* barra de pesquisa maneira */
-.search-container-header { /* caixinha aonde fica a pesquisa */
-    display: flex;
-    align-items: center;
-    background: var(--bg-color);
-    border-radius: var(--border-radius-pill);
-    padding: 0.5rem 1rem;
-    width: 100%;
-    max-width: 850px;
-    max-height: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-
-/* trem de pesquisar */
-.search-container-header input {
-    flex: 1; /* flex é tipo pra definir um comprimento adaptavel */
-    background: transparent;
-    border: none;
-    color: var(--text-white);
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    outline: none;
-    min-width: 0;
-}
-
-.search-actions { /* conjunto dos botões na barra de pesquisa */
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-shrink: 0;
-}
-
-/* butoes */
-.search-container-header button {
+.nav-item {
     background: transparent;
     border: none;
     color: var(--text-gray);
-    padding: 0.5rem;
-    cursor: pointer; /* serve pra mudar o cursor, pro user entender que é clickavel */
-    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
 }
 
-.search-container-header .search-btn {
-    background: var(--brand-orange);
-    color: white;
+.nav-item:hover {
+    color: var(--text-white);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active {
+    background-color: rgba(255, 107, 53, 0.1); 
+    color: var(--brand-orange);
+    position: relative;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    height: 70%;
+    width: 4px;
+    background-color: var(--brand-orange);
+    border-radius: 0 4px 4px 0;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.partner-area {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-gray);
+    padding: 0 1rem;
+}
+
+.partner-title {
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.partner-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.partner-link {
+    color: var(--brand-orange);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.user-profile-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-white);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.user-profile-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-avatar {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.5rem;
-    display: flex;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.user-action {
+    font-size: 0.8rem;
+    color: var(--text-gray);
 }
