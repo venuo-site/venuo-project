@@ -2,6 +2,7 @@
 import { carregarComponente, navegarPara } from './navegacao.js';
 import { abrirModalLogin, fecharModalLogin } from './auth.js';
 import { inicializarNavegacaoPerfil} from './perfil.js';
+import { dispararNotificacao } from './notificacoes.js';
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
@@ -107,5 +108,9 @@ document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos co
   
   // --- Detalhes do estabelecimento ---
     carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
+    
+  // ===> NOVO: Gatilhos automáticos dentro da carga inicial <===
+    setTimeout(() => { dispararNotificacao("🎸 Show Acústico Próximo", "Música ao vivo começando agora no <strong>Cajuína Bar!</strong> Apenas 1,7km de você.", "fa-solid fa-music"); }, 3000);
+    setTimeout(() => { dispararNotificacao("🍻 Happy-Hour Rolando!", "O <strong>Madalena Gastrobar</strong> liberou chopp em dobro até as 20h. Não perca!", "fa-solid fa-beer-mug-empty"); }, 7000);
   
 });

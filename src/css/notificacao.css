@@ -1,0 +1,61 @@
+/* ==========================================================
+   SISTEMA DE NOTIFICAÇÕES (TOAST)
+   ========================================================== */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none; /* Permite clicar no que estiver atrás quando não houver alerta */
+}
+
+.venuo-toast {
+    background-color: #132738; /* Azul escuro do seu layout */
+    color: #ffffff;
+    border-left: 4px solid #ff6b35; /* Laranja Venuo */
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 350px;
+    pointer-events: auto; /* Torna a caixinha clicável */
+    cursor: pointer; 
+    animation: slideInToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.venuo-toast.saindo {
+    animation: slideOutToast 0.3s ease-in forwards;
+}
+
+@keyframes slideInToast {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutToast {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(120%); opacity: 0; }
+}
+
+.toast-icone {
+    color: #ff6b35;
+    font-size: 1.5rem;
+}
+
+.toast-conteudo h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.toast-conteudo p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #a0aab2;
+    line-height: 1.3;
+}
