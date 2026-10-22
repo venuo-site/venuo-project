@@ -5,7 +5,7 @@ import { inicializarNavegacaoPerfil} from './perfil.js';
 import { dispararNotificacao } from './notificacoes.js';
 import { abrirModalFiltros, fecharModalFiltros } from './filtros-busca.js'; // módulo de filtros
 import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
-import { voltarParaHome } from './homepage.js';
+import { voltarParaHome } from './homepage.js'; // função pra voltar pra homepage
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
