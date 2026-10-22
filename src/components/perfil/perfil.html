@@ -60,7 +60,7 @@
 
     <!-- ========================================
          NAVEGAÇÃO DO PERFIL
-         Abas para favoritos, histórico e configurações.
+         Abas para favoritos, atividades e configurações.
          ======================================== -->
     <nav class="profile-navigation" aria-label="Navegação do perfil">
 
@@ -74,14 +74,14 @@
             Favoritos
         </button>
 
-        <!-- Aba de histórico -->
+        <!-- Aba de atividades -->
         <button
             type="button"
             class="profile-navigation__tab"
             id="perfil-aba-historico">
 
-            <i class="fa-regular fa-clock" aria-hidden="true"></i>
-            Histórico
+            <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+            Atividades
         </button>
 
         <!-- Aba de configurações -->
@@ -100,6 +100,29 @@
          LISTA DE ESTABELECIMENTOS FAVORITOS
          Os dados abaixo são exemplos do protótipo.
          ======================================== -->
+
+<div id="secao-favoritos">
+<div class="profile-favorites__header">
+    <div class="profile-favorites__heading">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        <div>
+            <h2>Meus Favoritos</h2>
+            <p>Estabelecimentos que você favoritou para visitar novamente.</p>
+        </div>
+    </div>
+
+    <div class="profile-favorites__view-toggle">
+        <button type="button" class="profile-favorites__view profile-favorites__view--active">
+            <i class="fa-solid fa-list"></i>
+            Lista
+        </button>
+        <button type="button" class="profile-favorites__view">
+            <i class="fa-solid fa-map"></i>
+            Mapa
+        </button>
+    </div>
+</div>
+
     <section class="profile-favorites" id="lista-favoritos"
              aria-label="Estabelecimentos favoritos">
 
@@ -246,129 +269,232 @@
             </div>
 
         </article>
+        
+        <!-- Card: Yolo Beer Garden -->
+        <article class="profile-favorite-card">
+            <div class="profile-favorite-card__image-container">
+                <img src="img/Yolo-Beer_Garden-goiânia-foto-1.png"
+                    alt="Interior do Yolo Beer Garden"
+                    class="profile-favorite-card__image">
 
-    </section>
-
-    <!-- ========================================
-         HISTÓRICO DO USUÁRIO
-         Lista de locais visitados anteriormente.
-         ======================================== -->
-    <section class="profile-history"
-             id="lista-historico"
-             aria-label="Histórico de locais visitados">
-
-        <!-- Registro de visita: Restaurante Sabor & Arte -->
-        <article class="profile-history__item">
-
-            <!-- Ícone que representa a localização -->
-            <div class="profile-history__icon">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Yolo Beer Garden dos favoritos"
+                    data-favorite-id="yolo-beer-garden">
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
             </div>
-
-            <!-- Informações da visita -->
-            <div class="profile-history__info">
-
-                <h2 class="profile-history__title">
-                    Restaurante Sabor & Arte
+            <div class="profile-favorite-card__content">
+                <h2 class="profile-favorite-card__title">
+                    Yolo Beer Garden
                 </h2>
-
-                <p class="profile-history__date">
-                    04/04/2026
-                    <span aria-hidden="true">•</span>
-                    19:30
-                </p>
-
+                <div class="profile-favorite-card__details">
+                    <span class="profile-favorite-card__category">Bares</span>
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.7
+                    </span>
+                </div>
             </div>
-
-            <!-- Avaliação registrada -->
-            <div class="profile-history__rating"
-                 aria-label="Avaliação: 5 de 5 estrelas">
-
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-
-            </div>
-
         </article>
 
-        <!-- Registro de visita: Club Noite Viva -->
-        <article class="profile-history__item">
-
-            <!-- Ícone que representa a localização -->
-            <div class="profile-history__icon">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <!-- Card: Gercina Bar -->
+        <article class="profile-favorite-card">
+            <div class="profile-favorite-card__image-container">
+                <img
+                    src="img/Gercina-Bar-goiânia-foto-1.png"
+                    alt="Interior do Gercina Bar"
+                    class="profile-favorite-card__image"
+                >
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Gercina Bar dos favoritos"
+                    data-favorite-id="gercina-bar">
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
             </div>
-
-            <!-- Informações da visita -->
-            <div class="profile-history__info">
-
-                <h2 class="profile-history__title">
-                    Club Noite Viva
+            <div class="profile-favorite-card__content">
+                <h2 class="profile-favorite-card__title">
+                    Gercina Bar
                 </h2>
-
-                <p class="profile-history__date">
-                    27/03/2026
-                    <span aria-hidden="true">•</span>
-                    23:00
-                </p>
-
+                <div class="profile-favorite-card__details">
+                    <span class="profile-favorite-card__category">Bares</span>
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.6
+                    </span>
+                </div>
             </div>
-
-            <!-- Avaliação registrada: 4 de 5 estrelas -->
-            <div class="profile-history__rating"
-                 aria-label="Avaliação: 4 de 5 estrelas">
-
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-regular fa-star" aria-hidden="true"></i>
-
-            </div>
-
         </article>
 
-        <!-- Registro de visita: Bar do João -->
-        <article class="profile-history__item">
-
-            <!-- Ícone que representa a localização -->
-            <div class="profile-history__icon">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <!-- Card: Quintal Paulistano -->
+        <article class="profile-favorite-card">
+            <div class="profile-favorite-card__image-container">
+                <img
+                    src="img/quintal-paulistano-bar-goiânia-foto-1.png"
+                    alt="Ambiente do Quintal Paulistano"
+                    class="profile-favorite-card__image"
+                >
+                <button
+                    type="button"
+                    class="profile-favorite-card__remove"
+                    aria-label="Remover Quintal Paulistano dos favoritos"
+                    data-favorite-id="quintal-paulistano">
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                </button>
             </div>
-
-            <!-- Informações da visita -->
-            <div class="profile-history__info">
-
-                <h2 class="profile-history__title">
-                    Bar do João
+            <div class="profile-favorite-card__content">
+                <h2 class="profile-favorite-card__title">
+                    Quintal Paulistano
                 </h2>
-
-                <p class="profile-history__date">
-                    14/03/2026
-                    <span aria-hidden="true">•</span>
-                    18:45
-                </p>
-
+                <div class="profile-favorite-card__details">
+                    <span class="profile-favorite-card__category">Restaurantes</span>
+                    <span class="profile-favorite-card__rating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        4.4
+                    </span>
+                </div>
             </div>
-
-            <!-- Avaliação registrada -->
-            <div class="profile-history__rating"
-                 aria-label="Avaliação: 5 de 5 estrelas">
-
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-                <i class="fa-solid fa-star" aria-hidden="true"></i>
-
-            </div>
-
         </article>
 
     </section>
+</div>
+
+<!-- ========================================
+    ATIVIDADES DO USUÁRIO
+    Lista de locais visitados anteriormente, ações do usuário na plataforma.
+======================================== -->
+    
+<section class="profile-history" id="lista-historico" aria-label="Atividades do usuário">
+
+ <!-- cabeçalho da seção de atividades -->
+<div class="profile-history__header">
+    <div class="profile-history__heading">
+        <i class="fa-solid fa-users" aria-hidden="true"></i>
+
+        <div>
+            <h2>Suas Atividades</h2>
+            <p>Acompanhe tudo o que você fez no Venuo.</p>
+        </div>
+    </div>
+
+    <select class="profile-history__filter" aria-label="Filtrar atividades">
+        <option value="todas">Todas as atividades</option>
+        <option value="favoritos">Favoritos</option>
+        <option value="avaliacoes">Avaliações</option>
+        <option value="comentarios">Comentários</option>
+        <option value="visitas">Visitas</option>
+    </select>
+</div>
+
+
+    <!-- Atividade: favoritou um estabelecimento -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--favorite">
+            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você favoritou um estabelecimento</h2>
+            <p class="profile-history__description">Bar do João</p>
+        </div>
+
+        <img class="profile-history__image" src="img/bar-do-joao.png" alt="Bar do João">
+
+        <p class="profile-history__date">Hoje, 14:32</p>
+    </article>
+
+    <!-- Atividade: avaliou um estabelecimento -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--rating">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você avaliou um estabelecimento</h2>
+            <p class="profile-history__description">
+                Pizzaria Bella Napoli
+                <span class="profile-history__stars" aria-label="5 estrelas">★★★★★</span>
+            </p>
+        </div>
+
+        <img class="profile-history__image" src="img/pizzaria-bella-napoli.png" alt="Pizzaria Bella Napoli">
+
+        <p class="profile-history__date">Hoje, 12:18</p>
+    </article>
+
+    <!-- Atividade: comentou em um estabelecimento -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--comment">
+            <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você comentou em um estabelecimento</h2>
+            <p class="profile-history__description">Café Moinho</p>
+            <p class="profile-history__comment">"Ambiente incrível e ótimo atendimento!"</p>
+        </div>
+
+        <img class="profile-history__image" src="img/cafe-moinho.png" alt="Café Moinho">
+
+        <p class="profile-history__date">Ontem, 20:45</p>
+    </article>
+
+    <!-- Atividade: visitou um perfil -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--visit">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você visitou o perfil de um estabelecimento</h2>
+            <p class="profile-history__description">Gercina Bar</p>
+        </div>
+
+        <img class="profile-history__image" src="img/Gercina-Bar-goiânia-foto-1.webp" alt="Gercina Bar">
+
+        <p class="profile-history__date">Ontem, 18:21</p>
+    </article>
+
+    <!-- Atividade: removeu um favorito -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--removed">
+            <i class="fa-solid fa-heart-crack"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você removeu um estabelecimento dos favoritos</h2>
+            <p class="profile-history__description">Clube Noite Viva</p>
+        </div>
+        <img
+            class="profile-history__image"
+            src="img/clube-noite-viva.png"
+            alt="Clube Noite Viva"
+    >
+
+        <p class="profile-history__date">12/03/2026, 16:30</p>
+    </article>
+
+    <!-- Atividade: visitou outro perfil -->
+    <article class="profile-history__item">
+        <div class="profile-history__icon profile-history__icon--visit">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        </div>
+
+        <div class="profile-history__info">
+            <h2 class="profile-history__title">Você visitou o perfil de um estabelecimento</h2>
+            <p class="profile-history__description">Yolo Beer Garden</p>
+        </div>
+
+        <img class="profile-history__image" src="img/Yolo-Beer_Garden-goiânia-foto-1.png" alt="Yolo Beer Garden">
+
+        <p class="profile-history__date">10/03/2026, 22:17</p>
+    </article>
+
+</section>
+
 
     <!-- ========================================
          CONFIGURAÇÕES DO USUÁRIO
@@ -529,60 +655,6 @@
             </button>
 
         </div>
-
-<!-- ========================================
-     CATEGORIAS DE INTERESSE
-     ======================================== -->
-
-<div class="profile-settings__categories" id="categorias-interesse">
-
-    <!-- Título da seção -->
-    <h2 class="profile-settings__title">
-        <i class="fa-solid fa-tags" aria-hidden="true"></i>
-        Categorias de Interesse
-    </h2>
-
-    <!-- Orientação para o usuário -->
-    <p class="profile-settings__description">
-        Selecione as categorias que combinam com seus interesses.
-    </p>
-
-    <!-- Opções de categorias -->
-    <div class="profile-settings__category-list">
-
-        <label class="profile-settings__category">
-            <input type="checkbox" name="categorias" value="bares">
-            Bares
-        </label>
-
-        <label class="profile-settings__category">
-            <input type="checkbox" name="categorias" value="restaurantes">
-            Restaurantes
-        </label>
-
-        <label class="profile-settings__category">
-            <input type="checkbox" name="categorias" value="eventos">
-            Eventos
-        </label>
-
-        <label class="profile-settings__category">
-            <input type="checkbox" name="categorias" value="cafes">
-            Cafés
-        </label>
-
-    </div>
-
-    <!-- Botão preparado para integração futura -->
-    <button
-        type="button"
-        class="profile-settings__save-categories"
-        id="perfil-salvar-categorias">
-        Salvar Categorias
-    </button>
-
-</div>
-
-    </section>
-
+    </section>    
 </div>
 

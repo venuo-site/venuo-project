@@ -4,23 +4,37 @@
    ======================================== */
 
 /* Área principal das configurações */
-
 .profile-settings {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 0.95fr 1.05fr;
     grid-template-areas:
         "pessoal notificacoes"
-        "pessoal pagamentos"
-        "categorias categorias";
-    align-items: start;    
-    gap: 40px;
-    padding: 40px 4%;
-    
+        "pessoal pagamentos";
+    align-items: start;
+    column-gap: 24px;
+    row-gap: 10px;
+    padding: 16px 3%;
+
 }
+
+
 /* Posiciona informações pessoais à esquerda */
 .profile-settings__personal {
     grid-area: pessoal;
 }
+
+/* Painéis das configurações */
+
+.profile-settings__personal,
+.profile-settings__notifications,
+.profile-settings__payments {
+    background: rgba(17, 39, 57, 0.45);
+    border: 1px solid rgba(104, 151, 180, 0.18);
+    border-radius: 8px;
+    padding: 12px;
+    min-width: 0;
+}
+
 
 /* Títulos das seções */
 .profile-settings__title {
@@ -28,12 +42,12 @@
     align-items: center;
     gap: 12px;
     margin: 0 0 12px;
-    color: #ffffff;
-    font-size: 22px;
+    color: var(--text-white);
+    font-size: 1.2rem;
 }
 
 .profile-settings__title i {
-    color: #ff7138;
+    color: var(--brand-orange);
 }
 
 /* Formulário de informações pessoais */
@@ -52,22 +66,22 @@
 }
 
 .profile-settings__field label {
-    color: #d6e1eb;
+    color: var(--text-gray);
     font-size: 14px;
     font-weight: bold;
 }
 
 .profile-settings__field input {
     width: 100%;
-    padding: 14px 16px;
-    color: #ffffff;
-    background: #19354d;
-    border: 1px solid transparent;
-    border-radius: 12px;
+    padding: 10px 12px;
+    color: var(--text-white);
+    background: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
 }
 
 .profile-settings__field input:focus {
-    border-color: #ff7138;
+    border-color: var(--brand-orange);
     outline: none;
 }
 
@@ -75,8 +89,8 @@
 .profile-settings__save {
     width: 100%;
     padding: 14px 20px;
-    color: #ffffff;
-    background: #ff7138;
+    color: var(--text-white);
+    background: var(--brand-orange);
     border: none;
     border-radius: 12px;
     font-weight: bold;
@@ -92,9 +106,9 @@
    ======================================== */
 
 .profile-settings__notifications {
+    grid-area: notificacoes;
     display: flex;
     flex-direction: column;
-    grid-area: notificacoes;
     width: 100%;
     padding-top: 8px;
 }
@@ -126,11 +140,13 @@
     grid-area: pagamentos;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-self: stretch;
+    height: auto;
+    min-width: 0;
 }
 
 .profile-settings__payment-list {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .profile-settings__empty-payment {
@@ -139,17 +155,17 @@
 }
 
 /* Botão para adicionar um cartão */
+
 .profile-settings__add-card {
     width: 100%;
-    margin-top: 26px;
-    padding: 14px 20px;
-    color: #ffffff;
-    background: #ff7138;
+    margin-top: 12px;
+    padding: 10px 20px;
+    color: var(--text-white);
+    background: var(--brand-orange);
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    width: 100%;
 }
 
 .profile-settings__add-card:hover {
@@ -167,8 +183,7 @@
         grid-template-areas:
             "pessoal"
             "notificacoes"
-            "pagamentos"
-            "categorias";
+            "pagamentos";
         gap: 32px;
         padding: 28px 5%;
     }
@@ -193,7 +208,7 @@
 }
 .profile-settings__save:hover,
 .profile-settings__save-categories:hover {
-    background: #34516b;
+    background: var(--surface-color);
 }
 
 /* ========================================
@@ -201,23 +216,27 @@
    ======================================== */
 
 /* Organiza a foto, os dados pessoais e o botão de sair */
+
 .profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 40px 5%;
+    padding: 24px 3%;
 }
 
+
 /* Foto do usuário */
+
 .profile-header__photo {
-    width: 136px;
-    height: 136px;
+    width: 110px;
+    height: 110px;
     flex-shrink: 0;
     object-fit: cover;
-    border: 4px solid #071b2c;
+    border: 3px solid var(--surface-color);
     border-radius: 50%;
 }
+
 
 /* Área com os dados pessoais */
 .profile-header__info {
@@ -226,18 +245,20 @@
 }
 
 /* Nome do usuário */
+
 .profile-header__name {
-    margin: 0 0 12px;
-    color: #ffffff;
-    font-size: 30px;
+    margin: 0 0 8px;
+    color: var(--text-white);
+    font-size: 1.4rem;
 }
+
 
 /* E-mail, telefone e data de entrada */
 .profile-header__email,
 .profile-header__phone,
 .profile-header__member {
-    margin: 8px 0;
-    color: #d6e1eb;
+    margin: 4px 0;
+    color: var(--text-gray);
 }
 
 /* Alinha o ícone e a data de entrada */
@@ -250,9 +271,9 @@
 /* Botão para sair da conta */
 .profile-header__logout {
     padding: 14px 24px;
-    color: #ff7138;
-    background: #263e54;
-    border: 1px solid #35536e;
+    color: var(--brand-orange);
+    background: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     cursor: pointer;
 }
@@ -299,23 +320,26 @@
    ======================================== */
 
 /* Abas para navegar pelas seções do perfil */
+
 .profile-navigation {
     display: flex;
-    gap: 12px;
-    padding: 0 5%;
-    border-bottom: 1px solid #263e54;
+    gap: 8px;
+    padding: 0 3%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     overflow-x: auto;
 }
 
+
 /* Botões das abas */
+
 .profile-navigation__tab {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     flex-shrink: 0;
-    padding: 14px 20px;
-    color: #d6e1eb;
+    padding: 10px 16px;
+    color: var(--text-gray);
     background: transparent;
     border: none;
     border-bottom: 3px solid transparent;
@@ -323,11 +347,22 @@
     font-weight: bold;
 }
 
+
 /* Aba selecionada */
+
 .profile-navigation__tab--active {
-    color: #ff7138;
-    border-bottom-color: #ff7138;
+    color: var(--brand-orange);
+    background: rgba(255, 103, 52, 0.12);
+    border: 1px solid var(--brand-orange);
+    border-bottom: 1px solid var(--brand-orange);
+    border-radius: 8px;
 }
+
+
+.profile-navigation__tab--active i {
+    color: var(--brand-orange);
+}
+
 
 /* ========================================
    LISTA DE FAVORITOS
@@ -337,16 +372,24 @@
 .profile-favorites {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    padding: 32px 5%;
+    gap: 16px;
+    padding: 12px 2% 20px;
 }
 
-/* Cartão individual */
+
+/* Cartão individual — padrão da tela principal */
 .profile-favorite-card {
     overflow: hidden;
-    background: #142638;
-    border: 1px solid #263e54;
-    border-radius: 16px;
+    background-color: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.profile-favorite-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Área da imagem e do botão de remover */
@@ -354,55 +397,67 @@
     position: relative;
 }
 
-/* Imagem do estabelecimento */
+/* Imagem do estabelecimento — padrão da tela principal */
+
 .profile-favorite-card__image {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: 145px;
     object-fit: cover;
 }
 
-/* Botão para remover dos favoritos */
+
+/* Botão de favoritos — padrão da tela principal */
 .profile-favorite-card__remove {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #ffffff;
-    background: #263e54;
-    border: none;
+    width: 32px;
+    height: 32px;
+    color: var(--brand-orange);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Conteúdo do cartão */
+.profile-favorite-card__remove:hover {
+    background-color: var(--brand-orange);
+    border-color: var(--brand-orange);
+}
+
+/* Conteúdo do cartão — padrão da tela principal */
+
 .profile-favorite-card__content {
-    padding: 18px;
+    padding: 10px;
 }
 
-/* Nome do estabelecimento */
+
+/* Nome do estabelecimento — padrão da tela principal */
+
 .profile-favorite-card__title {
-    margin: 0 0 12px;
-    color: #ffffff;
-    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text-white);
+    font-size: 14px;
+    font-weight: 600;
 }
 
-/* Categoria e avaliação */
+
 .profile-favorite-card__details {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    font-size: 0.8rem;
 }
 
-/* Categoria */
 .profile-favorite-card__category {
-    color: #d6e1eb;
-    font-size: 14px;
+    color: var(--text-gray);
+    font-size: 0.8rem;
 }
 
 /* Nota do estabelecimento */
@@ -415,7 +470,7 @@
 }
 
 .profile-favorite-card__rating i {
-    color: #ffb547;
+    color: var(--brand-orange);
 }
 
 /* ========================================
@@ -452,171 +507,218 @@
     }
 }
 
+
 /* ========================================
-   HISTÓRICO DO USUÁRIO
+   ATIVIDADES DO USUÁRIO
    ======================================== */
 
-/* Lista de locais visitados */
-.profile-history {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px 5%;
-}
-
-/* Item individual do histórico */
-.profile-history__item {
+/* Cabeçalho das atividades */
+.profile-history__header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 16px;
-    padding: 20px;
-    background: #142638;
-    border: 1px solid #263e54;
-    border-radius: 12px;
+    margin: 8px 3% 0 0;
 }
 
-/* Ícone do local visitado */
+/* Lista de atividades */
+.profile-history {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 2% 32px 3%;
+}
+
+/* Linha vertical da linha do tempo */
+.profile-history::before {
+    content: "";
+    position: absolute;
+    top: 77px;
+    bottom: 52px;
+    left: 68px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        #ff7138 0%,
+        #ffbd45 20%,
+        #00c8e8 40%,
+        #16c8e8 60%,
+        #a8c0d2 80%,
+        #16c8e8 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* Cartões das atividades */
+.profile-history__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px;
+    padding: 10px 14px;
+    background: #0e2234;
+    border: 1px solid #1b3449;
+    border-radius: 10px;
+}
+
+/* Ícones das atividades */
 .profile-history__icon {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    color: #ff7138;
-    background: #263e54;
+    width: 42px;
+    height: 42px;
+    border: 3px solid #0e2234;
     border-radius: 50%;
+    font-size: 18px;
 }
 
-/* Informações do histórico */
+/* Cores dos ícones */
+.profile-history__icon--favorite {
+    color: #ff7138;
+    background: #263b4e;
+}
+
+.profile-history__icon--rating {
+    color: #ffbd45;
+    background: #263b4e;
+}
+
+.profile-history__icon--comment {
+    color: #FFFFFF;
+    background: #263B4E;
+}
+
+.profile-history__icon--visit {
+    color: #16c8e8;
+    background: #183d54;
+}
+
+.profile-history__icon--removed {
+    color: #a8c0d2;
+    background: #263b4e;
+}
+
+/* Informações da atividade */
 .profile-history__info {
     flex: 1;
     min-width: 0;
 }
 
-/* Nome do estabelecimento */
 .profile-history__title {
-    margin: 0 0 8px;
-    color: #ffffff;
-    font-size: 16px;
+    margin: 0 0 5px;
+    color: var(--text-white);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
-/* Data e horário da visita */
-.profile-history__date {
+.profile-history__description {
     margin: 0;
-    color: #d6e1eb;
-    font-size: 14px;
-}
-
-/* Avaliação do estabelecimento */
-.profile-history__rating {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    color: #ffb547;
-}
-
-/* Ajustes para telas pequenas */
-@media (max-width: 600px) {
-    .profile-history {
-        gap: 12px;
-        padding: 24px 5%;
-    }
-
-    .profile-history__item {
-        gap: 12px;
-        padding: 16px;
-    }
-
-    .profile-history__icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .profile-history__title {
-        font-size: 15px;
-    }
-
-    .profile-history__date {
-        font-size: 12px;
-    }
-}
-
-/* ========================================
-   CATEGORIAS DE INTERESSE
-   ======================================== */
-
-/* Área das categorias */
-.profile-settings__categories {
-    grid-area: categorias;
-}
-
-/* Texto de orientação */
-.profile-settings__description {
-    margin: 0 0 20px;
-    color: #d6e1eb;
-    font-size: 14px;
+    color: #aab9c9;
+    font-size: 12px;
     line-height: 1.5;
 }
 
-/* Lista de opções */
-.profile-settings__category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
+.profile-history__comment {
+    margin: 4px 0 0;
+    color: #8fa2b6;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.4;
 }
 
-/* Cada categoria */
-.profile-settings__category {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-    color: #ffffff;
-    background: #19354d;
-    border: 1px solid #35536e;
-    border-radius: 10px;
-    cursor: pointer;
+/* Imagens dos estabelecimentos */
+.profile-history__image {
+    flex-shrink: 0;
+    width: 64px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 7px;
 }
 
-/* Cor do checkbox */
-.profile-settings__category input {
-    width: 18px;
-    height: 18px;
-    accent-color: #ff7138;
-    cursor: pointer;
+/* Data e horário */
+.profile-history__date {
+    flex-shrink: 0;
+    min-width: 90px;
+    margin: 0;
+    color: #8fa2b6;
+    font-size: 10px;
+    text-align: right;
 }
 
-/* Botão para salvar categorias */
-.profile-settings__save-categories {
-    padding: 14px 20px;
-    color: #ffffff;
-    background: #ff7138;
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
+/* Estrelas da avaliação */
+.profile-history__stars {
+    display: inline-block;
+    margin-left: 6px;
+    color: #ffbd45;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
-.profile-settings__save-categories:hover {
-    background: #34516b;
+/* Responsividade */
+@media (max-width: 768px) {
+    .profile-history {
+        gap: 12px;
+        padding: 16px 3% 24px 7%;
+    }
+
+    .profile-history::before {
+        left: 18px;
+    }
+
+    .profile-history__item {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .profile-history__image {
+        width: 56px;
+        height: 42px;
+    }
+
+    .profile-history__date {
+        min-width: 0;
+        font-size: 10px;
+    }
 }
 
-/* Ajustes para telas pequenas */
 @media (max-width: 480px) {
-    .profile-settings__category-list {
-        flex-direction: column;
+    .profile-history__item {
+        flex-wrap: wrap;
     }
 
-    .profile-settings__category {
-        width: 100%;
+    .profile-history__info {
+        flex-basis: calc(100% - 60px);
     }
 
-    .profile-settings__save-categories {
-        width: 100%;
+    .profile-history__image {
+        width: 50px;
+        height: 38px;
+    }
+
+    .profile-history__date {
+        margin-left: auto;
+    }
+
+    .profile-history__title {
+        font-size: 12px;
+    }
+
+    .profile-history__description {
+        font-size: 11px;
     }
 }
+
+
 /* ========================================
    CONTROLE DE VISIBILIDADE DAS SEÇÕES
    ======================================== */
@@ -634,4 +736,152 @@
 /* Oculta as configurações inicialmente */
 #configuracoes-perfil {
     display: none;
+}
+
+
+/* Cabeçalho da seção de favoritos */
+
+.profile-favorites__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 2%;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+
+.profile-history__heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    left: -30px;
+}
+
+
+.profile-history__heading > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    margin-top: 2px;
+    color: var(--brand-orange);
+    font-size: 20px;
+}
+
+
+
+.profile-favorites__heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-favorites__heading > i {
+    color: var(--brand-orange);
+    font-size: 26px;
+}
+
+.profile-favorites__heading h2 {
+    margin: 0 0 6px;
+    color: var(--text-white);
+    font-size: 16px;
+}
+
+.profile-favorites__heading p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 12px;
+}
+
+.profile-favorites__view-toggle {
+    display: flex;
+    padding: 3px;
+    gap: 2px;
+    background: #102a3e;
+    border: 1px solid #29445b;
+    border-radius: 9px;
+}
+
+.profile-favorites__view {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    color: var(--text-gray);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.profile-favorites__view--active {
+    color: var(--text-white);
+    background: #29445b;
+}
+
+
+/* Cabeçalho das atividades */
+.profile-history__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 3% 4px;
+}
+
+.profile-history__heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.profile-history__heading > i {
+    margin-top: 3px;
+    color: var(--brand-orange);
+    font-size: 20px;
+}
+
+.profile-history__heading h2 {
+    margin: 0 0 5px;
+    color: var(--text-white);
+    font-size: 18px;
+}
+
+.profile-history__heading p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 12px;
+}
+
+.profile-history__filter {
+    max-width: 190px;
+    padding: 10px 12px;
+    color: var(--text-white);
+    background: #10283c;
+    border: 1px solid #294158;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+.profile-history__filter option {
+    color: var(--text-white);
+    background: #10283c;
+}
+
+@media (max-width: 600px) {
+    .profile-history__header {
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 0 4%;
+    }
+
+    .profile-history__filter {
+        max-width: 100%;
+        width: 100%;
+    }
 }

@@ -7,7 +7,7 @@ export function inicializarNavegacaoPerfil() {
     const abaConfiguracoes = document.getElementById("perfil-aba-configuracoes");
 
     // Seções do perfil
-    const listaFavoritos = document.getElementById("lista-favoritos");
+    const listaFavoritos = document.getElementById("secao-favoritos");
     const listaHistorico = document.getElementById("lista-historico");
     const configuracoes = document.getElementById("configuracoes-perfil");
 
@@ -33,7 +33,7 @@ export function inicializarNavegacaoPerfil() {
         secao.hidden = false;
 
         if (secao === listaFavoritos) {
-            secao.style.display = "grid";
+            secao.style.display = "block";
         } else if (secao === listaHistorico) {
             secao.style.display = "flex";
         } else {

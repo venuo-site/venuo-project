@@ -5,6 +5,8 @@ import { inicializarNavegacaoPerfil} from './perfil.js';
 import { dispararNotificacao } from './notificacoes.js';
 import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
 import { abrirModalFiltros, fecharModalFiltros } from './filtros-busca.js'; // módulo de filtros
+import { renderizarFeed, configurarFiltrosAbas, configurarToggleMapa } from './feed.js'; // novo modulo do feed
+import { inicializarNavegacaoPerfil } from './perfil.js';
 
 // torna as funções globais para o html enxergar os onclicks
 window.navegarPara = navegarPara;
@@ -16,6 +18,26 @@ window.configurarFiltrosAbas = configurarFiltrosAbas;
 window.configurarToggleMapa = configurarToggleMapa;
 window.abrirModalFiltros = abrirModalFiltros;       // Expõe para o botão do Hero
 window.fecharModalFiltros = fecharModalFiltros;     // Expõe para o botão "X" do modal
+
+
+window.atualizarUsuarioSidebar = function() {
+    const avatar = document.querySelector('.user-avatar');
+    const nome = document.querySelector('.user-name');
+    const acao = document.querySelector('.user-action');
+
+    if (avatar) {
+        avatar.innerHTML = '<img src="img/perfil-usuario.png" alt="Foto do perfil">';
+    }
+
+    if (nome) {
+        nome.textContent = 'João Silva';
+    }
+
+    if (acao) {
+        acao.textContent = 'Ver perfil';
+    }
+};
+
 
 // --- FUNÇÕES DO MODAL DE FILTROS ---
 
@@ -120,8 +142,12 @@ document.addEventListener('DOMContentLoaded', async () => { // Mapeamento dos co
     carregarComponente('about-container', 'components/about/about.html');
 
  // --- PERFIL
-    carregarComponente('perfil-container', 'components/perfil/perfil.html', inicializarNavegacaoPerfil);
-  
+carregarComponente(
+    'perfil-container',
+    'components/perfil/perfil.html',
+    inicializarNavegacaoPerfil
+  );
+
   // --- Detalhes do estabelecimento ---
     carregarComponente('detalhes-container', 'components/detalhes/detalhes.html');
     
