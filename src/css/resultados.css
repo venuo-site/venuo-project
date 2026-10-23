@@ -25,15 +25,25 @@ body {
 @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px)  { .cards-grid { grid-template-columns: 1fr; } }
 
+/* CARD RESULTADO */
 
 .card-resultado {
-  background-color: transparent; /* Mantém o fundo do card transparente para que a cor de fundo do body seja visível. */
+  background-color: #0c1a29; /* Define a cor de fundo do card como um tom escuro de azul. */
   border-radius: 16px; /* Arredonda os cantos do card com um raio de 16px. */
   display: flex; /* Organiza todo o conteúdo interno do card empilhado em uma coluna vertical (de cima para baixo). */
   flex-direction: column; /* Define a direção do Flexbox para empilhar os elementos verticalmente. */
   height: 480px;      /* Trava a altura exata do cartão para que ele nunca cresça.*/
   margin-top: 40px; /* Cria um espaçamento de 40px entre cada card, empurrando o próximo card para baixo. */
   overflow: hidden;   /* Oculta qualquer informação extra que passar das bordas */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Adiciona uma borda sutil ao redor do card, usando uma cor branca com baixa opacidade (5%). */
+  transition: all 0.3s ease-in-out; /* Adiciona uma transição suave de 0.3 segundos para todas as propriedades do card, permitindo efeitos visuais agradáveis ao interagir com ele. */
+}
+
+/* EFEITO AO PASSAR O MOUSE NO CARD INTEIRO */
+.card-resultado:hover {
+  transform: translateY(-6px);                    /* Eleva o card levemente para cima */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);     /* Adiciona uma sombra profunda e moderna */
+  border-color: rgba(75, 200, 212, 0.3);          /* Destaca a borda com a cor ciano do seu projeto */
 }
 
 /* FOTO DO CARD */
@@ -67,24 +77,51 @@ body {
 }
 
 .botões-acoes-img {
-  /* Fixa os botões de ação (como "Curtir") no canto superior direito da imagem. */
+  /* Posiciona os botões no canto superior direito dentro da foto */
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   display: flex;
   gap: 8px;
+  z-index: 10;
 }
 
 .botões-acoes-img button {
-  /* Estiliza os botões circulares translúcidos sobre a imagem. */
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.411);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  
+  /* Melhora drástica na fluidez e evita o recálculo de layout */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
+.botões-acoes-img button:hover {
+  background: rgba(255, 255, 255, 0.65);
+  /* Usar scale3d força a placa de vídeo a renderizar o zoom sem deslocar subpíxeis */
+  transform: scale3d(1.08, 1.08, 1) translate3d(0, 0, 0);
+}
+
+.botões-acoes-img button svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+  fill: none;
+  stroke: #000000;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
 
 .card-info {
   /* REGRA: A TAG QUE VEM PRIMEIRO NUNCA ENCOLHE E EMPURRA AS PRÓXIMAS */
@@ -92,6 +129,7 @@ body {
   flex-direction: column; /* Define a direção do Flexbox para empilhar os elementos verticalmente. */
   gap: 8px; /* Adiciona um espaço fixo de 8px entre o título, a avaliação, as tags, a descrição e o endereço. */
   height: 100%; /* Faz o conteúdo do card-info ocupar toda a altura disponível do card, empurrando o rodapé para baixo. */
+  padding: 0 16px 16px 16px; /* Adiciona um espaçamento interno de 16px nas laterais e na parte inferior do card-info. */
   overflow: hidden;   /* Corta o excedente no rodapé sem esticar o card */
 }
 
@@ -223,6 +261,16 @@ body {
   border-radius: 10px;
   font-weight: bold; 
   cursor: pointer; /* Adiciona um cursor de ponteiro ao passar o mouse sobre o botão, indicando que é clicável. */
+
+  /* Adiciona uma transição suave para o efeito de hover, tornando a mudança de cor mais agradável visualmente. */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* EFEITO HOVER DO BOTÃO DETALHES */
+.botão-detalhes:hover {
+  background-color: #e85d24; /* Um tom de laranja ligeiramente mais vivo/escuro */
+  transform: translateY(-2px); /* Eleva o botão levemente */
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.35); /* Cria uma sombra difusa com a cor do botão */
 }
 
 /* Container do botão de telefone */
