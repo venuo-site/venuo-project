@@ -1,94 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  margin: 0; /* Zera os espaçamentos das bordas externas e internas padrão dos navegadores. */
+  padding: 0; /* Zera os espaçamentos das bordas externas e internas padrão dos navegadores. */
+  box-sizing: border-box; /*Garante que o padding e as bordas não aumentem o tamanho total definido para os elementos. */
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Aplica a fonte padrão no arquivo inteiro. */
 }
 
 body {
-  background-color: #08131e; /* Fundo escuro conforme o layout */
+  background-color: #08131e;
   color: #ffffff;
-  padding: 30px 20px;
+  padding: 20px; /* Cria uma margem interna nas bordas da tela. */  
 }
 
-/* --- GRID DE CARDS & RESPONSIVIDADE (@media) --- */
-
-/* Definindo padrão de 3 colunas de card*/
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  max-width: 1280px;
-  margin: 0 auto;
+  display: grid; /* Ativa o sistema de grade(Grid) para organizar os cards. */
+  grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de largura igual (1fr = 1 fração do espaço disponível). */
+  gap: 20px; /* Cria um espaçamento uniforme de 20px entre os cards, tanto na horizontal quanto na vertical. */
+  max-width: 1200px; /* Limita a largura da grade a 1200px e a centraliza na tela. */
+  margin: 0 auto; /* Centraliza a grade horizontalmente na tela. */
 }
 
-/* Tablets e Notebooks Pequenos: 2 colunas */
-@media (max-width: 1024px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* MEDIA QUERIES PARA RESPONSIVIDADE MOBILE */
+@media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .cards-grid { grid-template-columns: 1fr; } }
 
-/* Celulares: 1 coluna */
-@media (max-width: 640px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- ESTILIZAÇÃO DOS CARDS --- */
+/* CARD RESULTADO */
 
 .card-resultado {
-  background-color: transparent;
-  border-radius: 16px;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease;
+  background-color: #0c1a29; /* Define a cor de fundo do card como um tom escuro de azul. */
+  border-radius: 16px; /* Arredonda os cantos do card com um raio de 16px. */
+  display: flex; /* Organiza todo o conteúdo interno do card empilhado em uma coluna vertical (de cima para baixo). */
+  flex-direction: column; /* Define a direção do Flexbox para empilhar os elementos verticalmente. */
+  height: 480px;      /* Trava a altura exata do cartão para que ele nunca cresça.*/
+  margin-top: 40px; /* Cria um espaçamento de 40px entre cada card, empurrando o próximo card para baixo. */
+  overflow: hidden;   /* Oculta qualquer informação extra que passar das bordas */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Adiciona uma borda sutil ao redor do card, usando uma cor branca com baixa opacidade (5%). */
+  transition: all 0.3s ease-in-out; /* Adiciona uma transição suave de 0.3 segundos para todas as propriedades do card, permitindo efeitos visuais agradáveis ao interagir com ele. */
 }
 
+/* EFEITO AO PASSAR O MOUSE NO CARD INTEIRO */
 .card-resultado:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);                    /* Eleva o card levemente para cima */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);     /* Adiciona uma sombra profunda e moderna */
+  border-color: rgba(75, 200, 212, 0.3);          /* Destaca a borda com a cor ciano do seu projeto */
 }
 
-/* Definindo Área da Foto */
+/* FOTO DO CARD */
 .card-foto {
-  position: relative;
-  width: 100%;
-  height: 210px;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 14px;
+  position: relative; /* Permite posicionar os botões e a tag de status ("Aberto") em cima da imagem. */
+  width: 100%; /* Ocupa toda a largura do card. */
+  height: 200px; /* Define uma altura fixa para a imagem do card. */
+  border-radius: 16px; /* Arredonda os cantos da imagem do card com um raio de 16px. */
+  overflow: hidden; /* Garante que a imagem não ultrapasse os limites do card arredondado. */
+  margin-bottom: 12px; /* Cria um espaçamento de 12px entre a imagem e o conteúdo do card. */
+  flex-shrink: 0; /* Impede que a foto seja comprimida quando o card receber mais dados. */
 }
 
 .card-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* Faz a imagem preencher todo o espaço de 200px sem distorcer ou achatar a foto. */
+  height: 100%; /* Faz a imagem preencher toda a altura do card-foto sem distorcer ou achatar a foto. */
+  object-fit: cover; /* Garante que a imagem cubra todo o espaço do card-foto, cortando partes da imagem se necessário para manter a proporção. */
 }
 
-/* Info Verde de horário de funcionamento */
 .info-hr-aberto {
+  /*Fixa a tag verde de horário no canto inferior esquerdo da imagem.*/
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  bottom: 10px;
+  left: 10px;
   background-color: #10b981;
   color: #ffffff;
   font-size: 0.8rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 50px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
-/* Botões sobre a Imagem */
 .botões-acoes-img {
+  /* Posiciona os botões no canto superior direito dentro da foto */
   position: absolute;
   top: 12px;
   right: 12px;
   display: flex;
   gap: 8px;
+  z-index: 10;
 }
 
 .botões-acoes-img button {
@@ -96,134 +91,215 @@ body {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
-  color: #1e293b;
-  font-size: 0.95rem;
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.411);
   backdrop-filter: blur(4px);
-  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  /* Melhora drástica na fluidez e evita o recálculo de layout */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .botões-acoes-img button:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.65);
+  /* Usar scale3d força a placa de vídeo a renderizar o zoom sem deslocar subpíxeis */
+  transform: scale3d(1.08, 1.08, 1) translate3d(0, 0, 0);
 }
 
-/* Conteúdo de Informações */
+.botões-acoes-img button svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+  fill: none;
+  stroke: #000000;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
 .card-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 8px;
+  /* REGRA: A TAG QUE VEM PRIMEIRO NUNCA ENCOLHE E EMPURRA AS PRÓXIMAS */
+  display: flex; /* Ativa o Flexbox para organizar o conteúdo do card em uma coluna vertical. */
+  flex-direction: column; /* Define a direção do Flexbox para empilhar os elementos verticalmente. */
+  gap: 8px; /* Adiciona um espaço fixo de 8px entre o título, a avaliação, as tags, a descrição e o endereço. */
+  height: 100%; /* Faz o conteúdo do card-info ocupar toda a altura disponível do card, empurrando o rodapé para baixo. */
+  padding: 0 16px 16px 16px; /* Adiciona um espaçamento interno de 16px nas laterais e na parte inferior do card-info. */
+  overflow: hidden;   /* Corta o excedente no rodapé sem esticar o card */
+}
+
+.card-info > * {
+  /* Obriga o Flexbox a respeitar o tamanho real da tag superior. A tag que vem antes garante seu espaço primeiro e empurra as tags seguintes para baixo, impedindo qualquer encolhimento ou sobreposição. */
+  flex-shrink: 0;
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Ativa o Flexbox para organizar o título e o preço em uma linha horizontal. */
+  justify-content: space-between; /* Garante que o título fique alinhado à esquerda e o preço à direita, ocupando todo o espaço disponível. */
+  align-items: center; /* Alinha verticalmente o título e o preço no centro da linha. */
 }
 
-.card-header h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
+/* Aplica os tamanhos, cores e pesos das fontes para título, preço, avaliação e a cor laranja da estrela. */
+.card-header h3 { font-size: 1.2rem; color: #ffffff; }
+.card-header .card-preco{
+  color: rgb(75, 200, 212);
+  font-size: 13px;
+  font-weight: 500; /* Define o peso da fonte do preço como médio (500). */
+  flex-shrink: 0; /* Impede que o preço encolha e empurre o título para a esquerda. */
 }
 
-.card-preco {
-  color: #38bdf8; /* Azul claro para $$ */
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-/* Avaliações */
-.card-avaliacao {
-  font-size: 0.88rem;
-  color: #cbd5e1;
-  font-weight: 600;
-}
+.card-avaliacao { font-size: 0.85rem; color: #cbd5e1; }
 
 .estrela {
-  color: #f97316; /* Laranja da estrela */
-  font-size: 1rem;
+  width: 16px;
+  height: 16px;
+  fill: #FF7A3D;             /* Preenchimento laranja do SVG */
+  stroke: #FF7A3D;           /* Cor do contorno */
+  stroke-width: 2px;         /* Espessura do contorno original */
+  stroke-linecap: round;     /* Pontas das linhas arredondadas */
+  stroke-linejoin: round;    /* Cantos das linhas arredondados */
+  display: inline-block;     /* Alinha como elemento de bloco em linha */
+  vertical-align: -2px;      /* Ajusta o alinhamento de altura com o texto da nota */
 }
 
-/* Lista de ícones / Comodidades em ordem horizontal*/
+.font-bold {
+  font-weight: bold; /* Define o peso da fonte como negrito (bold). */
+}
+
+.comodidades-icones {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: rgb(75, 200, 212);   /* Cor azul clara do ícone */
+  stroke-width: 2px;            /* Espessura da linha */
+  stroke-linecap: round;        /* Pontas das linhas arredondadas */
+  stroke-linejoin: round;       /* Cantos das linhas arredondados */
+  display: inline-block;        /* Garante o alinhamento correto em linha */
+  vertical-align: -0.115rem;       /* Alinha com o texto da tag */
+  flex-shrink: 0;               /* Impede que o ícone encolha no Flexbox */
+}
+
+.card-info .hr-loc-icones {
+  color: #dbeaff; /* Define a cor do ícone de horário e localização para um tom de cinza claro. */
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;        /* Herda a cor do texto pai */
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  vertical-align: -0.250rem;
+  flex-shrink: 0;
+}
+
 .card-tags {
-  list-style: none;
-  display: flex;
-  gap: 12px;
-  margin: 2px 0;
-
-  /* --- TRAVA DE 1 LINHA COM TRES PONTOS (...) --- */
-  white-space: nowrap;       /* Impede que os itens passem para a linha de baixo */
-  overflow: hidden;          /* Oculta o conteúdo que passar do limite */
-  text-overflow: ellipsis;  /* Coloca os 3 pontos (...) no final da linha */
-  max-width: 100%;           /* Garante que respeite a largura do card */
+  /* Trava a lista de comodidades (tags) em 1 única linha contínua, cortando tudo o que não couber na largura do card.  */
+  list-style: none; /* Remove os marcadores padrão da lista. */
+  display: flex; /* Ativa o Flexbox para organizar as tags em uma linha horizontal. */
+  gap: 10px; /* Cria um espaçamento fixo de 10px entre cada tag. */
+  font-size: 0.7rem !important; /* Define o tamanho da fonte das tags para 0.8rem. */
+  color: #94a3b8; /* Define a cor das tags para um tom de cinza claro. */
+  white-space: nowrap; /* Impede que as tags quebrem para a próxima linha, mantendo-as em uma única linha horizontal. */
+  overflow: hidden; /* Oculta qualquer tag que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
 }
-
-/* Garante que os itens da lista fiquem em linha contínua */
-.card-tags li {
-  font-size: 0.82rem;
-  color: #94a3b8;
-  display: inline;           /* Trata as tags como elementos de texto contínuos */
-}
-
-/* Textos de Apoio */
-.card-descricao {
+ /* Padroniza o tamanho da fonte (0.85rem), cor cinza (#94a3b8) e altura da linha (1.4) para todos os textos do card. */
+.card-info p,
+.card-info span {
   font-size: 0.85rem;
   color: #94a3b8;
   line-height: 1.4;
-  
-  /* Corta descricoes longas em 2 linhas com '...' */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.card-endereco,
-.card-horario {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  line-height: 1.4;
+
+/* REGRA: DESCRIÇÃO CORTADA EM 2 LINHAS COM RETICÊNCIAS (...) */
+.card-info .descricao {
+  display: -webkit-box; /* Ativa o modelo de caixa flexível para permitir o corte do texto em múltiplas linhas. */
+  -webkit-line-clamp: 2; /* Limita a exibição do texto a 2 linhas, cortando o restante. */
+  -webkit-box-orient: vertical; /* Define a orientação da caixa flexível como vertical, permitindo que o texto seja exibido em linhas. */
+  overflow: hidden; /* Oculta qualquer texto que ultrapasse as 2 linhas definidas, evitando que o conteúdo se sobreponha. */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto cortado, indicando que há mais conteúdo não exibido. */
+}
+
+.card-info .endereco {
+  color: #dbeaff; /* Define a cor do endereço para um tom de cinza claro. */
+  font-size: 0.70rem; /* Define o tamanho da fonte do endereço para 0.85rem. */
+  white-space: nowrap; /* Impede que o endereço quebre para a próxima linha, mantendo-o em uma única linha horizontal. */
+  overflow: hidden; /* Oculta qualquer parte do endereço que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
+}
+
+.card-info .horario {
+  color: #dbeaff; /* Define a cor do endereço para um tom de cinza claro. */
+  font-size: 0.70rem; /* Define o tamanho da fonte do endereço para 0.85rem. */
+  white-space: nowrap; /* Impede que o endereço quebre para a próxima linha, mantendo-o em uma única linha horizontal. */
+  overflow: hidden; /* Oculta qualquer parte do endereço que ultrapasse a largura do card, evitando que o conteúdo se sobreponha. */
 }
 
 .distancia {
-  color: #f97316; /* Laranja da distância (3,1 km) */
-  font-weight: 700;
+  color: #f97316 !important;
+  font-weight: bold;
 }
 
-/* Botões do Rodapé */
 .footer-card-btn-acoes {
+  /* Garante que os botões fiquem no final da área do card */
   display: flex;
-  gap: 12px;
-  margin-top: 6px;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .botão-detalhes {
-  flex: 1;
+  flex: 1; /* Faz o botão "Ver Detalhes" se estender e ocupar todo o espaço disponível na largura. */
   background-color: #ff6b35;
   color: #ffffff;
-  border: none;
-  padding: 12px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  border: none; /* Remove a borda padrão do botão. */
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold; 
+  cursor: pointer; /* Adiciona um cursor de ponteiro ao passar o mouse sobre o botão, indicando que é clicável. */
+
+  /* Adiciona uma transição suave para o efeito de hover, tornando a mudança de cor mais agradável visualmente. */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+/* EFEITO HOVER DO BOTÃO DETALHES */
 .botão-detalhes:hover {
-  background-color: #f9571c;
+  background-color: #e85d24; /* Um tom de laranja ligeiramente mais vivo/escuro */
+  transform: translateY(-2px); /* Eleva o botão levemente */
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.35); /* Cria uma sombra difusa com a cor do botão */
 }
 
-.botão-telefone {
-  width: 44px;
-  height: 44px;
-  background-color: #132738;
-  color: #38bdf8;
-  border: 1px solid #1e3a5f;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  cursor: pointer;
+/* Container do botão de telefone */
+.box-telefone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; /* equivalente a p-2 (8px) */
+  border-radius: 0.5rem; /* equivalente a rounded-lg (8px) */
+  border: none; /* Remove a borda padrão do botão */
+  background: rgba(75, 200, 212, 0.15);
+  color: rgb(75, 200, 212);
+  cursor: pointer; /* Garante o ícone de mão ao passar o mouse */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efeito Hover (equivalente a hover:scale-105) */
+.box-telefone:hover {
+  transform: scale(1.05);
+}
+
+/* Estilização do ícone SVG interno */
+.box-telefone svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor; /* Herda a cor do botão */
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
 }
