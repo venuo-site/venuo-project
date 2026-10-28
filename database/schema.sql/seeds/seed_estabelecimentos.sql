@@ -77,3 +77,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Carne de Sol dos 100', '56789012000105', 'GRATUITO', -16.6812340, -49.2543210, '74085010', 'Rua 132', '289', '', 'Setor Sul', 'Goiânia', 'GO', 'https://picsum.photos/seed/carne100/600/400'
 FROM novo_usuario;
+
+-- 9. Piquiras Empório (PREMIUM)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Piquiras', 'contato@piquiras.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Empório Piquiras', '67890123000106', 'PREMIUM', -16.7089010, -49.2345670, '74810100', 'Avenida Dep. Jamel Cecílio', '3300', 'Shopping Flamboyant', 'Jardim Goiás', 'Goiânia', 'GO', 'https://picsum.photos/seed/piquiras/600/400'
+FROM novo_usuario;
