@@ -117,3 +117,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Zentai Sushi Bar', '90123456000109', 'PREMIUM', -16.6954320, -49.2678900, '74140020', 'Rua 148', '121', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/zentai/600/400'
 FROM novo_usuario;
+
+-- 13. Pixel Cafe (GRATUITO)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Pixel', 'contato@pixelcafe.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Pixel Café', '01234567000110', 'GRATUITO', -16.6834560, -49.2587650, '74080010', 'Rua 10', '345', '', 'Setor Central', 'Goiânia', 'GO', 'https://picsum.photos/seed/pixelcafe/600/400'
+FROM novo_usuario;
