@@ -1,24 +1,24 @@
--- 1. TABELA CENTRAL DE AUTENTICAÇÃO E IDENTIDADE
+-- 1. USUÁRIOS
 CREATE TABLE usuarios (
-    id_usuario    SERIAL PRIMARY KEY,
-    nome          VARCHAR(100) NOT NULL,
-    email         VARCHAR(150) NOT NULL UNIQUE,
-    senha_hash    VARCHAR(255) NOT NULL,
-    tipo_usuario  VARCHAR(20) NOT NULL CHECK (tipo_usuario IN ('CLIENTE', 'ESTABELECIMENTO', 'ADMIN')),
+    id_usuario      SERIAL PRIMARY KEY,
+    nome            VARCHAR(100) NOT NULL,
+    email           VARCHAR(150) NOT NULL UNIQUE,
+    senha_hash      VARCHAR(255) NOT NULL,
+    tipo_usuario    VARCHAR(20) NOT NULL CHECK (tipo_usuario IN ('CLIENTE', 'ESTABELECIMENTO', 'ADMIN')),
     data_nascimento DATE,
-    telefone      VARCHAR(11) CHECK (telefone ~ '^[0-9]{10,11}$'),
-    criado_em     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    telefone        VARCHAR(11) CHECK (telefone ~ '^[0-9]{10,11}$'),
+    criado_em       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. PERFIL / DADOS FÍSICOS DO ESTABELECIMENTO (VÍNCULO 1:1 COM USUARIO)
+-- 2. ESTABELECIMENTOS (1:1 COM USUARIO)
 CREATE TABLE estabelecimentos (
     id_estabelecimento SERIAL PRIMARY KEY,
     id_usuario         INT NOT NULL UNIQUE REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
     nome               VARCHAR(100) NOT NULL,
     cnpj               CHAR(14) NOT NULL UNIQUE CHECK (cnpj ~ '^[A-Z0-9]{12}[0-9]{2}$'),
     plano_comercial    VARCHAR(20) NOT NULL DEFAULT 'GRATUITO' CHECK (plano_comercial IN ('GRATUITO', 'PREMIUM', 'DESTAQUE')),
-    latitude           REAL,
-    longitude          REAL,
+    latitude           DOUBLE PRECISION,
+    longitude          DOUBLE PRECISION,
     cep                CHAR(8) CHECK (cep ~ '^[0-9]{8}$'),
     logradouro         VARCHAR(150) NOT NULL,
     numero             VARCHAR(10),
@@ -40,14 +40,14 @@ CREATE TABLE categorias (
 CREATE TABLE eventos (
     id_evento          SERIAL PRIMARY KEY,
     id_estabelecimento INT REFERENCES estabelecimentos(id_estabelecimento) ON DELETE CASCADE,
-    latitude           REAL,
-    longitude          REAL,
-    data_evento        TIMESTAMP NOT NULL,
     nome               VARCHAR(100) NOT NULL,
-    localizacao        VARCHAR(150)
+    data_evento        TIMESTAMP NOT NULL,
+    localizacao        VARCHAR(150),
+    latitude           DOUBLE PRECISION,
+    longitude          DOUBLE PRECISION
 );
 
--- 5. TABELAS ASSOCIATIVAS E RELACIONAMENTOS
+-- 5. ASSOCIATIVAS
 CREATE TABLE acessos_perfil (
     id_usuario         INT NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
     id_estabelecimento INT NOT NULL REFERENCES estabelecimentos(id_estabelecimento) ON DELETE CASCADE,
@@ -98,7 +98,6 @@ CREATE TABLE evento_categoria (
     PRIMARY KEY (id_evento, id_categoria)
 );
 
--- ÍNDICES PARA OTIMIZAÇÃO
-CREATE INDEX idx_usuarios_email ON usuarios(email);
-CREATE INDEX idx_estabelecimentos_usuario ON estabelecimentos(id_usuario);
-```
+-- ÍNDICES ÚTEIS (os de PK/UNIQUE já existem automaticamente)
+CREATE INDEX idx_eventos_estabelecimento ON eventos(id_estabelecimento);
+CREATE INDEX idx_estabelecimentos_bairro ON estabelecimentos(bairro);
