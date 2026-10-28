@@ -47,3 +47,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Cervejaria Colombina Gastropub', '23456789000102', 'PREMIUM', -16.6925430, -49.2687650, '74150030', 'Rua 1129', '465', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/colombina/600/400'
 FROM novo_usuario;
+
+-- 6. Bahrem Cervejaria (DESTAQUE)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Bahrem', 'contato@bahrem.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Bahrem Cervejaria', '34567890000103', 'DESTAQUE', -16.6987650, -49.2643210, '74180040', 'Rua 1136', '60', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/bahrem/600/400'
+FROM novo_usuario;
