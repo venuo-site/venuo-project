@@ -1,14 +1,30 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import status
+from app.routers import establishments
+from app.core.database import create_db_and_tables
+from app.core.config import get_settings
+
+
+settings = get_settings()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    
+    create_db_and_tables()
+    yield
+    
+
 
 app = FastAPI(
-    title="Venuo API",
+    title=settings.APP_TITLE,
     description="Setup inicial do Back-end",
-    version="1.0.0"
+    version=settings.APP_VERSION,
+    lifespan=lifespan
 )
 
 
@@ -42,7 +58,13 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 
 app.include_router(status.router, prefix="/api/v1", tags=["Status"])
+app.include_router(establishments.router, prefix="/api/v1", tags=["Establishments"])
+
 
 @app.get("/")
 def read_root():
-    return {"message": "Venuo API rodando. Acesse /docs para a documentação."}
+    return {
+        "message": "Venuo API rodando.",
+        "docs": "/docs",
+        "database": "Conectado" if settings.DATABASE_URL else "Não configurado"
+    }
