@@ -139,3 +139,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Moony Food & Drink', '12345678000111', 'DESTAQUE', -16.6943210, -49.2612340, '74150030', 'Alameda Ricardo Paranhos', '928', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/moony/600/400'
 FROM novo_usuario;
+
+-- 15. Bolshoi Pub (DESTAQUE)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Bolshoi', 'contato@bolshoipub.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Bolshoi Pub', '23456789000112', 'DESTAQUE', -16.7023450, -49.2690120, '74210010', 'Rua T-53', '1140', '', 'Setor Bueno', 'Goiânia', 'GO', 'https://picsum.photos/seed/bolshoi/600/400'
+FROM novo_usuario;
