@@ -127,3 +127,15 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Pixel Café', '01234567000110', 'GRATUITO', -16.6834560, -49.2587650, '74080010', 'Rua 10', '345', '', 'Setor Central', 'Goiânia', 'GO', 'https://picsum.photos/seed/pixelcafe/600/400'
 FROM novo_usuario;
+
+
+
+-- 14. Moony Food & Drink (DESTAQUE)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Moony', 'contato@moony.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Moony Food & Drink', '12345678000111', 'DESTAQUE', -16.6943210, -49.2612340, '74150030', 'Alameda Ricardo Paranhos', '928', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/moony/600/400'
+FROM novo_usuario;
