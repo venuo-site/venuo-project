@@ -37,3 +37,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Glouton Gastronomia', '12345678000101', 'DESTAQUE', -16.6891230, -49.2654320, '74110010', 'Rua 139', '112', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/glouton/600/400'
 FROM novo_usuario;
+
+-- 5. Cervejaria Colombina Gastropub (PREMIUM)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Colombina', 'contato@cervejariacolombina.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Cervejaria Colombina Gastropub', '23456789000102', 'PREMIUM', -16.6925430, -49.2687650, '74150030', 'Rua 1129', '465', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/colombina/600/400'
+FROM novo_usuario;
