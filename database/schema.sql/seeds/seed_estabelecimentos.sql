@@ -98,3 +98,12 @@ INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude,
 SELECT id_usuario, 'Botequim Mercatto', '78901234000107', 'PREMIUM', -16.6912340, -49.2634560, '74150030', 'Rua T-36', '2788', '', 'Setor Bueno', 'Goiânia', 'GO', 'https://picsum.photos/seed/mercatto/600/400'
 FROM novo_usuario;
 
+-- 11. Piry Bar e Bistro (GRATUITO)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Piry', 'contato@pirybar.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Piry Bar e Bistrô', '89012345000108', 'GRATUITO', -16.6654320, -49.2512340, '74633010', 'Avenida C-205', '108', '', 'Jardim América', 'Goiânia', 'GO', 'https://picsum.photos/seed/piry/600/400'
+FROM novo_usuario;
