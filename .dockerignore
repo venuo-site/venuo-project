@@ -1,0 +1,23 @@
+# Arquivos de ambiente e segredos (NUNCA envie para o container)
+.env
+.env.*
+
+# Ambientes virtuais e cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Controle de versão e documentação (não necessários na imagem)
+.git/
+.gitignore
+docs/
+
+# Arquivos de configuração do Docker (já foram lidos na hora do build)
+Dockerfile
+docker-compose.yml
+
+# Documentação do repositório
+README.md
