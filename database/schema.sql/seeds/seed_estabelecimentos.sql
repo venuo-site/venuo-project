@@ -57,3 +57,13 @@ WITH novo_usuario AS (
 INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
 SELECT id_usuario, 'Bahrem Cervejaria', '34567890000103', 'DESTAQUE', -16.6987650, -49.2643210, '74180040', 'Rua 1136', '60', '', 'Setor Marista', 'Goiânia', 'GO', 'https://picsum.photos/seed/bahrem/600/400'
 FROM novo_usuario;
+
+-- 7. Cateretê Restaurante (GRATUITO)
+WITH novo_usuario AS (
+    INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario)
+    VALUES ('Proprietario Caterete', 'contato@caterete.com.br', '2b12$e82Pz21e7j8...hash_simulado', 'ESTABELECIMENTO')
+    RETURNING id_usuario
+)
+INSERT INTO estabelecimentos (id_usuario, nome, cnpj, plano_comercial, latitude, longitude, cep, logradouro, numero, complemento, bairro, cidade, uf, foto_url)
+SELECT id_usuario, 'Cateretê Bar e Restaurante', '45678901000104', 'GRATUITO', -16.6876540, -49.2598760, '74230010', 'Avenida T-2', '318', '', 'Setor Bueno', 'Goiânia', 'GO', 'https://picsum.photos/seed/caterete/600/400'
+FROM novo_usuario;
