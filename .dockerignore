@@ -1,7 +1,3 @@
-# Arquivos de ambiente e segredos (NUNCA envie para o container)
-.env
-.env.*
-
 # Ambientes virtuais e cache do Python
 __pycache__/
 *.py[cod]

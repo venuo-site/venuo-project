@@ -1,67 +1,131 @@
 services:
+
   # Serviço do Banco de Dados PostgreSQL Local
+
   db:
+
     image: postgres:16
+
     container_name: postgres-venuo
+
     restart: always
+
     environment:
+
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
+
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+
       POSTGRES_DB: ${POSTGRES_DB:-venuo_db}
+
     ports:
+
       - "5432:5432"
+
     volumes:
+
       - postgres-data:/var/lib/postgresql/data
+
     networks:
+
       - venuo-network
+
     healthcheck:
+
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-postgres} -d $${POSTGRES_DB:-venuo_db}"]
+
       interval: 5s
+
       timeout: 5s
+
       retries: 5
 
+
+
   # Serviço do pgAdmin 4 (Gerenciador Visual do Banco)
+
   pgadmin:
+
     image: dpage/pgadmin4
+
     container_name: pgadmin-venuo
+
     restart: always
+
     environment:
+
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@venuo.com}
+
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin123}
+
       PGADMIN_CONFIG_SERVER_MODE: 'False'
-      # ADICIONE ESTA LINHA ABAIXO:
-      PGADMIN_CONFIG_SERVERS: '{"1": {"Name": "Venuo Local", "Group": "Desenvolvimento", "Host": "db", "Port": 5432, "MaintenanceDB": "venuo_db", "SSLMode": "prefer"}, "2": {"Name": "Venuo Neon (Nuvem)", "Group": "Nuvem", "Host": "ep-proud-unit-b6ccusm3-pooler.c-2.sa-east-1.aws.neon.tech", "Port": 5432, "MaintenanceDB": "venuo_db", "SSLMode": "require"}}'
-      # Repassando as variáveis do .env para o pgAdmin ler no JSON:
+
+    volumes:
+
+      - ./servers.json:/pgadmin4/servers.json
+
     ports:
+
       - "5051:80"
+
     networks:
+
       - venuo-network
+
     depends_on:
+
       - db
 
+
+
   # Serviço da API FastAPI
+
   api:
+
     build:
+
       context: .
+
       dockerfile: Dockerfile
+
     container_name: api-venuo
+
     restart: always
+
     ports:
+
       - "8000:8000"
+
     environment:
+
       - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-venuo_db}
+
     volumes:
+
       - .:/app
+
     depends_on:
+
       db:
+
         condition: service_healthy
+
     networks:
+
       - venuo-network
 
+
+
 volumes:
+
   postgres-data:
+
     driver: local
 
+
+
 networks:
+
   venuo-network:
+
     driver: bridge
